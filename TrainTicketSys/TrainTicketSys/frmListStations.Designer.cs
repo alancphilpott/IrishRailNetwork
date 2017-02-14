@@ -31,11 +31,13 @@
             this.mnuStripListStations = new System.Windows.Forms.MenuStrip();
             this.mnuListStationsBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuListStationsExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.listStationsList = new System.Windows.Forms.ListBox();
-            this.finishButtonListStations = new System.Windows.Forms.Button();
-            this.keywordListStations = new System.Windows.Forms.Label();
-            this.keywordBoxListStations = new System.Windows.Forms.TextBox();
+            this.lblKeyword = new System.Windows.Forms.Label();
+            this.txtKeyword = new System.Windows.Forms.TextBox();
+            this.dgStations = new System.Windows.Forms.DataGridView();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.mnuStripListStations.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgStations)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuStripListStations
@@ -46,7 +48,7 @@
             this.mnuListStationsExit});
             this.mnuStripListStations.Location = new System.Drawing.Point(0, 0);
             this.mnuStripListStations.Name = "mnuStripListStations";
-            this.mnuStripListStations.Size = new System.Drawing.Size(424, 29);
+            this.mnuStripListStations.Size = new System.Drawing.Size(752, 29);
             this.mnuStripListStations.TabIndex = 3;
             this.mnuStripListStations.Text = "mnuStripListStations";
             // 
@@ -64,59 +66,69 @@
             this.mnuListStationsExit.Text = "Exit";
             this.mnuListStationsExit.Click += new System.EventHandler(this.mnuListStationsExit_Click);
             // 
-            // listStationsList
+            // lblKeyword
             // 
-            this.listStationsList.FormattingEnabled = true;
-            this.listStationsList.Items.AddRange(new object[] {
-            "List of All Stations"});
-            this.listStationsList.Location = new System.Drawing.Point(70, 76);
-            this.listStationsList.Name = "listStationsList";
-            this.listStationsList.Size = new System.Drawing.Size(293, 121);
-            this.listStationsList.TabIndex = 4;
+            this.lblKeyword.AutoSize = true;
+            this.lblKeyword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeyword.Location = new System.Drawing.Point(209, 45);
+            this.lblKeyword.Name = "lblKeyword";
+            this.lblKeyword.Size = new System.Drawing.Size(113, 21);
+            this.lblKeyword.TabIndex = 9;
+            this.lblKeyword.Text = "Filter Keyword:";
             // 
-            // finishButtonListStations
+            // txtKeyword
             // 
-            this.finishButtonListStations.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finishButtonListStations.Location = new System.Drawing.Point(70, 214);
-            this.finishButtonListStations.Name = "finishButtonListStations";
-            this.finishButtonListStations.Size = new System.Drawing.Size(293, 29);
-            this.finishButtonListStations.TabIndex = 6;
-            this.finishButtonListStations.Text = "Finish";
-            this.finishButtonListStations.UseVisualStyleBackColor = true;
+            this.txtKeyword.Location = new System.Drawing.Point(328, 48);
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(164, 20);
+            this.txtKeyword.TabIndex = 8;
             // 
-            // keywordListStations
+            // dgStations
             // 
-            this.keywordListStations.AutoSize = true;
-            this.keywordListStations.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keywordListStations.Location = new System.Drawing.Point(66, 43);
-            this.keywordListStations.Name = "keywordListStations";
-            this.keywordListStations.Size = new System.Drawing.Size(113, 21);
-            this.keywordListStations.TabIndex = 9;
-            this.keywordListStations.Text = "Filter Keyword:";
-            this.keywordListStations.Click += new System.EventHandler(this.label1_Click);
+            this.dgStations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgStations.Location = new System.Drawing.Point(12, 81);
+            this.dgStations.Name = "dgStations";
+            this.dgStations.Size = new System.Drawing.Size(728, 255);
+            this.dgStations.TabIndex = 10;
+            this.dgStations.Visible = false;
             // 
-            // keywordBoxListStations
+            // btnPrint
             // 
-            this.keywordBoxListStations.Location = new System.Drawing.Point(199, 46);
-            this.keywordBoxListStations.Name = "keywordBoxListStations";
-            this.keywordBoxListStations.Size = new System.Drawing.Size(164, 20);
-            this.keywordBoxListStations.TabIndex = 8;
+            this.btnPrint.Location = new System.Drawing.Point(584, 350);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(156, 31);
+            this.btnPrint.TabIndex = 11;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Visible = false;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(512, 46);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 12;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmListStations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 276);
-            this.Controls.Add(this.keywordListStations);
-            this.Controls.Add(this.keywordBoxListStations);
-            this.Controls.Add(this.finishButtonListStations);
-            this.Controls.Add(this.listStationsList);
+            this.ClientSize = new System.Drawing.Size(752, 393);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.dgStations);
+            this.Controls.Add(this.lblKeyword);
+            this.Controls.Add(this.txtKeyword);
             this.Controls.Add(this.mnuStripListStations);
             this.Name = "frmListStations";
             this.Text = "Train Ticket System - List Stations";
             this.Load += new System.EventHandler(this.frmListStations_Load);
             this.mnuStripListStations.ResumeLayout(false);
             this.mnuStripListStations.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgStations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,9 +139,10 @@
         private System.Windows.Forms.MenuStrip mnuStripListStations;
         private System.Windows.Forms.ToolStripMenuItem mnuListStationsBack;
         private System.Windows.Forms.ToolStripMenuItem mnuListStationsExit;
-        private System.Windows.Forms.ListBox listStationsList;
-        private System.Windows.Forms.Button finishButtonListStations;
-        private System.Windows.Forms.Label keywordListStations;
-        private System.Windows.Forms.TextBox keywordBoxListStations;
+        private System.Windows.Forms.Label lblKeyword;
+        private System.Windows.Forms.TextBox txtKeyword;
+        private System.Windows.Forms.DataGridView dgStations;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

@@ -25,11 +25,6 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
-        private void frmListStations_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void mnuListStationsBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -41,9 +36,25 @@ namespace TrainTicketSys
             Application.Exit();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void frmListStations_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string keyword = txtKeyword.Text;
+
+            if (keyword.Equals(""))
+            {
+                MessageBox.Show("Please Enter A Search Keyword");
+            }
+            else
+            {
+                DataSet DS = new DataSet();
+                dgStations.DataSource = Station.getStations(DS, keyword).Tables["Stations"];
+                dgStations.Visible = true;
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
+using System.Data;
 
 namespace TrainTicketSys
 {
@@ -11,6 +12,7 @@ namespace TrainTicketSys
     {
         private static OracleConnection con;
 
+        // Class Attributes
         private int stationID;
         private string name;
         private string street;
@@ -153,6 +155,23 @@ namespace TrainTicketSys
 
             // Close Database
             con.Close();
+        }
+
+        public static DataSet getStations (DataSet DS, String txtKeyword)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT name AS Station, phoneNo AS Phone, status FROM Stations WHERE name LIKE '%" + txtKeyword + "%' ORDER BY stationID";
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+            DA.Fill(DS, "Stations");
+
+            con.Close();
+
+            return DS;
         }
     }
 }
