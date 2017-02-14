@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{597BF77D-A361-4309-9DDE-CF19C98DB7DB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TrainTicketSys</RootNamespace>
+    <AssemblyName>TrainTicketSys</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.24160719\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Oracle.DataAccess">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\..\app\Alan\product\11.2.0\dbhome_1\ODP.NET\bin\2.x\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBConnect.cs" />
+    <Compile Include="frmAddRoutes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddRoutes.Designer.cs">
+      <DependentUpon>frmAddRoutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddStation.Designer.cs">
+      <DependentUpon>frmAddStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCloseStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCloseStation.Designer.cs">
+      <DependentUpon>frmCloseStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListRoutes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListRoutes.Designer.cs">
+      <DependentUpon>frmListRoutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListStations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListStations.Designer.cs">
+      <DependentUpon>frmListStations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainMenu.Designer.cs">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRevenueAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRevenueAnalysis.Designer.cs">
+      <DependentUpon>frmRevenueAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmScheduleTrain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScheduleTrain.Designer.cs">
+      <DependentUpon>frmScheduleTrain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSellTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSellTicket.Designer.cs">
+      <DependentUpon>frmSellTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetTicketType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetTicketType.Designer.cs">
+      <DependentUpon>frmSetTicketType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTerminateRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTerminateRoute.Designer.cs">
+      <DependentUpon>frmTerminateRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTicketSalesAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTicketSalesAnalysis.Designer.cs">
+      <DependentUpon>frmTicketSalesAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTrainTimetable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrainTimetable.Designer.cs">
+      <DependentUpon>frmTrainTimetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateTicketType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateTicketType.Designer.cs">
+      <DependentUpon>frmUpdateTicketType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Station.cs" />
+    <EmbeddedResource Include="frmAddRoutes.resx">
+      <DependentUpon>frmAddRoutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddStation.resx">
+      <DependentUpon>frmAddStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCloseStation.resx">
+      <DependentUpon>frmCloseStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListRoutes.resx">
+      <DependentUpon>frmListRoutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListStations.resx">
+      <DependentUpon>frmListStations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainMenu.resx">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRevenueAnalysis.resx">
+      <DependentUpon>frmRevenueAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScheduleTrain.resx">
+      <DependentUpon>frmScheduleTrain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSellTicket.resx">
+      <DependentUpon>frmSellTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetTicketType.resx">
+      <DependentUpon>frmSetTicketType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTerminateRoute.resx">
+      <DependentUpon>frmTerminateRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTicketSalesAnalysis.resx">
+      <DependentUpon>frmTicketSalesAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTrainTimetable.resx">
+      <DependentUpon>frmTrainTimetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateTicketType.resx">
+      <DependentUpon>frmUpdateTicketType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
