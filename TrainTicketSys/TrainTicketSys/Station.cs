@@ -157,12 +157,29 @@ namespace TrainTicketSys
             con.Close();
         }
 
+        public static DataSet getStations(DataSet DS)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT stationID AS ID, name AS Station, phoneNo AS Phone, status FROM Stations ORDER BY stationID";
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+            DA.Fill(DS, "Stations");
+
+            con.Close();
+
+            return DS;
+        }
+
         public static DataSet getStations (DataSet DS, String txtKeyword)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT name AS Station, phoneNo AS Phone, status FROM Stations WHERE name LIKE '%" + txtKeyword + "%' ORDER BY stationID";
+            string SQL = "SELECT stationID AS ID, name AS Station, phoneNo AS Phone, status FROM Stations WHERE upper(name) LIKE '" + txtKeyword.ToUpper() + "%' ORDER BY stationID";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 

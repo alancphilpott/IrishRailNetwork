@@ -32,7 +32,7 @@
             this.mnuListStationsBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuListStationsExit = new System.Windows.Forms.ToolStripMenuItem();
             this.lblKeyword = new System.Windows.Forms.Label();
-            this.txtKeyword = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgStations = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -76,18 +76,21 @@
             this.lblKeyword.TabIndex = 9;
             this.lblKeyword.Text = "Filter Keyword:";
             // 
-            // txtKeyword
+            // txtSearch
             // 
-            this.txtKeyword.Location = new System.Drawing.Point(328, 48);
-            this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(164, 20);
-            this.txtKeyword.TabIndex = 8;
+            this.txtSearch.Location = new System.Drawing.Point(328, 48);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(164, 20);
+            this.txtSearch.TabIndex = 8;
             // 
             // dgStations
             // 
+            this.dgStations.AllowUserToAddRows = false;
+            this.dgStations.AllowUserToDeleteRows = false;
             this.dgStations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgStations.Location = new System.Drawing.Point(12, 81);
             this.dgStations.Name = "dgStations";
+            this.dgStations.ReadOnly = true;
             this.dgStations.Size = new System.Drawing.Size(728, 255);
             this.dgStations.TabIndex = 10;
             this.dgStations.Visible = false;
@@ -121,7 +124,7 @@
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dgStations);
             this.Controls.Add(this.lblKeyword);
-            this.Controls.Add(this.txtKeyword);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.mnuStripListStations);
             this.Name = "frmListStations";
             this.Text = "Train Ticket System - List Stations";
@@ -140,7 +143,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuListStationsBack;
         private System.Windows.Forms.ToolStripMenuItem mnuListStationsExit;
         private System.Windows.Forms.Label lblKeyword;
-        private System.Windows.Forms.TextBox txtKeyword;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgStations;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnSearch;

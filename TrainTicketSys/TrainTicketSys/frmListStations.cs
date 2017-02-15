@@ -43,17 +43,21 @@ namespace TrainTicketSys
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string keyword = txtKeyword.Text;
+            string keyword = txtSearch.Text;
 
             if (keyword.Equals(""))
             {
-                MessageBox.Show("Please Enter A Search Keyword");
+                DataSet DS = new DataSet();
+                dgStations.DataSource = Station.getStations(DS).Tables["Stations"];
+                dgStations.Visible = true;
+                btnPrint.Visible = true;
             }
             else
             {
                 DataSet DS = new DataSet();
                 dgStations.DataSource = Station.getStations(DS, keyword).Tables["Stations"];
                 dgStations.Visible = true;
+                btnPrint.Visible = true;
             }
         }
     }
