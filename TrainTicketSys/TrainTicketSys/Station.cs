@@ -157,12 +157,13 @@ namespace TrainTicketSys
             con.Close();
         }
 
+        // Method To Populate DataGrid
         public static DataSet getStations(DataSet DS)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT stationID AS ID, name AS Station, phoneNo AS Phone, status FROM Stations ORDER BY stationID";
+            string SQL = "SELECT stationID AS ID, name AS Station, county AS County, phoneNo AS Phone, status FROM Stations ORDER BY stationID";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -174,12 +175,13 @@ namespace TrainTicketSys
             return DS;
         }
 
+        // Method To Populate DataGrid Relevant To A User Search
         public static DataSet getStations (DataSet DS, String txtKeyword)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT stationID AS ID, name AS Station, phoneNo AS Phone, status FROM Stations WHERE upper(name) LIKE '" + txtKeyword.ToUpper() + "%' ORDER BY stationID";
+            string SQL = "SELECT stationID AS ID, name AS Station, county AS County, phoneNo AS Phone, status FROM Stations WHERE upper(name) LIKE '" + txtKeyword.ToUpper() + "%' ORDER BY stationID";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -189,6 +191,43 @@ namespace TrainTicketSys
             con.Close();
 
             return DS;
+        }
+
+        public static DataTable getAStation (int stationID)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT * FROM Stations WHERE stationID = " + stationID + "";
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            DA.Fill(DS, "aStation");
+
+            con.Close();
+
+            return DS.Tables["aStation"];
+        }
+
+        public static void updateStation (int stationID, string name, string street, string town, string county, string phoneNo, char status)
+        {
+            con = new OracleConnection(DBConnect.oradb); con.Open();
+
+            string SQL = "UPDATE Stations SET name = '"
+                + name + "', street = '"
+                + street + "', town = '"
+                + town + "', county = '"
+                + county + "', phoneNo = '"
+                + phoneNo + "', status = '"
+                + status + "' WHERE stationID =" + stationID + "";
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+            cmd.ExecuteNonQuery();
+            
+
+            con.Close();
         }
     }
 }

@@ -36,6 +36,7 @@ namespace TrainTicketSys
             Application.Exit();
         }
 
+        // Method To Reset The UI Text Boxes To Blank
         private void resetUI ()
         {
             txtStID.Text = Station.nextStationID().ToString("00000");
@@ -53,9 +54,16 @@ namespace TrainTicketSys
             // Validation of Details Entered
 
             // Not Empty
-            if (txtStation.Text.Equals("") || txtStreet.Text.Equals("") || txtTown.Text.Equals("") || txtCounty.Text.Equals("") || txtPhoneNo.Text.Equals("") || cmbStatus.SelectedIndex == -1)
+            if (txtStation.Text.Equals("") || txtStreet.Text.Equals("") || txtTown.Text.Equals("") || txtCounty.Text.Equals("") || txtPhoneNo.Text.Equals(""))
             {
                 MessageBox.Show("Please Enter All Fields");
+                valid = false;
+            }
+
+            // Station Status Chosen
+            if (cmbStatus.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please Choose A Station Status");
                 valid = false;
             }
 

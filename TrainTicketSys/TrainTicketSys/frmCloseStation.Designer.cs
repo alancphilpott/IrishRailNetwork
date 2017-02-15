@@ -32,13 +32,29 @@
             this.mnuCloseStationBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCloseStationExit = new System.Windows.Forms.ToolStripMenuItem();
             this.lblStation = new System.Windows.Forms.Label();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgStations = new System.Windows.Forms.DataGridView();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.grpUpdate = new System.Windows.Forms.GroupBox();
+            this.txtCounty = new System.Windows.Forms.TextBox();
+            this.lblCounty = new System.Windows.Forms.Label();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.txtPhoneNo = new System.Windows.Forms.TextBox();
+            this.lblPhoneNo = new System.Windows.Forms.Label();
+            this.txtTown = new System.Windows.Forms.TextBox();
+            this.lblTown = new System.Windows.Forms.Label();
+            this.txtStreet = new System.Windows.Forms.TextBox();
+            this.lblStreet = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.txtStID = new System.Windows.Forms.TextBox();
+            this.lblStID = new System.Windows.Forms.Label();
             this.mnuStripCloseStation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgStations)).BeginInit();
+            this.grpUpdate.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuStripCloseStation
@@ -76,17 +92,6 @@
             this.lblStation.Size = new System.Drawing.Size(107, 21);
             this.lblStation.TabIndex = 9;
             this.lblStation.Text = "Station Name:";
-            this.lblStation.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(575, 352);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(165, 29);
-            this.btnPrint.TabIndex = 8;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
             // 
             // txtSearch
             // 
@@ -102,23 +107,13 @@
             this.dgStations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgStations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.edit});
-            this.dgStations.Location = new System.Drawing.Point(12, 71);
+            this.dgStations.Location = new System.Drawing.Point(12, 92);
             this.dgStations.Name = "dgStations";
             this.dgStations.ReadOnly = true;
-            this.dgStations.Size = new System.Drawing.Size(728, 255);
+            this.dgStations.Size = new System.Drawing.Size(728, 234);
             this.dgStations.TabIndex = 11;
             this.dgStations.Visible = false;
             this.dgStations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgStations_CellContentClick);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(500, 41);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(115, 23);
-            this.btnSearch.TabIndex = 12;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // edit
             // 
@@ -128,23 +123,191 @@
             this.edit.Text = "Update";
             this.edit.UseColumnTextForButtonValue = true;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(499, 45);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(51, 21);
+            this.btnSearch.TabIndex = 12;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // grpUpdate
+            // 
+            this.grpUpdate.Controls.Add(this.txtStID);
+            this.grpUpdate.Controls.Add(this.lblStID);
+            this.grpUpdate.Controls.Add(this.txtCounty);
+            this.grpUpdate.Controls.Add(this.lblCounty);
+            this.grpUpdate.Controls.Add(this.cmbStatus);
+            this.grpUpdate.Controls.Add(this.lblStatus);
+            this.grpUpdate.Controls.Add(this.txtPhoneNo);
+            this.grpUpdate.Controls.Add(this.lblPhoneNo);
+            this.grpUpdate.Controls.Add(this.txtTown);
+            this.grpUpdate.Controls.Add(this.lblTown);
+            this.grpUpdate.Controls.Add(this.txtStreet);
+            this.grpUpdate.Controls.Add(this.lblStreet);
+            this.grpUpdate.Controls.Add(this.txtName);
+            this.grpUpdate.Controls.Add(this.lblName);
+            this.grpUpdate.Location = new System.Drawing.Point(12, 92);
+            this.grpUpdate.Name = "grpUpdate";
+            this.grpUpdate.Size = new System.Drawing.Size(728, 234);
+            this.grpUpdate.TabIndex = 13;
+            this.grpUpdate.TabStop = false;
+            this.grpUpdate.Text = "Update Station Information";
+            this.grpUpdate.Visible = false;
+            // 
+            // txtCounty
+            // 
+            this.txtCounty.Location = new System.Drawing.Point(130, 150);
+            this.txtCounty.Name = "txtCounty";
+            this.txtCounty.Size = new System.Drawing.Size(100, 20);
+            this.txtCounty.TabIndex = 13;
+            // 
+            // lblCounty
+            // 
+            this.lblCounty.AutoSize = true;
+            this.lblCounty.Location = new System.Drawing.Point(50, 153);
+            this.lblCounty.Name = "lblCounty";
+            this.lblCounty.Size = new System.Drawing.Size(43, 13);
+            this.lblCounty.TabIndex = 12;
+            this.lblCounty.Text = "County:";
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "Active",
+            "Closed"});
+            this.cmbStatus.Location = new System.Drawing.Point(538, 181);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(164, 21);
+            this.cmbStatus.TabIndex = 11;
+            this.cmbStatus.Text = "Choose Status";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(405, 182);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(107, 21);
+            this.lblStatus.TabIndex = 10;
+            this.lblStatus.Text = "Station Status:";
+            // 
+            // txtPhoneNo
+            // 
+            this.txtPhoneNo.Location = new System.Drawing.Point(130, 185);
+            this.txtPhoneNo.Name = "txtPhoneNo";
+            this.txtPhoneNo.Size = new System.Drawing.Size(100, 20);
+            this.txtPhoneNo.TabIndex = 9;
+            // 
+            // lblPhoneNo
+            // 
+            this.lblPhoneNo.AutoSize = true;
+            this.lblPhoneNo.Location = new System.Drawing.Point(50, 188);
+            this.lblPhoneNo.Name = "lblPhoneNo";
+            this.lblPhoneNo.Size = new System.Drawing.Size(58, 13);
+            this.lblPhoneNo.TabIndex = 8;
+            this.lblPhoneNo.Text = "Phone No:";
+            // 
+            // txtTown
+            // 
+            this.txtTown.Location = new System.Drawing.Point(130, 115);
+            this.txtTown.Name = "txtTown";
+            this.txtTown.Size = new System.Drawing.Size(100, 20);
+            this.txtTown.TabIndex = 5;
+            // 
+            // lblTown
+            // 
+            this.lblTown.AutoSize = true;
+            this.lblTown.Location = new System.Drawing.Point(50, 118);
+            this.lblTown.Name = "lblTown";
+            this.lblTown.Size = new System.Drawing.Size(37, 13);
+            this.lblTown.TabIndex = 4;
+            this.lblTown.Text = "Town:";
+            // 
+            // txtStreet
+            // 
+            this.txtStreet.Location = new System.Drawing.Point(130, 81);
+            this.txtStreet.Name = "txtStreet";
+            this.txtStreet.Size = new System.Drawing.Size(100, 20);
+            this.txtStreet.TabIndex = 3;
+            // 
+            // lblStreet
+            // 
+            this.lblStreet.AutoSize = true;
+            this.lblStreet.Location = new System.Drawing.Point(50, 84);
+            this.lblStreet.Name = "lblStreet";
+            this.lblStreet.Size = new System.Drawing.Size(38, 13);
+            this.lblStreet.TabIndex = 2;
+            this.lblStreet.Text = "Street:";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(130, 47);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.TabIndex = 1;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(50, 50);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(74, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Station Name:";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(641, 354);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(99, 27);
+            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // txtStID
+            // 
+            this.txtStID.Enabled = false;
+            this.txtStID.Location = new System.Drawing.Point(615, 13);
+            this.txtStID.Name = "txtStID";
+            this.txtStID.Size = new System.Drawing.Size(100, 20);
+            this.txtStID.TabIndex = 15;
+            // 
+            // lblStID
+            // 
+            this.lblStID.AutoSize = true;
+            this.lblStID.Location = new System.Drawing.Point(535, 16);
+            this.lblStID.Name = "lblStID";
+            this.lblStID.Size = new System.Drawing.Size(57, 13);
+            this.lblStID.TabIndex = 14;
+            this.lblStID.Text = "Station ID:";
+            // 
             // frmCloseStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 393);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.grpUpdate);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.dgStations);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblStation);
-            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.mnuStripCloseStation);
+            this.Controls.Add(this.dgStations);
             this.Name = "frmCloseStation";
             this.Text = "Train Ticket System - Close Station";
             this.Load += new System.EventHandler(this.frmCloseStation_Load);
             this.mnuStripCloseStation.ResumeLayout(false);
             this.mnuStripCloseStation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgStations)).EndInit();
+            this.grpUpdate.ResumeLayout(false);
+            this.grpUpdate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,10 +319,25 @@
         private System.Windows.Forms.ToolStripMenuItem mnuCloseStationBack;
         private System.Windows.Forms.ToolStripMenuItem mnuCloseStationExit;
         private System.Windows.Forms.Label lblStation;
-        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgStations;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridViewButtonColumn edit;
+        private System.Windows.Forms.GroupBox grpUpdate;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.TextBox txtTown;
+        private System.Windows.Forms.Label lblTown;
+        private System.Windows.Forms.TextBox txtStreet;
+        private System.Windows.Forms.Label lblStreet;
+        private System.Windows.Forms.TextBox txtPhoneNo;
+        private System.Windows.Forms.Label lblPhoneNo;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.TextBox txtCounty;
+        private System.Windows.Forms.Label lblCounty;
+        private System.Windows.Forms.TextBox txtStID;
+        private System.Windows.Forms.Label lblStID;
     }
 }
