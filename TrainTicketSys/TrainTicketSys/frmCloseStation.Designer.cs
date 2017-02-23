@@ -37,6 +37,8 @@
             this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.grpUpdate = new System.Windows.Forms.GroupBox();
+            this.txtStID = new System.Windows.Forms.TextBox();
+            this.lblStID = new System.Windows.Forms.Label();
             this.txtCounty = new System.Windows.Forms.TextBox();
             this.lblCounty = new System.Windows.Forms.Label();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
@@ -50,8 +52,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txtStID = new System.Windows.Forms.TextBox();
-            this.lblStID = new System.Windows.Forms.Label();
             this.mnuStripCloseStation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgStations)).BeginInit();
             this.grpUpdate.SuspendLayout();
@@ -89,7 +89,7 @@
             this.lblStation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStation.Location = new System.Drawing.Point(183, 45);
             this.lblStation.Name = "lblStation";
-            this.lblStation.Size = new System.Drawing.Size(107, 21);
+            this.lblStation.Size = new System.Drawing.Size(108, 21);
             this.lblStation.TabIndex = 9;
             this.lblStation.Text = "Station Name:";
             // 
@@ -157,6 +157,23 @@
             this.grpUpdate.Text = "Update Station Information";
             this.grpUpdate.Visible = false;
             // 
+            // txtStID
+            // 
+            this.txtStID.Enabled = false;
+            this.txtStID.Location = new System.Drawing.Point(615, 13);
+            this.txtStID.Name = "txtStID";
+            this.txtStID.Size = new System.Drawing.Size(100, 20);
+            this.txtStID.TabIndex = 15;
+            // 
+            // lblStID
+            // 
+            this.lblStID.AutoSize = true;
+            this.lblStID.Location = new System.Drawing.Point(535, 16);
+            this.lblStID.Name = "lblStID";
+            this.lblStID.Size = new System.Drawing.Size(57, 13);
+            this.lblStID.TabIndex = 14;
+            this.lblStID.Text = "Station ID:";
+            // 
             // txtCounty
             // 
             this.txtCounty.Location = new System.Drawing.Point(130, 150);
@@ -192,7 +209,7 @@
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(405, 182);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(107, 21);
+            this.lblStatus.Size = new System.Drawing.Size(109, 21);
             this.lblStatus.TabIndex = 10;
             this.lblStatus.Text = "Station Status:";
             // 
@@ -271,35 +288,18 @@
             this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // txtStID
-            // 
-            this.txtStID.Enabled = false;
-            this.txtStID.Location = new System.Drawing.Point(615, 13);
-            this.txtStID.Name = "txtStID";
-            this.txtStID.Size = new System.Drawing.Size(100, 20);
-            this.txtStID.TabIndex = 15;
-            // 
-            // lblStID
-            // 
-            this.lblStID.AutoSize = true;
-            this.lblStID.Location = new System.Drawing.Point(535, 16);
-            this.lblStID.Name = "lblStID";
-            this.lblStID.Size = new System.Drawing.Size(57, 13);
-            this.lblStID.TabIndex = 14;
-            this.lblStID.Text = "Station ID:";
-            // 
             // frmCloseStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 393);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.grpUpdate);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblStation);
             this.Controls.Add(this.mnuStripCloseStation);
             this.Controls.Add(this.dgStations);
+            this.Controls.Add(this.grpUpdate);
             this.Name = "frmCloseStation";
             this.Text = "Train Ticket System - Close Station";
             this.Load += new System.EventHandler(this.frmCloseStation_Load);

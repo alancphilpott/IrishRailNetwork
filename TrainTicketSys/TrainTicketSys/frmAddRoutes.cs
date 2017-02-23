@@ -25,6 +25,11 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        private void frmAddRoutes_Load(object sender, EventArgs e)
+        {
+            txtRouteID.Text = Routes.nextRouteID().ToString("00000");
+        }
+
         private void mnuAddRoutesBack_Click(object sender, EventArgs e)
         {
             this.Hide();

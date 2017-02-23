@@ -31,17 +31,18 @@
             this.mnuStripAddRoutes = new System.Windows.Forms.MenuStrip();
             this.mnuAddRoutesBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.routeIDAddRoute = new System.Windows.Forms.Label();
-            this.routeIDBoxAddRoute = new System.Windows.Forms.TextBox();
-            this.statusAddRoute = new System.Windows.Forms.Label();
-            this.arrivalAddRoute = new System.Windows.Forms.Label();
+            this.lblRouteID = new System.Windows.Forms.Label();
+            this.txtRouteID = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblArrSt = new System.Windows.Forms.Label();
             this.txtDistance = new System.Windows.Forms.TextBox();
-            this.distanceAddRoute = new System.Windows.Forms.Label();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.statusBoxAddRoute = new System.Windows.Forms.ComboBox();
-            this.departureAddRoute = new System.Windows.Forms.Label();
-            this.txtDepSt = new System.Windows.Forms.ComboBox();
-            this.txtArrSt = new System.Windows.Forms.ComboBox();
+            this.lblDistance = new System.Windows.Forms.Label();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.lblDepSt = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.cmbArrSt = new System.Windows.Forms.ComboBox();
+            this.cmbDepSt = new System.Windows.Forms.ComboBox();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.mnuStripAddRoutes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             this.mnuExit});
             this.mnuStripAddRoutes.Location = new System.Drawing.Point(0, 0);
             this.mnuStripAddRoutes.Name = "mnuStripAddRoutes";
-            this.mnuStripAddRoutes.Size = new System.Drawing.Size(436, 29);
+            this.mnuStripAddRoutes.Size = new System.Drawing.Size(645, 29);
             this.mnuStripAddRoutes.TabIndex = 0;
             this.mnuStripAddRoutes.Text = "mnuAddRoutes";
             // 
@@ -71,135 +72,148 @@
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // routeIDAddRoute
+            // lblRouteID
             // 
-            this.routeIDAddRoute.AutoSize = true;
-            this.routeIDAddRoute.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routeIDAddRoute.Location = new System.Drawing.Point(51, 57);
-            this.routeIDAddRoute.Name = "routeIDAddRoute";
-            this.routeIDAddRoute.Size = new System.Drawing.Size(73, 21);
-            this.routeIDAddRoute.TabIndex = 5;
-            this.routeIDAddRoute.Text = "Route ID:";
+            this.lblRouteID.AutoSize = true;
+            this.lblRouteID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRouteID.Location = new System.Drawing.Point(159, 115);
+            this.lblRouteID.Name = "lblRouteID";
+            this.lblRouteID.Size = new System.Drawing.Size(73, 21);
+            this.lblRouteID.TabIndex = 5;
+            this.lblRouteID.Text = "Route ID:";
             // 
-            // routeIDBoxAddRoute
+            // txtRouteID
             // 
-            this.routeIDBoxAddRoute.Location = new System.Drawing.Point(194, 60);
-            this.routeIDBoxAddRoute.Name = "routeIDBoxAddRoute";
-            this.routeIDBoxAddRoute.Size = new System.Drawing.Size(164, 20);
-            this.routeIDBoxAddRoute.TabIndex = 4;
+            this.txtRouteID.Enabled = false;
+            this.txtRouteID.Location = new System.Drawing.Point(302, 118);
+            this.txtRouteID.Name = "txtRouteID";
+            this.txtRouteID.Size = new System.Drawing.Size(111, 20);
+            this.txtRouteID.TabIndex = 4;
             // 
-            // statusAddRoute
+            // lblStatus
             // 
-            this.statusAddRoute.AutoSize = true;
-            this.statusAddRoute.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusAddRoute.Location = new System.Drawing.Point(51, 90);
-            this.statusAddRoute.Name = "statusAddRoute";
-            this.statusAddRoute.Size = new System.Drawing.Size(100, 21);
-            this.statusAddRoute.TabIndex = 5;
-            this.statusAddRoute.Text = "Route Status:";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(159, 148);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(101, 21);
+            this.lblStatus.TabIndex = 5;
+            this.lblStatus.Text = "Route Status:";
             // 
-            // arrivalAddRoute
+            // lblArrSt
             // 
-            this.arrivalAddRoute.AutoSize = true;
-            this.arrivalAddRoute.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arrivalAddRoute.Location = new System.Drawing.Point(51, 153);
-            this.arrivalAddRoute.Name = "arrivalAddRoute";
-            this.arrivalAddRoute.Size = new System.Drawing.Size(111, 21);
-            this.arrivalAddRoute.TabIndex = 5;
-            this.arrivalAddRoute.Text = "Arrival Station:";
+            this.lblArrSt.AutoSize = true;
+            this.lblArrSt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArrSt.Location = new System.Drawing.Point(159, 211);
+            this.lblArrSt.Name = "lblArrSt";
+            this.lblArrSt.Size = new System.Drawing.Size(112, 21);
+            this.lblArrSt.TabIndex = 5;
+            this.lblArrSt.Text = "Arrival Station:";
             // 
             // txtDistance
             // 
-            this.txtDistance.Location = new System.Drawing.Point(194, 190);
+            this.txtDistance.Location = new System.Drawing.Point(302, 248);
             this.txtDistance.Name = "txtDistance";
             this.txtDistance.Size = new System.Drawing.Size(164, 20);
             this.txtDistance.TabIndex = 4;
             // 
-            // distanceAddRoute
+            // lblDistance
             // 
-            this.distanceAddRoute.AutoSize = true;
-            this.distanceAddRoute.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.distanceAddRoute.Location = new System.Drawing.Point(51, 187);
-            this.distanceAddRoute.Name = "distanceAddRoute";
-            this.distanceAddRoute.Size = new System.Drawing.Size(117, 21);
-            this.distanceAddRoute.TabIndex = 5;
-            this.distanceAddRoute.Text = "Route Distance:";
+            this.lblDistance.AutoSize = true;
+            this.lblDistance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDistance.Location = new System.Drawing.Point(159, 245);
+            this.lblDistance.Name = "lblDistance";
+            this.lblDistance.Size = new System.Drawing.Size(117, 21);
+            this.lblDistance.TabIndex = 5;
+            this.lblDistance.Text = "Route Distance:";
             // 
-            // btnConfirm
+            // btnCreate
             // 
-            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(55, 228);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(303, 29);
-            this.btnConfirm.TabIndex = 8;
-            this.btnConfirm.Text = "Confirm Details";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.confirmButtonAddRoutes_Click);
+            this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Location = new System.Drawing.Point(163, 286);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(303, 29);
+            this.btnCreate.TabIndex = 8;
+            this.btnCreate.Text = "Create Route";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.confirmButtonAddRoutes_Click);
             // 
-            // statusBoxAddRoute
+            // lblDepSt
             // 
-            this.statusBoxAddRoute.FormattingEnabled = true;
-            this.statusBoxAddRoute.Items.AddRange(new object[] {
+            this.lblDepSt.AutoSize = true;
+            this.lblDepSt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepSt.Location = new System.Drawing.Point(159, 180);
+            this.lblDepSt.Name = "lblDepSt";
+            this.lblDepSt.Size = new System.Drawing.Size(136, 21);
+            this.lblDepSt.TabIndex = 7;
+            this.lblDepSt.Text = "Departure Station:";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(241, 65);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(172, 25);
+            this.lblTitle.TabIndex = 13;
+            this.lblTitle.Text = "Enter Route Details";
+            // 
+            // cmbArrSt
+            // 
+            this.cmbArrSt.FormattingEnabled = true;
+            this.cmbArrSt.Items.AddRange(new object[] {
+            "Stations"});
+            this.cmbArrSt.Location = new System.Drawing.Point(302, 214);
+            this.cmbArrSt.Name = "cmbArrSt";
+            this.cmbArrSt.Size = new System.Drawing.Size(164, 21);
+            this.cmbArrSt.TabIndex = 12;
+            this.cmbArrSt.Text = "Choose Arrival Station";
+            // 
+            // cmbDepSt
+            // 
+            this.cmbDepSt.FormattingEnabled = true;
+            this.cmbDepSt.Items.AddRange(new object[] {
+            "Stations"});
+            this.cmbDepSt.Location = new System.Drawing.Point(302, 183);
+            this.cmbDepSt.Name = "cmbDepSt";
+            this.cmbDepSt.Size = new System.Drawing.Size(164, 21);
+            this.cmbDepSt.TabIndex = 11;
+            this.cmbDepSt.Text = "Choose Departure Station";
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
             "Active",
-            "Terminated"});
-            this.statusBoxAddRoute.Location = new System.Drawing.Point(194, 93);
-            this.statusBoxAddRoute.Name = "statusBoxAddRoute";
-            this.statusBoxAddRoute.Size = new System.Drawing.Size(164, 21);
-            this.statusBoxAddRoute.TabIndex = 9;
-            this.statusBoxAddRoute.Text = "Choose Status";
-            // 
-            // departureAddRoute
-            // 
-            this.departureAddRoute.AutoSize = true;
-            this.departureAddRoute.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departureAddRoute.Location = new System.Drawing.Point(51, 122);
-            this.departureAddRoute.Name = "departureAddRoute";
-            this.departureAddRoute.Size = new System.Drawing.Size(135, 21);
-            this.departureAddRoute.TabIndex = 7;
-            this.departureAddRoute.Text = "Departure Station:";
-            // 
-            // txtDepSt
-            // 
-            this.txtDepSt.FormattingEnabled = true;
-            this.txtDepSt.Items.AddRange(new object[] {
-            "Stations"});
-            this.txtDepSt.Location = new System.Drawing.Point(194, 125);
-            this.txtDepSt.Name = "txtDepSt";
-            this.txtDepSt.Size = new System.Drawing.Size(164, 21);
-            this.txtDepSt.TabIndex = 11;
-            this.txtDepSt.Text = "Choose Station";
-            // 
-            // txtArrSt
-            // 
-            this.txtArrSt.FormattingEnabled = true;
-            this.txtArrSt.Items.AddRange(new object[] {
-            "Stations"});
-            this.txtArrSt.Location = new System.Drawing.Point(194, 156);
-            this.txtArrSt.Name = "txtArrSt";
-            this.txtArrSt.Size = new System.Drawing.Size(164, 21);
-            this.txtArrSt.TabIndex = 12;
-            this.txtArrSt.Text = "Choose Station";
+            "Terminate"});
+            this.cmbStatus.Location = new System.Drawing.Point(302, 151);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(164, 21);
+            this.cmbStatus.TabIndex = 9;
+            this.cmbStatus.Text = "Choose Status";
             // 
             // frmAddRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 303);
-            this.Controls.Add(this.txtArrSt);
-            this.Controls.Add(this.txtDepSt);
-            this.Controls.Add(this.statusBoxAddRoute);
-            this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.departureAddRoute);
-            this.Controls.Add(this.distanceAddRoute);
+            this.ClientSize = new System.Drawing.Size(645, 387);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.cmbArrSt);
+            this.Controls.Add(this.cmbDepSt);
+            this.Controls.Add(this.cmbStatus);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.lblDepSt);
+            this.Controls.Add(this.lblDistance);
             this.Controls.Add(this.txtDistance);
-            this.Controls.Add(this.arrivalAddRoute);
-            this.Controls.Add(this.statusAddRoute);
-            this.Controls.Add(this.routeIDAddRoute);
-            this.Controls.Add(this.routeIDBoxAddRoute);
+            this.Controls.Add(this.lblArrSt);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblRouteID);
+            this.Controls.Add(this.txtRouteID);
             this.Controls.Add(this.mnuStripAddRoutes);
             this.MainMenuStrip = this.mnuStripAddRoutes;
             this.Name = "frmAddRoutes";
             this.Text = "Train Ticket System - Add Route";
+            this.Load += new System.EventHandler(this.frmAddRoutes_Load);
             this.mnuStripAddRoutes.ResumeLayout(false);
             this.mnuStripAddRoutes.PerformLayout();
             this.ResumeLayout(false);
@@ -212,16 +226,17 @@
         private System.Windows.Forms.MenuStrip mnuStripAddRoutes;
         private System.Windows.Forms.ToolStripMenuItem mnuAddRoutesBack;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.Label routeIDAddRoute;
-        private System.Windows.Forms.TextBox routeIDBoxAddRoute;
-        private System.Windows.Forms.Label statusAddRoute;
-        private System.Windows.Forms.Label arrivalAddRoute;
+        private System.Windows.Forms.Label lblRouteID;
+        private System.Windows.Forms.TextBox txtRouteID;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblArrSt;
         private System.Windows.Forms.TextBox txtDistance;
-        private System.Windows.Forms.Label distanceAddRoute;
-        private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.ComboBox statusBoxAddRoute;
-        private System.Windows.Forms.Label departureAddRoute;
-        private System.Windows.Forms.ComboBox txtDepSt;
-        private System.Windows.Forms.ComboBox txtArrSt;
+        private System.Windows.Forms.Label lblDistance;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Label lblDepSt;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ComboBox cmbArrSt;
+        private System.Windows.Forms.ComboBox cmbDepSt;
+        private System.Windows.Forms.ComboBox cmbStatus;
     }
 }

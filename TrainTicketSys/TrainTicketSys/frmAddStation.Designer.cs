@@ -42,7 +42,7 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lblStID = new System.Windows.Forms.Label();
             this.txtStID = new System.Windows.Forms.TextBox();
             this.lblPhoneNo = new System.Windows.Forms.Label();
@@ -89,7 +89,7 @@
             this.lblStation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStation.Location = new System.Drawing.Point(234, 133);
             this.lblStation.Name = "lblStation";
-            this.lblStation.Size = new System.Drawing.Size(107, 21);
+            this.lblStation.Size = new System.Drawing.Size(108, 21);
             this.lblStation.TabIndex = 0;
             this.lblStation.Text = "Station Name:";
             // 
@@ -99,7 +99,7 @@
             this.lblStreet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStreet.Location = new System.Drawing.Point(234, 198);
             this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(53, 21);
+            this.lblStreet.Size = new System.Drawing.Size(54, 21);
             this.lblStreet.TabIndex = 0;
             this.lblStreet.Text = "Street:";
             // 
@@ -109,7 +109,7 @@
             this.lblTown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTown.Location = new System.Drawing.Point(234, 229);
             this.lblTown.Name = "lblTown";
-            this.lblTown.Size = new System.Drawing.Size(49, 21);
+            this.lblTown.Size = new System.Drawing.Size(51, 21);
             this.lblTown.TabIndex = 0;
             this.lblTown.Text = "Town:";
             // 
@@ -161,7 +161,7 @@
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(234, 166);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(107, 21);
+            this.lblStatus.Size = new System.Drawing.Size(109, 21);
             this.lblStatus.TabIndex = 0;
             this.lblStatus.Text = "Station Status:";
             // 
@@ -178,15 +178,15 @@
             this.cmbStatus.TabIndex = 3;
             this.cmbStatus.Text = "Choose Status";
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(294, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Enter Station Details";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(294, 46);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(182, 25);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Enter Station Details";
             // 
             // lblStID
             // 
@@ -194,7 +194,7 @@
             this.lblStID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStID.Location = new System.Drawing.Point(234, 101);
             this.lblStID.Name = "lblStID";
-            this.lblStID.Size = new System.Drawing.Size(80, 21);
+            this.lblStID.Size = new System.Drawing.Size(81, 21);
             this.lblStID.TabIndex = 0;
             this.lblStID.Text = "Station ID:";
             // 
@@ -232,7 +232,7 @@
             this.Controls.Add(this.txtPhoneNo);
             this.Controls.Add(this.lblStID);
             this.Controls.Add(this.txtStID);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnCreate);
@@ -271,7 +271,7 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ComboBox cmbStatus;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblStID;
         private System.Windows.Forms.TextBox txtStID;
         private System.Windows.Forms.Label lblPhoneNo;
