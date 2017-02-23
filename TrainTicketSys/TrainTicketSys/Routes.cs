@@ -28,9 +28,10 @@ namespace TrainTicketSys
             this.status = 'C';
         }
 
-        public Routes (int routeID, string departStation, string arrivalStation, decimal distance, char status)
+        public Routes (int routeID, char status, string departStation, string arrivalStation, decimal distance)
         {
-
+            setRouteID(routeID); setStatus(status); setDepartStation(departStation);
+            setArrivalStation(arrivalStation); setDistance(distance);
         }
 
         // Setter and Getter Methods for Variables
@@ -99,6 +100,29 @@ namespace TrainTicketSys
 
             con.Close();
             return nextRouteID;
+        }
+
+        public void createRoute ()
+        {
+            // Connect To DB
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            // Define SQL Query
+            string strSQL =
+                "INSERT INTO Routes VALUES ("
+                + this.routeID + ",'"
+                + this.status + "','"
+                + this.departStation + "','"
+                + this.arrivalStation + "',"
+                + this.distance + ")";
+
+            // Execute Command/Query
+            OracleCommand cmd = new OracleCommand(strSQL, con);
+            cmd.ExecuteNonQuery();
+
+            // Close Database
+            con.Close();
         }
     }
 }

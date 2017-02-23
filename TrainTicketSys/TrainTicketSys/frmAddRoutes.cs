@@ -35,7 +35,7 @@ namespace TrainTicketSys
 
             DataTable dt = Station.getStations(ds).Tables["Stations"];
 
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 cmbDepSt.Items.Add(dr["Station"]);
                 cmbArrSt.Items.Add(dr["Station"]);
@@ -53,6 +53,13 @@ namespace TrainTicketSys
             Application.Exit();
         }
 
+        // Method To Reset The UI Text Boxes To Blank
+        private void resetUI()
+        {
+            txtRouteID.Text = Routes.nextRouteID().ToString("00000");
+            txtDistance.Text = "";
+        }
+
         private void confirmButtonAddRoutes_Click(object sender, EventArgs e)
         {
             Boolean valid = true;
@@ -63,54 +70,61 @@ namespace TrainTicketSys
             // Not Empty
             if (txtDistance.Text.Equals(""))
             {
-                validationMessage += "Please Enter All Fields ";
+                validationMessage += " Please Enter All Fields. ";
                 valid = false;
             }
 
             // Station Status Chosen
-            if (cmbStatus.SelectedIndex == -1 || cmbDepSt.SelectedIndex == -1 || cmbArrSt.SelectedIndex == -1)
+            if (cmbStatus.SelectedIndex == -1)
             {
-                validationMessage += "Please Choose A Route Status ";
+                validationMessage += " Please Choose A Route Status. ";
+                valid = false;
+            }
+
+            // Arrival and Departures Stations Chosen
+            if (cmbDepSt.SelectedIndex == -1 || cmbArrSt.SelectedIndex == -1)
+            {
+                validationMessage += " Please Choose Both The Arrival and Departure Station. ";
                 valid = false;
             }
 
             foreach (char c in txtDistance.Text)
             {
-                if (c < 'A' || c > 'Z')
+                if (c >= '9' || c <= '0')
                 {
-                    MessageBox.Show("Phone Number Must Be All Digits");
+                    MessageBox.Show("Distance Must Be All Digits");
                     valid = false;
                 }
             }
 
             // Station Status
-            char stStatus;
+            char routeStatus;
             if (cmbStatus.SelectedIndex == 0)
             {
-                stStatus = 'A';
+                routeStatus = 'A';
             }
             else
             {
-                stStatus = 'C';
+                routeStatus = 'T';
             }
 
             if (!valid)
             {
                 MessageBox.Show(validationMessage);
             }
+
             // Instantiate Station Object
             else
             {
-                Station station = new Station(
-                    Convert.ToInt32(txtStID.Text),
-                    txtStation.Text,
-                    txtStreet.Text,
-                    txtTown.Text,
-                    txtCounty.Text,
-                    txtPhoneNo.Text,
-                    stStatus);
+                Routes route = new Routes(
+                    Convert.ToInt32(txtRouteID.Text),
+                    routeStatus,
+                    cmbDepSt.Text,
+                    cmbArrSt.Text,
+                    Convert.ToDecimal(txtDistance.Text)
+                    );
 
-                station.createStation();
+                route.createRoute();
 
                 // Display Confirmation
                 MessageBox.Show("Station Created Successfully");
@@ -118,5 +132,6 @@ namespace TrainTicketSys
                 // Reset UI
                 resetUI();
             }
+        }
     }
 }
