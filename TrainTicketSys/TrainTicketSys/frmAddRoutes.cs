@@ -28,6 +28,7 @@ namespace TrainTicketSys
         private void frmAddRoutes_Load(object sender, EventArgs e)
         {
             txtRouteID.Text = Routes.nextRouteID().ToString("00000");
+            cmbDepSt.DataSource = Routes.fillDropDown(cmbDepSt);
         }
 
         private void mnuAddRoutesBack_Click(object sender, EventArgs e)

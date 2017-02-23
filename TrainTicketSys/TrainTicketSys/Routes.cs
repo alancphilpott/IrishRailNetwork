@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace TrainTicketSys
 {
@@ -97,6 +99,35 @@ namespace TrainTicketSys
 
             con.Close();
             return nextRouteID;
+        }
+
+        public static ComboBox fillDropDown (ComboBox comboBox)
+        {
+            OracleDataReader DR;
+            try
+            {
+                con = new OracleConnection(DBConnect.oradb);
+                con.Open();
+
+                if (comboBox.Items.Count > 0)
+                    comboBox.Items.Clear();
+
+                String strSQL = "SELECT name FROM Stations";
+
+                OracleCommand cmd = new OracleCommand(strSQL, con);
+                DR = cmd.ExecuteReader();
+
+                while (DR.Read())
+                    comboBox.Items.Add(DR[0]);
+
+                DR.Close();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
+
+            return comboBox;
         }
     }
 }
