@@ -133,7 +133,6 @@ namespace TrainTicketSys
         public void createStation ()
         {
             // Connect To DB
-
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
@@ -149,7 +148,6 @@ namespace TrainTicketSys
                 + this.status + "')";
 
             // Execute Command/Query
-
             OracleCommand cmd = new OracleCommand(strSQL, con);
             cmd.ExecuteNonQuery();
 

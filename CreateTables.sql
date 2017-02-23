@@ -16,9 +16,9 @@ CONSTRAINT pk_Stations PRIMARY KEY (stationID)
 CREATE TABLE Routes
 (
 routeID number (5),
+status varchar (1) DEFAULT 'A' NOT NULL,
 departStation varchar (20) NOT NULL,
 arrivalStation varchar (20) NOT NULL,
-distance number (10,2) NOT NULL,
-status varchar (1) DEFAULT 'A' NOT NULL,
+distance decimal (4,2) NOT NULL,
 CONSTRAINT pk_Routes PRIMARY KEY (routeID)
 );

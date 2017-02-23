@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -88,15 +89,15 @@ namespace TrainTicketSys
                 valid = false;
             }
 
-            foreach (char c in txtDistance.Text)
+            // Making sure that the distance is valid
+            try
             {
-                if (c >= '9' || c <= '0')
-                {
-                    MessageBox.Show("Distance Must Be All Digits");
-                    valid = false;
-                }
+                Convert.ToDecimal(txtDistance.Text);
+            } catch (Exception ex)
+            {
+                validationMessage += ex.Message;
             }
-
+            
             // Station Status
             char routeStatus;
             if (cmbStatus.SelectedIndex == 0)
@@ -121,13 +122,13 @@ namespace TrainTicketSys
                     routeStatus,
                     cmbDepSt.Text,
                     cmbArrSt.Text,
-                    Convert.ToDecimal(txtDistance.Text)
+                    Convert.ToDouble(txtDistance.Text)
                     );
 
                 route.createRoute();
 
                 // Display Confirmation
-                MessageBox.Show("Station Created Successfully");
+                MessageBox.Show("Route Created Successfully");
 
                 // Reset UI
                 resetUI();

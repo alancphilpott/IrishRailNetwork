@@ -18,17 +18,17 @@ namespace TrainTicketSys
         private int routeID;
         private string departStation;
         private string arrivalStation;
-        private decimal distance;
+        private double distance;
         private char status;
 
         public Routes ()
         {
             this.routeID = 0; this.departStation = "";
-            this.arrivalStation = ""; this.distance = 0;
+            this.arrivalStation = ""; this.distance = 0.00;
             this.status = 'C';
         }
 
-        public Routes (int routeID, char status, string departStation, string arrivalStation, decimal distance)
+        public Routes (int routeID, char status, string departStation, string arrivalStation, double distance)
         {
             setRouteID(routeID); setStatus(status); setDepartStation(departStation);
             setArrivalStation(arrivalStation); setDistance(distance);
@@ -62,11 +62,11 @@ namespace TrainTicketSys
             return this.arrivalStation;
         }
 
-        public void setDistance (decimal distance)
+        public void setDistance (double distance)
         {
             this.distance = distance;
         }
-        public decimal getDistance ()
+        public double getDistance ()
         {
             return this.distance;
         }
@@ -119,7 +119,14 @@ namespace TrainTicketSys
 
             // Execute Command/Query
             OracleCommand cmd = new OracleCommand(strSQL, con);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             // Close Database
             con.Close();
