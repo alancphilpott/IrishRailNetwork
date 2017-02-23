@@ -161,8 +161,6 @@
             // cmbArrSt
             // 
             this.cmbArrSt.FormattingEnabled = true;
-            this.cmbArrSt.Items.AddRange(new object[] {
-            "Stations"});
             this.cmbArrSt.Location = new System.Drawing.Point(302, 214);
             this.cmbArrSt.Name = "cmbArrSt";
             this.cmbArrSt.Size = new System.Drawing.Size(164, 21);
@@ -172,8 +170,6 @@
             // cmbDepSt
             // 
             this.cmbDepSt.FormattingEnabled = true;
-            this.cmbDepSt.Items.AddRange(new object[] {
-            "Stations"});
             this.cmbDepSt.Location = new System.Drawing.Point(302, 183);
             this.cmbDepSt.Name = "cmbDepSt";
             this.cmbDepSt.Size = new System.Drawing.Size(164, 21);
@@ -185,7 +181,7 @@
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Items.AddRange(new object[] {
             "Active",
-            "Terminate"});
+            "Terminated"});
             this.cmbStatus.Location = new System.Drawing.Point(302, 151);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(164, 21);
