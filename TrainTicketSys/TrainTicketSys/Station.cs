@@ -191,6 +191,7 @@ namespace TrainTicketSys
             return DS;
         }
 
+        // Method to Get A Station
         public static DataTable getAStation (int stationID)
         {
             con = new OracleConnection(DBConnect.oradb);
@@ -209,6 +210,7 @@ namespace TrainTicketSys
             return DS.Tables["aStation"];
         }
 
+        // Method To Update A Station
         public static void updateStation (int stationID, string name, string street, string town, string county, string phoneNo, char status)
         {
             con = new OracleConnection(DBConnect.oradb); con.Open();

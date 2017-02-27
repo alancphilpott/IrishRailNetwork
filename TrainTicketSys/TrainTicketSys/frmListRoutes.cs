@@ -35,5 +35,25 @@ namespace TrainTicketSys
             this.Hide();
             Parent.Show();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text;
+
+            if (keyword.Equals(""))
+            {
+                DataSet DS = new DataSet();
+                dgRoutes.DataSource = Routes.getRoutes(DS).Tables["Routes"];
+                dgRoutes.Visible = true;
+                btnPrint.Visible = true;
+            }
+            else
+            {
+                DataSet DS = new DataSet();
+                dgRoutes.DataSource = Routes.getRoutes(DS, keyword).Tables["Routes"];
+                dgRoutes.Visible = true;
+                btnPrint.Visible = true;
+            }
+        }
     }
 }

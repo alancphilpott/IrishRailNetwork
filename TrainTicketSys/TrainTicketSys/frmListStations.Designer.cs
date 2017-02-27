@@ -70,7 +70,7 @@
             // 
             this.lblKeyword.AutoSize = true;
             this.lblKeyword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKeyword.Location = new System.Drawing.Point(209, 45);
+            this.lblKeyword.Location = new System.Drawing.Point(12, 45);
             this.lblKeyword.Name = "lblKeyword";
             this.lblKeyword.Size = new System.Drawing.Size(113, 21);
             this.lblKeyword.TabIndex = 9;
@@ -78,7 +78,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(328, 48);
+            this.txtSearch.Location = new System.Drawing.Point(131, 48);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(164, 20);
             this.txtSearch.TabIndex = 8;
@@ -107,7 +107,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(512, 46);
+            this.btnSearch.Location = new System.Drawing.Point(301, 46);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 12;

@@ -80,6 +80,7 @@ namespace TrainTicketSys
             return this.status;
         }
 
+        // Method To Retrieve the Next Route ID
         public static int nextRouteID()
         {
             int nextRouteID;
@@ -102,6 +103,7 @@ namespace TrainTicketSys
             return nextRouteID;
         }
 
+        // Method for Adding A Route to the Database
         public void createRoute ()
         {
             // Connect To DB
@@ -130,6 +132,42 @@ namespace TrainTicketSys
 
             // Close Database
             con.Close();
+        }
+
+        // Method To Populate DataGrid
+        public static DataSet getRoutes (DataSet DS)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT * FROM Routes ORDER BY routeID";
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+            DA.Fill(DS, "Routes");
+
+            con.Close();
+
+            return DS;
+        }
+
+        // Method To Populate DataGrid Relevant To A User Search
+        public static DataSet getRoutes (DataSet DS, String txtKeyword)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT * FROM Routes WHERE upper(DEPARTSTATION) LIKE '" + txtKeyword.ToUpper() + "%' ORDER BY routeID";
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+            DA.Fill(DS, "Routes");
+
+            con.Close();
+
+            return DS;
         }
     }
 }

@@ -61,6 +61,7 @@ namespace TrainTicketSys
             txtDistance.Text = "";
         }
 
+        // Validation and Creation of Route after clicking confirm
         private void confirmButtonAddRoutes_Click(object sender, EventArgs e)
         {
             Boolean valid = true;
@@ -89,13 +90,21 @@ namespace TrainTicketSys
                 valid = false;
             }
 
+            // Arrival and Departure Stations Not The Same
+            if (cmbDepSt.Text.Equals(cmbArrSt.Text))
+            {
+                valid = false;
+                validationMessage += " Please Choose A Different Departure and Arrival Station";
+            }
+
             // Making sure that the distance is valid
             try
             {
                 Convert.ToDecimal(txtDistance.Text);
             } catch (Exception ex)
             {
-                validationMessage += ex.Message;
+                valid = false;
+                validationMessage += ex.Message + " Please Re-Enter Route Distance.";
             }
             
             // Station Status
@@ -114,7 +123,7 @@ namespace TrainTicketSys
                 MessageBox.Show(validationMessage);
             }
 
-            // Instantiate Station Object
+            // Instantiate Route Object
             else
             {
                 Routes route = new Routes(

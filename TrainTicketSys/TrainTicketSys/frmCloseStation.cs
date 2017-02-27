@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+ * Right now close station is operating via the user selecting the station status.
+ * Should the user be able to set the station to active as well as closed?
+ */
+
 namespace TrainTicketSys
 {
     public partial class frmCloseStation : Form
@@ -70,8 +75,12 @@ namespace TrainTicketSys
             int ID = Convert.ToInt32(dgStations.Rows[rowID].Cells[columnID].Value);
 
             dgStations.Visible = false;
+            lblStation.Visible = false;
+            txtSearch.Visible = false;
+            btnSearch.Visible = false;
             grpUpdate.Visible = true;
-            btnUpdate.Visible = true;
+            btnYes.Visible = true;
+            btnNo.Visible = true;
 
             DataTable stationData = Station.getAStation(ID);
 
@@ -84,47 +93,15 @@ namespace TrainTicketSys
                 txtTown.Text = row["town"].ToString(); ;
                 txtCounty.Text = row["county"].ToString();
                 txtPhoneNo.Text = row["phoneNo"].ToString();
+                cmbStatus.Text = row["status"].ToString();
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnYes_Click(object sender, EventArgs e)
         {
-            Boolean valid = true;
-
-            // Validation of Details Entered
-
-            // Not Empty
-            if (txtName.Text.Equals("") || txtStreet.Text.Equals("") || txtTown.Text.Equals("") || txtCounty.Text.Equals("") || txtPhoneNo.Text.Equals(""))
-            {
-                MessageBox.Show("Please Enter All Fields");
-                valid = false;
-            }
-
-            // Station Status Chosen
-            if (cmbStatus.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please Choose A Station Status");
-                valid = false;
-            }
-
-            // Expected Values
-            if (txtPhoneNo.Text.Length > 16)
-            {
-                MessageBox.Show("Phone Number Must Not Exceed 16 Characters");
-                valid = false;
-            }
-            foreach (char c in txtPhoneNo.Text)
-            {
-                if (c < '0' || c > '9')
-                {
-                    MessageBox.Show("Phone Number Must Be All Digits");
-                    valid = false;
-                }
-            }
-
             // Station Status
             char stStatus;
-            if (cmbStatus.SelectedIndex == 0)
+            if (cmbStatus.Text.Equals("A") || cmbStatus.Text.Equals("Active"))
             {
                 stStatus = 'A';
             }
@@ -134,22 +111,32 @@ namespace TrainTicketSys
             }
 
             // Update Station Object
-            if (valid)
-            {
-                Station.updateStation(
-                    Convert.ToInt32(txtStID.Text),
-                    txtName.Text,
-                    txtStreet.Text,
-                    txtTown.Text,
-                    txtCounty.Text,
-                    txtPhoneNo.Text,
-                    stStatus);
+            Station.updateStation(
+                Convert.ToInt32(txtStID.Text),
+                txtName.Text,
+                txtStreet.Text,
+                txtTown.Text,
+                txtCounty.Text,
+                txtPhoneNo.Text,
+                stStatus);
 
-                // Display Confirmation
-                MessageBox.Show("Station Updated Successfully");
-                grpUpdate.Visible = false;
-                btnUpdate.Visible = false;
-            }
+            // Display Confirmation
+            MessageBox.Show("Station Updated Successfully");
+
+            // Update Visibility
+            grpUpdate.Visible = false;
+            lblStation.Visible = true;
+            txtSearch.Visible = true;
+            btnSearch.Visible = true;
+        }
+
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            // Update Visibility
+            grpUpdate.Visible = false;
+            lblStation.Visible = true;
+            txtSearch.Visible = true;
+            btnSearch.Visible = true;
         }
     }
 }
