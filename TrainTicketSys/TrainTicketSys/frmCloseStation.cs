@@ -32,7 +32,15 @@ namespace TrainTicketSys
 
         private void frmCloseStation_Load(object sender, EventArgs e)
         {
+            // Populating the Combo Boxes for selecting Stations
+            DataSet ds = new DataSet();
 
+            DataTable dt = Station.getStations(ds, "name").Tables["Stations"];
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                cmbStations.Items.Add(dr["name"]);
+            }
         }
 
         private void mnuCloseStationBack_Click(object sender, EventArgs e)
@@ -46,38 +54,12 @@ namespace TrainTicketSys
             Application.Exit();
         }
 
-        // Method Called When The Search Button Is Clicked
-        private void btnSearch_Click(object sender, EventArgs e)
+        // Called when a selection is made in the ComboBox
+        private void cmbStations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            grpUpdate.Visible = false;
+            grpUpdate.Visible = true;
+            int ID = cmbStations.SelectedIndex + 1;
 
-            string keyword = txtSearch.Text;
-
-            if (keyword.Equals(""))
-            {
-                DataSet DS = new DataSet();
-                dgStations.DataSource = Station.getStations(DS).Tables["Stations"];
-                dgStations.Visible = true;
-            }
-            else
-            {
-                DataSet DS = new DataSet();
-                dgStations.DataSource = Station.getStations(DS, keyword).Tables["Stations"];
-                dgStations.Visible = true;
-            }
-        }
-
-        // Method Called When The Update Button In A Row Is Clicked
-        private void dgStations_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int rowID = e.RowIndex;
-            int columnID = e.ColumnIndex + 1;
-            int ID = Convert.ToInt32(dgStations.Rows[rowID].Cells[columnID].Value);
-
-            dgStations.Visible = false;
-            lblStation.Visible = false;
-            txtSearch.Visible = false;
-            btnSearch.Visible = false;
             grpUpdate.Visible = true;
             btnYes.Visible = true;
             btnNo.Visible = true;
@@ -93,22 +75,14 @@ namespace TrainTicketSys
                 txtTown.Text = row["town"].ToString(); ;
                 txtCounty.Text = row["county"].ToString();
                 txtPhoneNo.Text = row["phoneNo"].ToString();
-                cmbStatus.Text = row["status"].ToString();
+                txtStatus.Text = row["status"].ToString();
             }
         }
 
         private void btnYes_Click(object sender, EventArgs e)
         {
             // Station Status
-            char stStatus;
-            if (cmbStatus.Text.Equals("A") || cmbStatus.Text.Equals("Active"))
-            {
-                stStatus = 'A';
-            }
-            else
-            {
-                stStatus = 'C';
-            }
+            char stStatus = 'C';
 
             // Update Station Object
             Station.updateStation(
@@ -125,18 +99,14 @@ namespace TrainTicketSys
 
             // Update Visibility
             grpUpdate.Visible = false;
-            lblStation.Visible = true;
-            txtSearch.Visible = true;
-            btnSearch.Visible = true;
+            cmbStations.Text = "Please Choose A Station";
         }
 
         private void btnNo_Click(object sender, EventArgs e)
         {
             // Update Visibility
             grpUpdate.Visible = false;
-            lblStation.Visible = true;
-            txtSearch.Visible = true;
-            btnSearch.Visible = true;
+            cmbStations.Text = "Please Choose A Station";
         }
     }
 }

@@ -156,12 +156,12 @@ namespace TrainTicketSys
         }
 
         // Method To Populate DataGrid
-        public static DataSet getStations(DataSet DS)
+        public static DataSet getStations(DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT stationID AS ID, name AS Station, county AS County, phoneNo AS Phone, status FROM Stations ORDER BY stationID";
+            string SQL = "SELECT stationID, name, county, phoneNo, status FROM Stations ORDER BY " + sortOrder;
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -174,12 +174,12 @@ namespace TrainTicketSys
         }
 
         // Method To Populate DataGrid Relevant To A User Search
-        public static DataSet getStations (DataSet DS, String txtKeyword)
+        public static DataSet getStationsName (DataSet DS, String txtKeyword)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT stationID AS ID, name AS Station, county AS County, phoneNo AS Phone, status FROM Stations WHERE upper(name) LIKE '" + txtKeyword.ToUpper() + "%' ORDER BY stationID";
+            string SQL = "SELECT stationID, name, county, phoneNo, status FROM Stations WHERE upper(name) LIKE '" + txtKeyword.ToUpper() + "%' ORDER BY stationID";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 

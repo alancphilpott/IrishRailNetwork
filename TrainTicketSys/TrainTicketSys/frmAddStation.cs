@@ -45,6 +45,7 @@ namespace TrainTicketSys
             txtTown.Text = "";
             txtCounty.Text = "";
             txtPhoneNo.Text = "";
+            cmbStatus.Text = "Choose Status";
         }
 
         private void btnCreate_Click(object sender, EventArgs e)

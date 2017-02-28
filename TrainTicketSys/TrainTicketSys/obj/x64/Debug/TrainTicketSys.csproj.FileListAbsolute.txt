@@ -159,3 +159,26 @@ C:\Users\Alan\Desktop\Git Projects\Software\TrainTicketSys\TrainTicketSys\obj\x6
 C:\Users\Alan\Desktop\Git Projects\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmUpdateTicketType.resources
 C:\Users\Alan\Desktop\Git Projects\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.Properties.Resources.resources
 C:\Users\Alan\Desktop\Git Projects\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.csproj.GenerateResource.Cache
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\bin\x64\Debug\TrainTicketSys.exe.config
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.exe
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.pdb
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\bin\x64\Debug\TrainTicketSys.exe
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\bin\x64\Debug\TrainTicketSys.pdb
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\bin\x64\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.csprojResolveAssemblyReference.cache
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmAddRoutes.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmAddStation.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmCloseStation.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmListRoutes.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmListStations.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmMainMenu.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmRevenueAnalysis.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmScheduleTrain.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmSellTicket.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmSetTicketType.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmTerminateRoute.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmTicketSalesAnalysis.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmTrainTimetable.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.frmUpdateTicketType.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.Properties.Resources.resources
+C:\Users\t00182898\Software\TrainTicketSys\TrainTicketSys\obj\x64\Debug\TrainTicketSys.csproj.GenerateResource.Cache
