@@ -34,12 +34,12 @@ namespace TrainTicketSys
             // Populating the Combo Boxes for selecting Stations
             DataSet ds = new DataSet();
 
-            DataTable dt = Station.getStations(ds,"stationID").Tables["Stations"];
+            DataTable dt = Station.getActiveStations(ds,"stationID").Tables["Stations"];
 
             foreach (DataRow dr in dt.Rows)
             {
-                cmbDepSt.Items.Add(dr["stationID"] + " " + dr["name"]);
-                cmbArrSt.Items.Add(dr["stationID"] + " " + dr["name"]);
+                cmbDepSt.Items.Add(dr["name"]);
+                cmbArrSt.Items.Add(dr["name"]);
             }
         }
 
@@ -59,6 +59,9 @@ namespace TrainTicketSys
         {
             txtRouteID.Text = Routes.nextRouteID().ToString("00000");
             txtDistance.Text = "";
+            cmbStatus.Text = "Choose Status";
+            cmbDepSt.Text = "Choose Departure Station";
+            cmbArrSt.Text = "Choose Arrival Station";
         }
 
         // Validation and Creation of Route after clicking confirm

@@ -173,6 +173,23 @@ namespace TrainTicketSys
             return DS;
         }
 
+        public static DataSet getActiveStations(DataSet DS, String sortOrder)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT stationID, name, county, phoneNo, status FROM Stations WHERE status = 'A' ORDER BY " + sortOrder;
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+            DA.Fill(DS, "Stations");
+
+            con.Close();
+
+            return DS;
+        }
+
         // Method To Populate DataGrid Relevant To A User Search
         public static DataSet getStationsName (DataSet DS, String txtKeyword)
         {
