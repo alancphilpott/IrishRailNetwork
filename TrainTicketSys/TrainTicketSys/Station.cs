@@ -227,6 +227,29 @@ namespace TrainTicketSys
             return DS.Tables["aStation"];
         }
 
+        public void getStation(int stationID)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT * FROM Stations WHERE stationID = " + stationID + "";
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+
+            //intantiate instance variables
+            this.stationID = dr.GetInt32(0);
+            this.name = dr.GetString(1);
+            this.street = dr.GetString(2);
+            this.town = dr.GetString(3);
+            this.county = dr.GetString(4);
+            this.phoneNo = dr.GetString(5);
+            this.status = Convert.ToChar(dr.GetString(6));
+
+            con.Close();
+        }
         // Method To Update A Station
         public static void updateStation (int stationID, string name, string street, string town, string county, string phoneNo, char status)
         {

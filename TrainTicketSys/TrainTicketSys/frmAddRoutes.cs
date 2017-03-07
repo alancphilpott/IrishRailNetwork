@@ -131,10 +131,10 @@ namespace TrainTicketSys
             {
                 Routes route = new Routes(
                     Convert.ToInt32(txtRouteID.Text),
-                    routeStatus,
                     cmbDepSt.Text,
                     cmbArrSt.Text,
-                    Convert.ToDouble(txtDistance.Text)
+                    Convert.ToDouble(txtDistance.Text),
+                    routeStatus
                     );
 
                 route.createRoute();

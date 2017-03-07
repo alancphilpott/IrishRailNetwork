@@ -35,11 +35,11 @@ namespace TrainTicketSys
             // Populating the Combo Boxes for selecting Stations
             DataSet ds = new DataSet();
 
-            DataTable dt = Station.getStations(ds, "stationID").Tables["Stations"];
+            DataTable dt = Station.getActiveStations(ds, "name").Tables["Stations"];
 
             foreach (DataRow dr in dt.Rows)
             {
-                cmbStations.Items.Add(dr["stationID"] + " " + dr["name"]);
+                cmbStations.Items.Add(String.Format("{0:00000}",dr["stationID"]) + " " + dr["name"]);
             }
         }
 
@@ -57,6 +57,23 @@ namespace TrainTicketSys
         // Called when a selection is made in the ComboBox
         private void cmbStations_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Station aStation = new Station();
+            aStation.getStation(Convert.ToInt32(cmbStations.Text.Substring(0,5)));
+
+            grpUpdate.Visible = true;
+            btnYes.Visible = true;
+            btnNo.Visible = true;
+
+            txtStID.Text = aStation.getStationID().ToString("00000");
+            txtName.Text = aStation.getName();
+            txtStreet.Text = aStation.getStreet();
+            txtTown.Text = aStation.getTown();
+            txtCounty.Text = aStation.getCounty();
+            txtPhoneNo.Text = aStation.getPhoneNo();
+            txtStatus.Text = aStation.getStatus().ToString();
+
+            /*
+
             grpUpdate.Visible = true;
             int ID = cmbStations.SelectedIndex + 1;
 
@@ -77,6 +94,8 @@ namespace TrainTicketSys
                 txtPhoneNo.Text = row["phoneNo"].ToString();
                 txtStatus.Text = row["status"].ToString();
             }
+
+    */
         }
 
         private void btnYes_Click(object sender, EventArgs e)

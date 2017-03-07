@@ -259,12 +259,12 @@
             // 
             // cmbStations
             // 
+            this.cmbStations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStations.FormattingEnabled = true;
             this.cmbStations.Location = new System.Drawing.Point(12, 45);
             this.cmbStations.Name = "cmbStations";
             this.cmbStations.Size = new System.Drawing.Size(195, 21);
             this.cmbStations.TabIndex = 14;
-            this.cmbStations.Text = "Please Choose A Station";
             this.cmbStations.SelectedIndexChanged += new System.EventHandler(this.cmbStations_SelectedIndexChanged);
             // 
             // frmCloseStation

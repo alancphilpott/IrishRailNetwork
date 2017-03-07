@@ -28,10 +28,10 @@ namespace TrainTicketSys
             this.status = 'C';
         }
 
-        public Routes (int routeID, char status, string departStation, string arrivalStation, double distance)
+        public Routes (int routeID, string departStation, string arrivalStation, double distance, char status)
         {
-            setRouteID(routeID); setStatus(status); setDepartStation(departStation);
-            setArrivalStation(arrivalStation); setDistance(distance);
+            setRouteID(routeID); setDepartStation(departStation);
+            setArrivalStation(arrivalStation); setDistance(distance); setStatus(status);
         }
 
         // Setter and Getter Methods for Variables
@@ -114,10 +114,10 @@ namespace TrainTicketSys
             string strSQL =
                 "INSERT INTO Routes VALUES ("
                 + this.routeID + ",'"
-                + this.status + "','"
                 + this.departStation + "','"
                 + this.arrivalStation + "',"
-                + this.distance + ")";
+                + this.distance + ",'"
+                + this.status + "')";
 
             // Execute Command/Query
             OracleCommand cmd = new OracleCommand(strSQL, con);
@@ -168,6 +168,66 @@ namespace TrainTicketSys
             con.Close();
 
             return DS;
+        }
+
+        public static DataSet getActiveRoutes(DataSet DS, String sortOrder)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT * FROM Routes WHERE status = 'A' ORDER BY " + sortOrder;
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+            DA.Fill(DS, "Routes");
+
+            con.Close();
+
+            return DS;
+        }
+
+        public static DataTable getARoute(int routeID)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT * FROM Routes WHERE routeID = " + routeID + "";
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            DA.Fill(DS, "aRoute");
+
+            con.Close();
+
+            return DS.Tables["aRoute"];
+        }
+
+        public static void updateRoute(int routeID, string departStation, string arrivalStation, double distance, char status)
+        {
+            con = new OracleConnection(DBConnect.oradb); con.Open();
+
+            string SQL = 
+                "UPDATE Stations SET departStation = '"
+                + departStation + "', arrivalStation = '"
+                + arrivalStation + "', distance = "
+                + distance + ", status = '"
+                + status + "' WHERE routeID =" + routeID + "";
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            con.Close();
         }
     }
 }

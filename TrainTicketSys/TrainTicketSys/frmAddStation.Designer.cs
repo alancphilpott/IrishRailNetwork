@@ -167,6 +167,7 @@
             // 
             // cmbStatus
             // 
+            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Items.AddRange(new object[] {
@@ -176,7 +177,6 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(164, 21);
             this.cmbStatus.TabIndex = 3;
-            this.cmbStatus.Text = "Choose Status";
             // 
             // lblTitle
             // 

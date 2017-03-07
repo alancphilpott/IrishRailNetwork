@@ -160,24 +160,25 @@
             // 
             // cmbArrSt
             // 
+            this.cmbArrSt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbArrSt.FormattingEnabled = true;
             this.cmbArrSt.Location = new System.Drawing.Point(302, 214);
             this.cmbArrSt.Name = "cmbArrSt";
             this.cmbArrSt.Size = new System.Drawing.Size(164, 21);
             this.cmbArrSt.TabIndex = 12;
-            this.cmbArrSt.Text = "Choose Arrival Station";
             // 
             // cmbDepSt
             // 
+            this.cmbDepSt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepSt.FormattingEnabled = true;
             this.cmbDepSt.Location = new System.Drawing.Point(302, 183);
             this.cmbDepSt.Name = "cmbDepSt";
             this.cmbDepSt.Size = new System.Drawing.Size(164, 21);
             this.cmbDepSt.TabIndex = 11;
-            this.cmbDepSt.Text = "Choose Departure Station";
             // 
             // cmbStatus
             // 
+            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Items.AddRange(new object[] {
             "Active",
@@ -186,7 +187,6 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(164, 21);
             this.cmbStatus.TabIndex = 9;
-            this.cmbStatus.Text = "Choose Status";
             // 
             // frmAddRoutes
             // 
