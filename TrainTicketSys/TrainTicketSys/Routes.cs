@@ -134,7 +134,7 @@ namespace TrainTicketSys
             con.Close();
         }
 
-        // Method To Populate DataGrid
+        // Method To Get All Routes to Populate DataGrid
         public static DataSet getRoutes (DataSet DS)
         {
             con = new OracleConnection(DBConnect.oradb);
@@ -152,7 +152,7 @@ namespace TrainTicketSys
             return DS;
         }
 
-        // Method To Populate DataGrid Relevant To A User Search
+        // Method To Get All Routes According to a Search to Populate DataGrid
         public static DataSet getRoutes (DataSet DS, String txtKeyword)
         {
             con = new OracleConnection(DBConnect.oradb);
@@ -170,6 +170,7 @@ namespace TrainTicketSys
             return DS;
         }
 
+        // Method to Retrieve All Active Routes
         public static DataSet getActiveRoutes(DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
@@ -187,6 +188,7 @@ namespace TrainTicketSys
             return DS;
         }
 
+        // Method to Get a Route According to Route ID (RETURNING)
         public static DataTable getARoute(int routeID)
         {
             con = new OracleConnection(DBConnect.oradb);
@@ -205,6 +207,30 @@ namespace TrainTicketSys
             return DS.Tables["aRoute"];
         }
 
+        // Method to Get a Route According to Route ID (NOT RETURNING)
+        public void getRoute(int routeID)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT * FROM Routes WHERE routeID = " + routeID + "";
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+
+            //intantiate instance variables
+            this.routeID = dr.GetInt32(0);
+            this.departStation = dr.GetString(1);
+            this.arrivalStation = dr.GetString(2);
+            this.distance = dr.GetDouble(3);
+            this.status = Convert.ToChar(dr.GetString(4));
+
+            con.Close();
+        }
+
+        // Method to update a Route
         public static void updateRoute(int routeID, string departStation, string arrivalStation, double distance, char status)
         {
             con = new OracleConnection(DBConnect.oradb); con.Open();

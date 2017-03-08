@@ -183,6 +183,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routes.cs" />
+    <Compile Include="Schedules.cs" />
     <Compile Include="Station.cs" />
     <EmbeddedResource Include="frmAddRoutes.resx">
       <DependentUpon>frmAddRoutes.cs</DependentUpon>

@@ -173,6 +173,7 @@ namespace TrainTicketSys
             return DS;
         }
 
+        // Method to Retrieve All Active Stations
         public static DataSet getActiveStations(DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
@@ -208,7 +209,7 @@ namespace TrainTicketSys
             return DS;
         }
 
-        // Method to Get A Station
+        // Method to Get A Station Relavent To Station ID (RETURNING)
         public static DataTable getAStation (int stationID)
         {
             con = new OracleConnection(DBConnect.oradb);
@@ -227,6 +228,7 @@ namespace TrainTicketSys
             return DS.Tables["aStation"];
         }
 
+        // Method to get a station relavent to station ID (NOT RETURNING)
         public void getStation(int stationID)
         {
             con = new OracleConnection(DBConnect.oradb);
@@ -250,6 +252,7 @@ namespace TrainTicketSys
 
             con.Close();
         }
+
         // Method To Update A Station
         public static void updateStation (int stationID, string name, string street, string town, string county, string phoneNo, char status)
         {

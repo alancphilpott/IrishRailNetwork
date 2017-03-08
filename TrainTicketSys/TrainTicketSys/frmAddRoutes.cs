@@ -33,7 +33,6 @@ namespace TrainTicketSys
 
             // Populating the Combo Boxes for selecting Stations
             DataSet ds = new DataSet();
-
             DataTable dt = Station.getActiveStations(ds,"stationID").Tables["Stations"];
 
             foreach (DataRow dr in dt.Rows)

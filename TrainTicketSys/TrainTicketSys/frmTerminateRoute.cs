@@ -25,12 +25,13 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Called when the form is loaded
         private void frmTerminateRoute_Load(object sender, EventArgs e)
         {
             // Populating the Combo Boxes for selecting Routes
             DataSet ds = new DataSet();
 
-            DataTable dt = Routes.getActiveRoutes(ds, "routeID").Tables["Routes"];
+            DataTable dt = Routes.getActiveRoutes(ds, "departStation").Tables["Routes"];
 
             foreach (DataRow dr in dt.Rows)
             {
@@ -51,16 +52,27 @@ namespace TrainTicketSys
 
         private void cmbRoutes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            grpUpdate.Visible = true;
-            int ID = cmbRoutes.SelectedIndex + 1;
+            Routes aRoute = new Routes();
+            aRoute.getRoute(Convert.ToInt32(cmbRoutes.Text.Substring(0, 5)));
 
             grpUpdate.Visible = true;
             btnYes.Visible = true;
             btnNo.Visible = true;
 
-            DataTable routeData = Routes.getARoute(ID);
-
             // Populate The Text Boxes For Updating
+
+            txtRouteID.Text = aRoute.getRouteID().ToString("00000");
+            txtDepSt.Text = aRoute.getDepartStation();
+            txtArrSt.Text = aRoute.getArrivalStation();
+            txtDistance.Text = aRoute.getDistance().ToString();
+            txtStatus.Text = aRoute.getStatus().ToString();
+
+            /*
+            grpUpdate.Visible = true;
+            int ID = cmbRoutes.SelectedIndex + 1;
+            
+            DataTable routeData = Routes.getARoute(ID);
+            
             foreach (DataRow row in routeData.Rows)
             {
                 txtRouteID.Text = ID.ToString();
@@ -69,6 +81,7 @@ namespace TrainTicketSys
                 txtDistance.Text = row["distance"].ToString();
                 txtStatus.Text = row["status"].ToString();
             }
+            */
         }
 
         private void btnNo_Click(object sender, EventArgs e)
@@ -92,7 +105,7 @@ namespace TrainTicketSys
                 routeStatus);
 
             // Display Confirmation
-            MessageBox.Show("Station Updated Successfully");
+            MessageBox.Show("Route Terminated Successfully");
 
             // Update Visibility
             grpUpdate.Visible = false;

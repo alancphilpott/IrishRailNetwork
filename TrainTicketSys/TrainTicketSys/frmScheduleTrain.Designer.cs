@@ -32,18 +32,16 @@
             this.mnuScheduleTrainBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuScheduleTrainExit = new System.Windows.Forms.ToolStripMenuItem();
             this.confirmButtonScheduleTrain = new System.Windows.Forms.Button();
-            this.departureScheduleTrain = new System.Windows.Forms.Label();
-            this.departureBoxScheduleTrain = new System.Windows.Forms.TextBox();
-            this.numberScheduleTrain = new System.Windows.Forms.Label();
-            this.numberBoxScheduleTrain = new System.Windows.Forms.TextBox();
-            this.carriagesScheduleTrain = new System.Windows.Forms.Label();
-            this.carriagesBoxScheduleTrain = new System.Windows.Forms.TextBox();
-            this.timeScheduleTrain = new System.Windows.Forms.Label();
-            this.timeBoxScheduleTrain = new System.Windows.Forms.TextBox();
-            this.journeyTimeScheduleTrain = new System.Windows.Forms.Label();
-            this.journeyTimeBoxScheduleTrain = new System.Windows.Forms.TextBox();
-            this.routeIDScheduleTrain = new System.Windows.Forms.Label();
-            this.routeIDBoxScheduleTrain = new System.Windows.Forms.TextBox();
+            this.lblNumCarriages = new System.Windows.Forms.Label();
+            this.lblDepTime = new System.Windows.Forms.Label();
+            this.lblArrTime = new System.Windows.Forms.Label();
+            this.lblRouteID = new System.Windows.Forms.Label();
+            this.tpDepTime = new System.Windows.Forms.DateTimePicker();
+            this.lblScheduleID = new System.Windows.Forms.Label();
+            this.cmbRouteID = new System.Windows.Forms.ComboBox();
+            this.txtNumCarriages = new System.Windows.Forms.ComboBox();
+            this.tpArrTime = new System.Windows.Forms.DateTimePicker();
+            this.txtScheduleID = new System.Windows.Forms.TextBox();
             this.mnuStripScheduleTrain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +53,7 @@
             this.mnuScheduleTrainExit});
             this.mnuStripScheduleTrain.Location = new System.Drawing.Point(0, 0);
             this.mnuStripScheduleTrain.Name = "mnuStripScheduleTrain";
-            this.mnuStripScheduleTrain.Size = new System.Drawing.Size(480, 29);
+            this.mnuStripScheduleTrain.Size = new System.Drawing.Size(752, 29);
             this.mnuStripScheduleTrain.TabIndex = 0;
             this.mnuStripScheduleTrain.Text = "mnuScheduleTrain";
             // 
@@ -76,141 +74,139 @@
             // confirmButtonScheduleTrain
             // 
             this.confirmButtonScheduleTrain.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButtonScheduleTrain.Location = new System.Drawing.Point(70, 289);
+            this.confirmButtonScheduleTrain.Location = new System.Drawing.Point(386, 298);
             this.confirmButtonScheduleTrain.Name = "confirmButtonScheduleTrain";
-            this.confirmButtonScheduleTrain.Size = new System.Drawing.Size(339, 29);
+            this.confirmButtonScheduleTrain.Size = new System.Drawing.Size(216, 29);
             this.confirmButtonScheduleTrain.TabIndex = 12;
             this.confirmButtonScheduleTrain.Text = "Confirm Details";
             this.confirmButtonScheduleTrain.UseVisualStyleBackColor = true;
             this.confirmButtonScheduleTrain.Click += new System.EventHandler(this.confirmButtonScheduleTrain_Click);
             // 
-            // departureScheduleTrain
+            // lblNumCarriages
             // 
-            this.departureScheduleTrain.AutoSize = true;
-            this.departureScheduleTrain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departureScheduleTrain.Location = new System.Drawing.Point(66, 54);
-            this.departureScheduleTrain.Name = "departureScheduleTrain";
-            this.departureScheduleTrain.Size = new System.Drawing.Size(135, 21);
-            this.departureScheduleTrain.TabIndex = 11;
-            this.departureScheduleTrain.Text = "Departure Station:";
+            this.lblNumCarriages.AutoSize = true;
+            this.lblNumCarriages.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumCarriages.Location = new System.Drawing.Point(207, 178);
+            this.lblNumCarriages.Name = "lblNumCarriages";
+            this.lblNumCarriages.Size = new System.Drawing.Size(159, 21);
+            this.lblNumCarriages.TabIndex = 16;
+            this.lblNumCarriages.Text = "Number of Carriages:";
             // 
-            // departureBoxScheduleTrain
+            // lblDepTime
             // 
-            this.departureBoxScheduleTrain.Location = new System.Drawing.Point(245, 57);
-            this.departureBoxScheduleTrain.Name = "departureBoxScheduleTrain";
-            this.departureBoxScheduleTrain.Size = new System.Drawing.Size(164, 20);
-            this.departureBoxScheduleTrain.TabIndex = 10;
-            this.departureBoxScheduleTrain.TextChanged += new System.EventHandler(this.departureBoxScheduleTrain_TextChanged);
+            this.lblDepTime.AutoSize = true;
+            this.lblDepTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepTime.Location = new System.Drawing.Point(207, 215);
+            this.lblDepTime.Name = "lblDepTime";
+            this.lblDepTime.Size = new System.Drawing.Size(121, 21);
+            this.lblDepTime.TabIndex = 18;
+            this.lblDepTime.Text = "Departure Time:";
             // 
-            // numberScheduleTrain
+            // lblArrTime
             // 
-            this.numberScheduleTrain.AutoSize = true;
-            this.numberScheduleTrain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberScheduleTrain.Location = new System.Drawing.Point(66, 125);
-            this.numberScheduleTrain.Name = "numberScheduleTrain";
-            this.numberScheduleTrain.Size = new System.Drawing.Size(109, 21);
-            this.numberScheduleTrain.TabIndex = 14;
-            this.numberScheduleTrain.Text = "Train Number:";
+            this.lblArrTime.AutoSize = true;
+            this.lblArrTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArrTime.Location = new System.Drawing.Point(207, 251);
+            this.lblArrTime.Name = "lblArrTime";
+            this.lblArrTime.Size = new System.Drawing.Size(97, 21);
+            this.lblArrTime.TabIndex = 20;
+            this.lblArrTime.Text = "Arrival Time:";
             // 
-            // numberBoxScheduleTrain
+            // lblRouteID
             // 
-            this.numberBoxScheduleTrain.Location = new System.Drawing.Point(245, 128);
-            this.numberBoxScheduleTrain.Name = "numberBoxScheduleTrain";
-            this.numberBoxScheduleTrain.Size = new System.Drawing.Size(164, 20);
-            this.numberBoxScheduleTrain.TabIndex = 13;
-            this.numberBoxScheduleTrain.TextChanged += new System.EventHandler(this.numberBoxScheduleTrain_TextChanged);
+            this.lblRouteID.AutoSize = true;
+            this.lblRouteID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRouteID.Location = new System.Drawing.Point(207, 140);
+            this.lblRouteID.Name = "lblRouteID";
+            this.lblRouteID.Size = new System.Drawing.Size(110, 21);
+            this.lblRouteID.TabIndex = 22;
+            this.lblRouteID.Text = "Choose Route:";
             // 
-            // carriagesScheduleTrain
+            // tpDepTime
             // 
-            this.carriagesScheduleTrain.AutoSize = true;
-            this.carriagesScheduleTrain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carriagesScheduleTrain.Location = new System.Drawing.Point(66, 161);
-            this.carriagesScheduleTrain.Name = "carriagesScheduleTrain";
-            this.carriagesScheduleTrain.Size = new System.Drawing.Size(159, 21);
-            this.carriagesScheduleTrain.TabIndex = 16;
-            this.carriagesScheduleTrain.Text = "Number of Carriages:";
+            this.tpDepTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.tpDepTime.Location = new System.Drawing.Point(386, 216);
+            this.tpDepTime.Name = "tpDepTime";
+            this.tpDepTime.ShowUpDown = true;
+            this.tpDepTime.Size = new System.Drawing.Size(216, 20);
+            this.tpDepTime.TabIndex = 23;
             // 
-            // carriagesBoxScheduleTrain
+            // lblScheduleID
             // 
-            this.carriagesBoxScheduleTrain.Location = new System.Drawing.Point(245, 164);
-            this.carriagesBoxScheduleTrain.Name = "carriagesBoxScheduleTrain";
-            this.carriagesBoxScheduleTrain.Size = new System.Drawing.Size(164, 20);
-            this.carriagesBoxScheduleTrain.TabIndex = 15;
-            this.carriagesBoxScheduleTrain.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.lblScheduleID.AutoSize = true;
+            this.lblScheduleID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScheduleID.Location = new System.Drawing.Point(207, 103);
+            this.lblScheduleID.Name = "lblScheduleID";
+            this.lblScheduleID.Size = new System.Drawing.Size(95, 21);
+            this.lblScheduleID.TabIndex = 27;
+            this.lblScheduleID.Text = "Schedule ID:";
             // 
-            // timeScheduleTrain
+            // cmbRouteID
             // 
-            this.timeScheduleTrain.AutoSize = true;
-            this.timeScheduleTrain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeScheduleTrain.Location = new System.Drawing.Point(66, 196);
-            this.timeScheduleTrain.Name = "timeScheduleTrain";
-            this.timeScheduleTrain.Size = new System.Drawing.Size(121, 21);
-            this.timeScheduleTrain.TabIndex = 18;
-            this.timeScheduleTrain.Text = "Departure Time:";
+            this.cmbRouteID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRouteID.FormattingEnabled = true;
+            this.cmbRouteID.Location = new System.Drawing.Point(386, 143);
+            this.cmbRouteID.Name = "cmbRouteID";
+            this.cmbRouteID.Size = new System.Drawing.Size(216, 21);
+            this.cmbRouteID.TabIndex = 28;
             // 
-            // timeBoxScheduleTrain
+            // txtNumCarriages
             // 
-            this.timeBoxScheduleTrain.Location = new System.Drawing.Point(245, 199);
-            this.timeBoxScheduleTrain.Name = "timeBoxScheduleTrain";
-            this.timeBoxScheduleTrain.Size = new System.Drawing.Size(164, 20);
-            this.timeBoxScheduleTrain.TabIndex = 17;
+            this.txtNumCarriages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtNumCarriages.FormattingEnabled = true;
+            this.txtNumCarriages.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.txtNumCarriages.Location = new System.Drawing.Point(386, 181);
+            this.txtNumCarriages.Name = "txtNumCarriages";
+            this.txtNumCarriages.Size = new System.Drawing.Size(216, 21);
+            this.txtNumCarriages.TabIndex = 29;
             // 
-            // journeyTimeScheduleTrain
+            // tpArrTime
             // 
-            this.journeyTimeScheduleTrain.AutoSize = true;
-            this.journeyTimeScheduleTrain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.journeyTimeScheduleTrain.Location = new System.Drawing.Point(66, 231);
-            this.journeyTimeScheduleTrain.Name = "journeyTimeScheduleTrain";
-            this.journeyTimeScheduleTrain.Size = new System.Drawing.Size(106, 21);
-            this.journeyTimeScheduleTrain.TabIndex = 20;
-            this.journeyTimeScheduleTrain.Text = "Journey Time:";
+            this.tpArrTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.tpArrTime.Location = new System.Drawing.Point(386, 252);
+            this.tpArrTime.Name = "tpArrTime";
+            this.tpArrTime.ShowUpDown = true;
+            this.tpArrTime.Size = new System.Drawing.Size(216, 20);
+            this.tpArrTime.TabIndex = 30;
             // 
-            // journeyTimeBoxScheduleTrain
+            // txtScheduleID
             // 
-            this.journeyTimeBoxScheduleTrain.Location = new System.Drawing.Point(245, 234);
-            this.journeyTimeBoxScheduleTrain.Name = "journeyTimeBoxScheduleTrain";
-            this.journeyTimeBoxScheduleTrain.Size = new System.Drawing.Size(164, 20);
-            this.journeyTimeBoxScheduleTrain.TabIndex = 19;
-            // 
-            // routeIDScheduleTrain
-            // 
-            this.routeIDScheduleTrain.AutoSize = true;
-            this.routeIDScheduleTrain.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routeIDScheduleTrain.Location = new System.Drawing.Point(66, 90);
-            this.routeIDScheduleTrain.Name = "routeIDScheduleTrain";
-            this.routeIDScheduleTrain.Size = new System.Drawing.Size(73, 21);
-            this.routeIDScheduleTrain.TabIndex = 22;
-            this.routeIDScheduleTrain.Text = "Route ID:";
-            // 
-            // routeIDBoxScheduleTrain
-            // 
-            this.routeIDBoxScheduleTrain.Location = new System.Drawing.Point(245, 93);
-            this.routeIDBoxScheduleTrain.Name = "routeIDBoxScheduleTrain";
-            this.routeIDBoxScheduleTrain.Size = new System.Drawing.Size(164, 20);
-            this.routeIDBoxScheduleTrain.TabIndex = 21;
+            this.txtScheduleID.Enabled = false;
+            this.txtScheduleID.Location = new System.Drawing.Point(386, 106);
+            this.txtScheduleID.Name = "txtScheduleID";
+            this.txtScheduleID.Size = new System.Drawing.Size(216, 20);
+            this.txtScheduleID.TabIndex = 31;
             // 
             // frmScheduleTrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 356);
-            this.Controls.Add(this.routeIDScheduleTrain);
-            this.Controls.Add(this.routeIDBoxScheduleTrain);
-            this.Controls.Add(this.journeyTimeScheduleTrain);
-            this.Controls.Add(this.journeyTimeBoxScheduleTrain);
-            this.Controls.Add(this.timeScheduleTrain);
-            this.Controls.Add(this.timeBoxScheduleTrain);
-            this.Controls.Add(this.carriagesScheduleTrain);
-            this.Controls.Add(this.carriagesBoxScheduleTrain);
-            this.Controls.Add(this.numberScheduleTrain);
-            this.Controls.Add(this.numberBoxScheduleTrain);
+            this.ClientSize = new System.Drawing.Size(752, 393);
+            this.Controls.Add(this.txtScheduleID);
+            this.Controls.Add(this.tpArrTime);
+            this.Controls.Add(this.txtNumCarriages);
+            this.Controls.Add(this.cmbRouteID);
+            this.Controls.Add(this.lblScheduleID);
+            this.Controls.Add(this.tpDepTime);
+            this.Controls.Add(this.lblRouteID);
+            this.Controls.Add(this.lblArrTime);
+            this.Controls.Add(this.lblDepTime);
+            this.Controls.Add(this.lblNumCarriages);
             this.Controls.Add(this.confirmButtonScheduleTrain);
-            this.Controls.Add(this.departureScheduleTrain);
-            this.Controls.Add(this.departureBoxScheduleTrain);
             this.Controls.Add(this.mnuStripScheduleTrain);
             this.MainMenuStrip = this.mnuStripScheduleTrain;
             this.Name = "frmScheduleTrain";
             this.Text = "Train Ticket Sys - Schedule Train";
+            this.Load += new System.EventHandler(this.frmScheduleTrain_Load);
             this.mnuStripScheduleTrain.ResumeLayout(false);
             this.mnuStripScheduleTrain.PerformLayout();
             this.ResumeLayout(false);
@@ -224,17 +220,15 @@
         private System.Windows.Forms.ToolStripMenuItem mnuScheduleTrainBack;
         private System.Windows.Forms.ToolStripMenuItem mnuScheduleTrainExit;
         private System.Windows.Forms.Button confirmButtonScheduleTrain;
-        private System.Windows.Forms.Label departureScheduleTrain;
-        private System.Windows.Forms.TextBox departureBoxScheduleTrain;
-        private System.Windows.Forms.Label numberScheduleTrain;
-        private System.Windows.Forms.TextBox numberBoxScheduleTrain;
-        private System.Windows.Forms.Label carriagesScheduleTrain;
-        private System.Windows.Forms.TextBox carriagesBoxScheduleTrain;
-        private System.Windows.Forms.Label timeScheduleTrain;
-        private System.Windows.Forms.TextBox timeBoxScheduleTrain;
-        private System.Windows.Forms.Label journeyTimeScheduleTrain;
-        private System.Windows.Forms.TextBox journeyTimeBoxScheduleTrain;
-        private System.Windows.Forms.Label routeIDScheduleTrain;
-        private System.Windows.Forms.TextBox routeIDBoxScheduleTrain;
+        private System.Windows.Forms.Label lblNumCarriages;
+        private System.Windows.Forms.Label lblDepTime;
+        private System.Windows.Forms.Label lblArrTime;
+        private System.Windows.Forms.Label lblRouteID;
+        private System.Windows.Forms.DateTimePicker tpDepTime;
+        private System.Windows.Forms.Label lblScheduleID;
+        private System.Windows.Forms.ComboBox cmbRouteID;
+        private System.Windows.Forms.ComboBox txtNumCarriages;
+        private System.Windows.Forms.DateTimePicker tpArrTime;
+        private System.Windows.Forms.TextBox txtScheduleID;
     }
 }

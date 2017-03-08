@@ -42,19 +42,18 @@ namespace TrainTicketSys
             Parent.Show();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void frmScheduleTrain_Load(object sender, EventArgs e)
         {
+            txtScheduleID.Text = Schedules.nextScheduleID().ToString("00000");
 
-        }
+            // Populating the Combo Boxes for selecting Routes
+            DataSet ds = new DataSet();
+            DataTable dt = Routes.getActiveRoutes(ds, "departStation").Tables["Routes"];
 
-        private void numberBoxScheduleTrain_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void departureBoxScheduleTrain_TextChanged(object sender, EventArgs e)
-        {
-
+            foreach (DataRow dr in dt.Rows)
+            {
+                cmbRouteID.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " " + String.Format("From: " + "{0,-15}", dr["departStation"]) + "To: " + dr["arrivalStation"]);
+            }
         }
     }
 }

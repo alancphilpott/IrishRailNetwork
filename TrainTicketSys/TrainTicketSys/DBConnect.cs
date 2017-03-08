@@ -8,6 +8,6 @@ namespace TrainTicketSys
 {
     class DBConnect
     {
-        public const string oradb = "Data Source = oracle/orcl; User Id = t00182898; Password = vy4n7p3y;";
+        public const string oradb = "Data Source = localhost/orcl; User Id = t00182898; Password = vy4n7p3y;";
     }
 }

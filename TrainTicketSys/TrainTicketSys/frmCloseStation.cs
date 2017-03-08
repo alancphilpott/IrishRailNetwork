@@ -30,6 +30,7 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Called when the form is loaded
         private void frmCloseStation_Load(object sender, EventArgs e)
         {
             // Populating the Combo Boxes for selecting Stations
@@ -73,7 +74,7 @@ namespace TrainTicketSys
             txtStatus.Text = aStation.getStatus().ToString();
 
             /*
-
+            // Code Before
             grpUpdate.Visible = true;
             int ID = cmbStations.SelectedIndex + 1;
 
@@ -95,9 +96,17 @@ namespace TrainTicketSys
                 txtStatus.Text = row["status"].ToString();
             }
 
-    */
+            */
         }
 
+        // If the user clicks no
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            // Update Visibility
+            grpUpdate.Visible = false;
+        }
+
+        // If the user clicks yes
         private void btnYes_Click(object sender, EventArgs e)
         {
             // Station Status
@@ -114,18 +123,10 @@ namespace TrainTicketSys
                 stStatus);
 
             // Display Confirmation
-            MessageBox.Show("Station Updated Successfully");
+            MessageBox.Show("Station Closed Successfully");
 
             // Update Visibility
             grpUpdate.Visible = false;
-            cmbStations.Text = "Please Choose A Station";
-        }
-
-        private void btnNo_Click(object sender, EventArgs e)
-        {
-            // Update Visibility
-            grpUpdate.Visible = false;
-            cmbStations.Text = "Please Choose A Station";
         }
     }
 }

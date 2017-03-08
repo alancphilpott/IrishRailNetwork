@@ -1,5 +1,6 @@
 DROP TABLE Stations;
 DROP TABLE Routes;
+DROP TABLE Schedules;
 
 CREATE TABLE Stations
 (
@@ -21,4 +22,15 @@ arrivalStation varchar (20) NOT NULL,
 distance decimal (8,2) NOT NULL,
 status varchar (1) DEFAULT 'A' NOT NULL,
 CONSTRAINT pk_Routes PRIMARY KEY (routeID)
+);
+
+CREATE TABLE Schedules
+(
+scheduleID number (3),
+routeID number (3),
+numCarriages number (1) NOT NULL,
+depTime time NOT NULL,
+arrTime time NOT NULL,
+CONSTRAINT pk_Schedules PRIMARY KEY (scheduleID, routeID),
+CONSTRIANT fk_Schedules FOREIGN KEY (routeID) REFERENCES Routes (routeID)
 );
