@@ -1,6 +1,9 @@
 DROP TABLE Stations;
-DROP TABLE Routes;
 DROP TABLE Schedules;
+DROP TABLE ScheduleRates;
+DROP TABLE Sales;
+DROP TABLE Rates;
+DROP TABLE Routes;
 
 CREATE TABLE Stations
 (
