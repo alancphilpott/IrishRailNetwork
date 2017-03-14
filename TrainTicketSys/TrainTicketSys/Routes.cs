@@ -130,7 +130,7 @@ namespace TrainTicketSys
                 MessageBox.Show(ex.Message);
             }
 
-            // Close Database
+            // Close Database Connection
             con.Close();
         }
 

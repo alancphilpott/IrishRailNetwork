@@ -1,9 +1,11 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TrainTicketSys
 {
@@ -17,16 +19,18 @@ namespace TrainTicketSys
         private int numCarriages;
         private string departTime;
         private string arrivalTime;
+        private char status;
 
         public Schedules ()
         {
             this.scheduleID = 0; this.routeID = 0;
-            this.numCarriages = 0; this.departTime = "00:00"; this.arrivalTime = "00:00";
+            this.numCarriages = 0; this.departTime = "00:00:00"; this.arrivalTime = "00:00:00";
         }
 
         public Schedules (int scheduleID, int routeID, int numCarriages, string departTime, string arrivalTime)
         {
-            
+            setScheduleID(scheduleID); setRouteID(routeID); setNumCarriages(numCarriages);
+            setDepartTime(departTime); setArrivalTime(arrivalTime);
         }
 
         // Setters and Getters
@@ -96,6 +100,52 @@ namespace TrainTicketSys
 
             con.Close();
             return nextScheduleID;
+        }
+
+        public void createSchedule ()
+        {
+            // Connect to DB
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            // Define SQL Query
+            string strSQL =
+                "INSERT INTO Schedules (scheduleID, routeID, numCarriages, depTime, arrTime) VALUES ("
+                + this.scheduleID + ","
+                + this.routeID + ","
+                + this.numCarriages + ",'"
+                + this.departTime + "','"
+                + this.arrivalTime + "')";
+
+            // Execute Command/Query
+            OracleCommand cmd = new OracleCommand(strSQL, con);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            // Close Database Connection
+            con.Close();
+        }
+
+        public static DataSet getRouteSchedules(DataSet DS, int routeID)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT * FROM Schedules WHERE routeID = " + routeID + "";
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+            DA.Fill(DS, "Schedules");
+
+            con.Close();
+
+            return DS;
         }
     }
 }

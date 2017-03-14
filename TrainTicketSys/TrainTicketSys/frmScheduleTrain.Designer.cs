@@ -31,7 +31,7 @@
             this.mnuStripScheduleTrain = new System.Windows.Forms.MenuStrip();
             this.mnuScheduleTrainBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuScheduleTrainExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.confirmButtonScheduleTrain = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.lblNumCarriages = new System.Windows.Forms.Label();
             this.lblDepTime = new System.Windows.Forms.Label();
             this.lblArrTime = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.tpDepTime = new System.Windows.Forms.DateTimePicker();
             this.lblScheduleID = new System.Windows.Forms.Label();
             this.cmbRouteID = new System.Windows.Forms.ComboBox();
-            this.txtNumCarriages = new System.Windows.Forms.ComboBox();
+            this.cmbNumCarriages = new System.Windows.Forms.ComboBox();
             this.tpArrTime = new System.Windows.Forms.DateTimePicker();
             this.txtScheduleID = new System.Windows.Forms.TextBox();
             this.mnuStripScheduleTrain.SuspendLayout();
@@ -71,16 +71,14 @@
             this.mnuScheduleTrainExit.Text = "Exit";
             this.mnuScheduleTrainExit.Click += new System.EventHandler(this.mnuScheduleTrainExit_Click);
             // 
-            // confirmButtonScheduleTrain
+            // btnCreate
             // 
-            this.confirmButtonScheduleTrain.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButtonScheduleTrain.Location = new System.Drawing.Point(386, 298);
-            this.confirmButtonScheduleTrain.Name = "confirmButtonScheduleTrain";
-            this.confirmButtonScheduleTrain.Size = new System.Drawing.Size(216, 29);
-            this.confirmButtonScheduleTrain.TabIndex = 12;
-            this.confirmButtonScheduleTrain.Text = "Confirm Details";
-            this.confirmButtonScheduleTrain.UseVisualStyleBackColor = true;
-            this.confirmButtonScheduleTrain.Click += new System.EventHandler(this.confirmButtonScheduleTrain_Click);
+            this.btnCreate.Location = new System.Drawing.Point(386, 289);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(216, 23);
+            this.btnCreate.TabIndex = 32;
+            this.btnCreate.Text = "Create Schedule";
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // lblNumCarriages
             // 
@@ -150,11 +148,11 @@
             this.cmbRouteID.Size = new System.Drawing.Size(216, 21);
             this.cmbRouteID.TabIndex = 28;
             // 
-            // txtNumCarriages
+            // cmbNumCarriages
             // 
-            this.txtNumCarriages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtNumCarriages.FormattingEnabled = true;
-            this.txtNumCarriages.Items.AddRange(new object[] {
+            this.cmbNumCarriages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNumCarriages.FormattingEnabled = true;
+            this.cmbNumCarriages.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -164,10 +162,10 @@
             "7",
             "8",
             "9"});
-            this.txtNumCarriages.Location = new System.Drawing.Point(386, 181);
-            this.txtNumCarriages.Name = "txtNumCarriages";
-            this.txtNumCarriages.Size = new System.Drawing.Size(216, 21);
-            this.txtNumCarriages.TabIndex = 29;
+            this.cmbNumCarriages.Location = new System.Drawing.Point(386, 181);
+            this.cmbNumCarriages.Name = "cmbNumCarriages";
+            this.cmbNumCarriages.Size = new System.Drawing.Size(216, 21);
+            this.cmbNumCarriages.TabIndex = 29;
             // 
             // tpArrTime
             // 
@@ -193,7 +191,7 @@
             this.ClientSize = new System.Drawing.Size(752, 393);
             this.Controls.Add(this.txtScheduleID);
             this.Controls.Add(this.tpArrTime);
-            this.Controls.Add(this.txtNumCarriages);
+            this.Controls.Add(this.cmbNumCarriages);
             this.Controls.Add(this.cmbRouteID);
             this.Controls.Add(this.lblScheduleID);
             this.Controls.Add(this.tpDepTime);
@@ -201,7 +199,7 @@
             this.Controls.Add(this.lblArrTime);
             this.Controls.Add(this.lblDepTime);
             this.Controls.Add(this.lblNumCarriages);
-            this.Controls.Add(this.confirmButtonScheduleTrain);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.mnuStripScheduleTrain);
             this.MainMenuStrip = this.mnuStripScheduleTrain;
             this.Name = "frmScheduleTrain";
@@ -219,7 +217,7 @@
         private System.Windows.Forms.MenuStrip mnuStripScheduleTrain;
         private System.Windows.Forms.ToolStripMenuItem mnuScheduleTrainBack;
         private System.Windows.Forms.ToolStripMenuItem mnuScheduleTrainExit;
-        private System.Windows.Forms.Button confirmButtonScheduleTrain;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label lblNumCarriages;
         private System.Windows.Forms.Label lblDepTime;
         private System.Windows.Forms.Label lblArrTime;
@@ -227,7 +225,7 @@
         private System.Windows.Forms.DateTimePicker tpDepTime;
         private System.Windows.Forms.Label lblScheduleID;
         private System.Windows.Forms.ComboBox cmbRouteID;
-        private System.Windows.Forms.ComboBox txtNumCarriages;
+        private System.Windows.Forms.ComboBox cmbNumCarriages;
         private System.Windows.Forms.DateTimePicker tpArrTime;
         private System.Windows.Forms.TextBox txtScheduleID;
     }

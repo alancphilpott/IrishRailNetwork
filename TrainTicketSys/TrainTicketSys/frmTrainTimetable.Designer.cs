@@ -31,11 +31,13 @@
             this.mnuStripTrainTimeTable = new System.Windows.Forms.MenuStrip();
             this.mnuTrainTimetableBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTrainTimetableExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.keywordTrainTimetable = new System.Windows.Forms.Label();
-            this.keywordBoxTrainTimetable = new System.Windows.Forms.TextBox();
-            this.finishButtonTrainTimetable = new System.Windows.Forms.Button();
-            this.listTimetableList = new System.Windows.Forms.ListBox();
+            this.lblRouteID = new System.Windows.Forms.Label();
+            this.btnFinish = new System.Windows.Forms.Button();
+            this.cmbRoutes = new System.Windows.Forms.ComboBox();
+            this.dgTimetable = new System.Windows.Forms.DataGridView();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.mnuStripTrainTimeTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTimetable)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuStripTrainTimeTable
@@ -46,7 +48,7 @@
             this.mnuTrainTimetableExit});
             this.mnuStripTrainTimeTable.Location = new System.Drawing.Point(0, 0);
             this.mnuStripTrainTimeTable.Name = "mnuStripTrainTimeTable";
-            this.mnuStripTrainTimeTable.Size = new System.Drawing.Size(397, 29);
+            this.mnuStripTrainTimeTable.Size = new System.Drawing.Size(752, 29);
             this.mnuStripTrainTimeTable.TabIndex = 3;
             this.mnuStripTrainTimeTable.Text = "menuStrip1";
             // 
@@ -64,58 +66,75 @@
             this.mnuTrainTimetableExit.Text = "Exit";
             this.mnuTrainTimetableExit.Click += new System.EventHandler(this.mnuTrainTimetableExit_Click);
             // 
-            // keywordTrainTimetable
+            // lblRouteID
             // 
-            this.keywordTrainTimetable.AutoSize = true;
-            this.keywordTrainTimetable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keywordTrainTimetable.Location = new System.Drawing.Point(52, 67);
-            this.keywordTrainTimetable.Name = "keywordTrainTimetable";
-            this.keywordTrainTimetable.Size = new System.Drawing.Size(113, 21);
-            this.keywordTrainTimetable.TabIndex = 17;
-            this.keywordTrainTimetable.Text = "Filter Keyword:";
+            this.lblRouteID.AutoSize = true;
+            this.lblRouteID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRouteID.Location = new System.Drawing.Point(12, 44);
+            this.lblRouteID.Name = "lblRouteID";
+            this.lblRouteID.Size = new System.Drawing.Size(110, 21);
+            this.lblRouteID.TabIndex = 17;
+            this.lblRouteID.Text = "Choose Route:";
             // 
-            // keywordBoxTrainTimetable
+            // btnFinish
             // 
-            this.keywordBoxTrainTimetable.Location = new System.Drawing.Point(185, 70);
-            this.keywordBoxTrainTimetable.Name = "keywordBoxTrainTimetable";
-            this.keywordBoxTrainTimetable.Size = new System.Drawing.Size(164, 20);
-            this.keywordBoxTrainTimetable.TabIndex = 16;
+            this.btnFinish.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinish.Location = new System.Drawing.Point(16, 352);
+            this.btnFinish.Name = "btnFinish";
+            this.btnFinish.Size = new System.Drawing.Size(106, 29);
+            this.btnFinish.TabIndex = 15;
+            this.btnFinish.Text = "Finish";
+            this.btnFinish.UseVisualStyleBackColor = true;
+            this.btnFinish.Visible = false;
             // 
-            // finishButtonTrainTimetable
+            // cmbRoutes
             // 
-            this.finishButtonTrainTimetable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finishButtonTrainTimetable.Location = new System.Drawing.Point(56, 238);
-            this.finishButtonTrainTimetable.Name = "finishButtonTrainTimetable";
-            this.finishButtonTrainTimetable.Size = new System.Drawing.Size(293, 29);
-            this.finishButtonTrainTimetable.TabIndex = 15;
-            this.finishButtonTrainTimetable.Text = "Finish";
-            this.finishButtonTrainTimetable.UseVisualStyleBackColor = true;
+            this.cmbRoutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoutes.FormattingEnabled = true;
+            this.cmbRoutes.Location = new System.Drawing.Point(131, 44);
+            this.cmbRoutes.Name = "cmbRoutes";
+            this.cmbRoutes.Size = new System.Drawing.Size(252, 21);
+            this.cmbRoutes.TabIndex = 18;
+            this.cmbRoutes.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // listTimetableList
+            // dgTimetable
             // 
-            this.listTimetableList.FormattingEnabled = true;
-            this.listTimetableList.Items.AddRange(new object[] {
-            "Train Timetable"});
-            this.listTimetableList.Location = new System.Drawing.Point(56, 100);
-            this.listTimetableList.Name = "listTimetableList";
-            this.listTimetableList.Size = new System.Drawing.Size(293, 121);
-            this.listTimetableList.TabIndex = 14;
+            this.dgTimetable.AllowUserToAddRows = false;
+            this.dgTimetable.AllowUserToDeleteRows = false;
+            this.dgTimetable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgTimetable.Location = new System.Drawing.Point(16, 86);
+            this.dgTimetable.Name = "dgTimetable";
+            this.dgTimetable.ReadOnly = true;
+            this.dgTimetable.Size = new System.Drawing.Size(724, 247);
+            this.dgTimetable.TabIndex = 19;
+            this.dgTimetable.Visible = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(634, 352);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(106, 29);
+            this.btnPrint.TabIndex = 20;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
             // 
             // frmTrainTimetable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 324);
-            this.Controls.Add(this.keywordTrainTimetable);
-            this.Controls.Add(this.keywordBoxTrainTimetable);
-            this.Controls.Add(this.finishButtonTrainTimetable);
-            this.Controls.Add(this.listTimetableList);
+            this.ClientSize = new System.Drawing.Size(752, 393);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.dgTimetable);
+            this.Controls.Add(this.cmbRoutes);
+            this.Controls.Add(this.lblRouteID);
+            this.Controls.Add(this.btnFinish);
             this.Controls.Add(this.mnuStripTrainTimeTable);
             this.Name = "frmTrainTimetable";
-            this.Text = "Train Ticket System - Train Timtable";
+            this.Text = "Train Ticket System - Train Timetable";
             this.Load += new System.EventHandler(this.frmTrainTimetable_Load);
             this.mnuStripTrainTimeTable.ResumeLayout(false);
             this.mnuStripTrainTimeTable.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTimetable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,9 +145,10 @@
         private System.Windows.Forms.MenuStrip mnuStripTrainTimeTable;
         private System.Windows.Forms.ToolStripMenuItem mnuTrainTimetableBack;
         private System.Windows.Forms.ToolStripMenuItem mnuTrainTimetableExit;
-        private System.Windows.Forms.Label keywordTrainTimetable;
-        private System.Windows.Forms.TextBox keywordBoxTrainTimetable;
-        private System.Windows.Forms.Button finishButtonTrainTimetable;
-        private System.Windows.Forms.ListBox listTimetableList;
+        private System.Windows.Forms.Label lblRouteID;
+        private System.Windows.Forms.Button btnFinish;
+        private System.Windows.Forms.ComboBox cmbRoutes;
+        private System.Windows.Forms.DataGridView dgTimetable;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

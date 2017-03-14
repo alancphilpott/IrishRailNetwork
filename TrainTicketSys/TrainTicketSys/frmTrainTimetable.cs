@@ -27,7 +27,13 @@ namespace TrainTicketSys
 
         private void frmTrainTimetable_Load(object sender, EventArgs e)
         {
+            DataSet ds = new DataSet();
+            DataTable dt = Routes.getActiveRoutes(ds, "departStation").Tables["Routes"];
 
+            foreach (DataRow dr in dt.Rows)
+            {
+                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " " + String.Format("From: " + "{0,-15}", dr["departStation"]) + "To: " + dr["arrivalStation"]);
+            }
         }
 
         private void mnuTrainTimetableBack_Click(object sender, EventArgs e)
@@ -39,6 +45,17 @@ namespace TrainTicketSys
         private void mnuTrainTimetableExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int routeID = Convert.ToInt32(cmbRoutes.Text.Substring(0, 5));
+
+            DataSet DS = new DataSet();
+            dgTimetable.DataSource = Schedules.getRouteSchedules(DS, routeID).Tables["Schedules"];
+
+            dgTimetable.Visible = true;
+            btnFinish.Visible = true;
         }
     }
 }

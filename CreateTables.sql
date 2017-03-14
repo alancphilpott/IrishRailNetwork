@@ -29,8 +29,9 @@ CREATE TABLE Schedules
 scheduleID number (3),
 routeID number (3),
 numCarriages number (1) NOT NULL,
-depTime time NOT NULL,
-arrTime time NOT NULL,
+depTime varchar (9) NOT NULL,
+arrTime varchar (9) NOT NULL,
+status varchar (1) DEFAULT 'A' NOT NULL,
 CONSTRAINT pk_Schedules PRIMARY KEY (scheduleID, routeID),
-CONSTRIANT fk_Schedules FOREIGN KEY (routeID) REFERENCES Routes (routeID)
+CONSTRAINT fk_Schedules FOREIGN KEY (routeID) REFERENCES Routes (routeID)
 );
