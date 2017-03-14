@@ -35,3 +35,32 @@ status varchar (1) DEFAULT 'A' NOT NULL,
 CONSTRAINT pk_Schedules PRIMARY KEY (scheduleID, routeID),
 CONSTRAINT fk_Schedules FOREIGN KEY (routeID) REFERENCES Routes (routeID)
 );
+
+CREATE TABLE Rates
+(
+typeID number (2),
+description varchar (25),
+CONSTRAINT pk_Rates PRIMARY KEY (typeID)
+);
+
+CREATE TABLE ScheduleRates
+(
+routeID number (3),
+typeID number (2),
+rate decimal (3,2) NOT NULL,
+CONSTRAINT pk_ScheduleRates PRIMARY KEY (routeID, typeID),
+CONSTRAINT fk_ScheduleRatesRoute FOREIGN KEY (routeID) REFERENCES Routes (routeID),
+CONSTRAINT fk_ScheduleRatesType FOREIGN KEY (typeID) REFERENCES Rates (typeID)
+);
+
+CREATE TABLE Sales
+(
+saleID number (10),
+routeID number (3),
+typeID number (2),
+totalCost decimal (5,2) NOT NULL,
+saleDate varchar (10) NOT NULL,
+CONSTRAINT pk_Sales PRIMARY KEY (saleID, routeID, typeID),
+CONSTRAINT fk_SalesRoute FOREIGN KEY (routeID) REFERENCES Routes (routeID),
+CONSTRAINT fk_SalesType FOREIGN KEY (typeID) REFERENCES Rates (typeID)
+);
