@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,11 +15,12 @@ namespace TrainTicketSys
 
         public Rates ()
         {
-            description = "Unknown";
+            this.typeID = 0;
+            this.description = "Unknown";
         }
         public Rates (int typeID, string description)
         {
-
+            setTypeID(typeID); setDescription(description);
         }
 
         // TypeID
@@ -44,7 +46,7 @@ namespace TrainTicketSys
         // Method To Retrieve Next typeID
         public static int nextTypeID ()
         {
-            int typeID;
+            int nextTypeID;
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
@@ -55,12 +57,12 @@ namespace TrainTicketSys
 
             dr.Read();
             if (dr.IsDBNull(0))
-                typeID = 1;
+                nextTypeID = 1;
             else
-                typeID = Convert.ToInt32(dr.GetValue(0)) + 1;
+                nextTypeID = Convert.ToInt32(dr.GetValue(0)) + 1;
 
             con.Close();
-            return typeID;
+            return nextTypeID;
         }
     }
 }

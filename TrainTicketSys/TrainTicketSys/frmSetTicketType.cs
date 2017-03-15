@@ -27,13 +27,7 @@ namespace TrainTicketSys
 
         private void frmSetTicketType_Load(object sender, EventArgs e)
         {
-            try
-            {
-                txtTypeID.Text = Rates.nextTypeID().ToString("00000");
-            } catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            txtTypeID.Text = Rates.nextTypeID().ToString("00000");
         }
 
         private void mnuSetTicketTypeBack_Click(object sender, EventArgs e)
