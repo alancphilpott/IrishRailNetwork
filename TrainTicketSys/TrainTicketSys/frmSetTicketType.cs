@@ -41,5 +41,45 @@ namespace TrainTicketSys
         {
             Application.Exit();
         }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            Boolean valid = true;
+            string validationMessage = "";
+
+            // Validation of Details Entered
+
+            // Description Not Longer Than 25 Characters
+            if (txtDescription.Text.Length > 25)
+            {
+                validationMessage += " Description Cannot Be Longer Than 25 Characters. ";
+                valid = false;
+            }
+
+            // Description Not Empty
+            if (txtDescription.Text.Equals(""))
+            {
+                validationMessage += " Description Must Not Be Empty";
+                valid = false;
+            }
+
+            if (!valid)
+                MessageBox.Show(validationMessage);
+            else
+            {
+                Rates rate = new Rates(
+                    Convert.ToInt32(txtTypeID.Text),
+                    txtDescription.Text
+                    );
+
+                rate.createRate();
+
+                // Display Confirmation
+                MessageBox.Show("Schedule Created Successfully");
+
+                // Reset UI
+                txtTypeID.Text = Rates.nextTypeID().ToString("00000");
+            }
+        }
     }
 }

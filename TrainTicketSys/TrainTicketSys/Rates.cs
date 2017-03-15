@@ -1,10 +1,12 @@
-﻿using Oracle.DataAccess.Client;
-using System;
+﻿using System.Data;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using System;
 
 namespace TrainTicketSys
 {
@@ -46,17 +48,11 @@ namespace TrainTicketSys
         // Method To Retrieve Next typeID
         public static int nextTypeID ()
         {
-            string sql = "SELECT * FROM Rates";
-            con = new OracleConnection(DBConnect.oradb); con.Open();
-            OracleCommand cmd = new OracleCommand(sql, con);
-
-            return 1;
-            /*
             int nextTypeID;
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            String strSQL = "SELECT MAX(typeID) FROM Rates";
+            string strSQL = "SELECT MAX(typeID) FROM Rates";
 
             OracleCommand cmd = new OracleCommand(strSQL, con);
             OracleDataReader dr = cmd.ExecuteReader();
@@ -69,7 +65,33 @@ namespace TrainTicketSys
 
             con.Close();
             return nextTypeID;
-            */
+        }
+
+        public void createRate()
+        {
+            // Connect to DB
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            // Define SQL Query
+            string strSQL =
+                "INSERT INTO Rates VALUES ("
+                + this.typeID + ",'"
+                + this.description + "')";
+
+            // Execute Command/Query
+            OracleCommand cmd = new OracleCommand(strSQL, con);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            // Close Database Connection
+            con.Close();
         }
     }
 }

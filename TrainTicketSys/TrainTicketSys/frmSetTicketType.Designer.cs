@@ -31,13 +31,11 @@
             this.mnuStripSetTicketType = new System.Windows.Forms.MenuStrip();
             this.mnuSetTicketTypeBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.confirmButtonSetTicketType = new System.Windows.Forms.Button();
-            this.rateSetTicketType = new System.Windows.Forms.Label();
-            this.descriptionSetTicketType = new System.Windows.Forms.Label();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.lblTypeID = new System.Windows.Forms.Label();
-            this.rateBoxSetTicketType = new System.Windows.Forms.TextBox();
-            this.descriptionBoxSetTicketType = new System.Windows.Forms.TextBox();
             this.txtTypeID = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.mnuStripSetTicketType.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,78 +65,62 @@
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // confirmButtonSetTicketType
+            // btnCreate
             // 
-            this.confirmButtonSetTicketType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButtonSetTicketType.Location = new System.Drawing.Point(12, 352);
-            this.confirmButtonSetTicketType.Name = "confirmButtonSetTicketType";
-            this.confirmButtonSetTicketType.Size = new System.Drawing.Size(293, 29);
-            this.confirmButtonSetTicketType.TabIndex = 12;
-            this.confirmButtonSetTicketType.Text = "Confirm Details";
-            this.confirmButtonSetTicketType.UseVisualStyleBackColor = true;
+            this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Location = new System.Drawing.Point(210, 274);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(293, 29);
+            this.btnCreate.TabIndex = 12;
+            this.btnCreate.Text = "Create Ticket Type";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
-            // rateSetTicketType
+            // lblDescription
             // 
-            this.rateSetTicketType.AutoSize = true;
-            this.rateSetTicketType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateSetTicketType.Location = new System.Drawing.Point(51, 117);
-            this.rateSetTicketType.Name = "rateSetTicketType";
-            this.rateSetTicketType.Size = new System.Drawing.Size(98, 21);
-            this.rateSetTicketType.TabIndex = 9;
-            this.rateSetTicketType.Text = "Rate per KM:";
-            // 
-            // descriptionSetTicketType
-            // 
-            this.descriptionSetTicketType.AutoSize = true;
-            this.descriptionSetTicketType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionSetTicketType.Location = new System.Drawing.Point(51, 85);
-            this.descriptionSetTicketType.Name = "descriptionSetTicketType";
-            this.descriptionSetTicketType.Size = new System.Drawing.Size(92, 21);
-            this.descriptionSetTicketType.TabIndex = 10;
-            this.descriptionSetTicketType.Text = "Description:";
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(206, 162);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(92, 21);
+            this.lblDescription.TabIndex = 10;
+            this.lblDescription.Text = "Description:";
             // 
             // lblTypeID
             // 
             this.lblTypeID.AutoSize = true;
             this.lblTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeID.Location = new System.Drawing.Point(51, 54);
+            this.lblTypeID.Location = new System.Drawing.Point(206, 131);
             this.lblTypeID.Name = "lblTypeID";
             this.lblTypeID.Size = new System.Drawing.Size(64, 21);
             this.lblTypeID.TabIndex = 11;
             this.lblTypeID.Text = "Type ID:";
             // 
-            // rateBoxSetTicketType
-            // 
-            this.rateBoxSetTicketType.Location = new System.Drawing.Point(184, 118);
-            this.rateBoxSetTicketType.Name = "rateBoxSetTicketType";
-            this.rateBoxSetTicketType.Size = new System.Drawing.Size(164, 20);
-            this.rateBoxSetTicketType.TabIndex = 6;
-            // 
-            // descriptionBoxSetTicketType
-            // 
-            this.descriptionBoxSetTicketType.Location = new System.Drawing.Point(184, 85);
-            this.descriptionBoxSetTicketType.Name = "descriptionBoxSetTicketType";
-            this.descriptionBoxSetTicketType.Size = new System.Drawing.Size(164, 20);
-            this.descriptionBoxSetTicketType.TabIndex = 7;
-            // 
             // txtTypeID
             // 
-            this.txtTypeID.Location = new System.Drawing.Point(184, 54);
+            this.txtTypeID.Enabled = false;
+            this.txtTypeID.Location = new System.Drawing.Point(304, 131);
             this.txtTypeID.Name = "txtTypeID";
-            this.txtTypeID.Size = new System.Drawing.Size(164, 20);
+            this.txtTypeID.Size = new System.Drawing.Size(199, 20);
             this.txtTypeID.TabIndex = 8;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(304, 165);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(199, 80);
+            this.txtDescription.TabIndex = 13;
+            this.txtDescription.Text = "";
             // 
             // frmSetTicketType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 393);
-            this.Controls.Add(this.confirmButtonSetTicketType);
-            this.Controls.Add(this.rateSetTicketType);
-            this.Controls.Add(this.descriptionSetTicketType);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTypeID);
-            this.Controls.Add(this.rateBoxSetTicketType);
-            this.Controls.Add(this.descriptionBoxSetTicketType);
             this.Controls.Add(this.txtTypeID);
             this.Controls.Add(this.mnuStripSetTicketType);
             this.Name = "frmSetTicketType";
@@ -156,12 +138,10 @@
         private System.Windows.Forms.MenuStrip mnuStripSetTicketType;
         private System.Windows.Forms.ToolStripMenuItem mnuSetTicketTypeBack;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.Button confirmButtonSetTicketType;
-        private System.Windows.Forms.Label rateSetTicketType;
-        private System.Windows.Forms.Label descriptionSetTicketType;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblTypeID;
-        private System.Windows.Forms.TextBox rateBoxSetTicketType;
-        private System.Windows.Forms.TextBox descriptionBoxSetTicketType;
         private System.Windows.Forms.TextBox txtTypeID;
+        private System.Windows.Forms.RichTextBox txtDescription;
     }
 }

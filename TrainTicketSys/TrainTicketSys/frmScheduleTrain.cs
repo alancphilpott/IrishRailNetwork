@@ -110,7 +110,7 @@ namespace TrainTicketSys
                 schedule.createSchedule();
 
                 // Display Confirmation
-                MessageBox.Show("Schedule Created Successfully");
+                MessageBox.Show("Rates Created Successfully");
 
                 // Reset UI
                 resetUI();
