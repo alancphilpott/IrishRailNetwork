@@ -46,6 +46,12 @@ namespace TrainTicketSys
         // Method To Retrieve Next typeID
         public static int nextTypeID ()
         {
+            string sql = "SELECT * FROM Rates";
+            con = new OracleConnection(DBConnect.oradb); con.Open();
+            OracleCommand cmd = new OracleCommand(sql, con);
+
+            return 1;
+            /*
             int nextTypeID;
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
@@ -63,6 +69,7 @@ namespace TrainTicketSys
 
             con.Close();
             return nextTypeID;
+            */
         }
     }
 }
