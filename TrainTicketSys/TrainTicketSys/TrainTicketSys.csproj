@@ -182,6 +182,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rates.cs" />
     <Compile Include="Routes.cs" />
     <Compile Include="Schedules.cs" />
     <Compile Include="Station.cs" />

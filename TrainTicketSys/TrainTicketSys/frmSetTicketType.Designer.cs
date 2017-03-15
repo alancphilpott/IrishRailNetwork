@@ -34,10 +34,10 @@
             this.confirmButtonSetTicketType = new System.Windows.Forms.Button();
             this.rateSetTicketType = new System.Windows.Forms.Label();
             this.descriptionSetTicketType = new System.Windows.Forms.Label();
-            this.IDSetTicketType = new System.Windows.Forms.Label();
+            this.lblTypeID = new System.Windows.Forms.Label();
             this.rateBoxSetTicketType = new System.Windows.Forms.TextBox();
             this.descriptionBoxSetTicketType = new System.Windows.Forms.TextBox();
-            this.IDBoxSetTicketType = new System.Windows.Forms.TextBox();
+            this.txtTypeID = new System.Windows.Forms.TextBox();
             this.mnuStripSetTicketType.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             this.mnuExit});
             this.mnuStripSetTicketType.Location = new System.Drawing.Point(0, 0);
             this.mnuStripSetTicketType.Name = "mnuStripSetTicketType";
-            this.mnuStripSetTicketType.Size = new System.Drawing.Size(396, 29);
+            this.mnuStripSetTicketType.Size = new System.Drawing.Size(752, 29);
             this.mnuStripSetTicketType.TabIndex = 1;
             this.mnuStripSetTicketType.Text = "mnuAddRoutes";
             // 
@@ -70,7 +70,7 @@
             // confirmButtonSetTicketType
             // 
             this.confirmButtonSetTicketType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButtonSetTicketType.Location = new System.Drawing.Point(55, 171);
+            this.confirmButtonSetTicketType.Location = new System.Drawing.Point(12, 352);
             this.confirmButtonSetTicketType.Name = "confirmButtonSetTicketType";
             this.confirmButtonSetTicketType.Size = new System.Drawing.Size(293, 29);
             this.confirmButtonSetTicketType.TabIndex = 12;
@@ -97,15 +97,15 @@
             this.descriptionSetTicketType.TabIndex = 10;
             this.descriptionSetTicketType.Text = "Description:";
             // 
-            // IDSetTicketType
+            // lblTypeID
             // 
-            this.IDSetTicketType.AutoSize = true;
-            this.IDSetTicketType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDSetTicketType.Location = new System.Drawing.Point(51, 54);
-            this.IDSetTicketType.Name = "IDSetTicketType";
-            this.IDSetTicketType.Size = new System.Drawing.Size(72, 21);
-            this.IDSetTicketType.TabIndex = 11;
-            this.IDSetTicketType.Text = "Ticket ID:";
+            this.lblTypeID.AutoSize = true;
+            this.lblTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeID.Location = new System.Drawing.Point(51, 54);
+            this.lblTypeID.Name = "lblTypeID";
+            this.lblTypeID.Size = new System.Drawing.Size(64, 21);
+            this.lblTypeID.TabIndex = 11;
+            this.lblTypeID.Text = "Type ID:";
             // 
             // rateBoxSetTicketType
             // 
@@ -121,25 +121,25 @@
             this.descriptionBoxSetTicketType.Size = new System.Drawing.Size(164, 20);
             this.descriptionBoxSetTicketType.TabIndex = 7;
             // 
-            // IDBoxSetTicketType
+            // txtTypeID
             // 
-            this.IDBoxSetTicketType.Location = new System.Drawing.Point(184, 54);
-            this.IDBoxSetTicketType.Name = "IDBoxSetTicketType";
-            this.IDBoxSetTicketType.Size = new System.Drawing.Size(164, 20);
-            this.IDBoxSetTicketType.TabIndex = 8;
+            this.txtTypeID.Location = new System.Drawing.Point(184, 54);
+            this.txtTypeID.Name = "txtTypeID";
+            this.txtTypeID.Size = new System.Drawing.Size(164, 20);
+            this.txtTypeID.TabIndex = 8;
             // 
             // frmSetTicketType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 237);
+            this.ClientSize = new System.Drawing.Size(752, 393);
             this.Controls.Add(this.confirmButtonSetTicketType);
             this.Controls.Add(this.rateSetTicketType);
             this.Controls.Add(this.descriptionSetTicketType);
-            this.Controls.Add(this.IDSetTicketType);
+            this.Controls.Add(this.lblTypeID);
             this.Controls.Add(this.rateBoxSetTicketType);
             this.Controls.Add(this.descriptionBoxSetTicketType);
-            this.Controls.Add(this.IDBoxSetTicketType);
+            this.Controls.Add(this.txtTypeID);
             this.Controls.Add(this.mnuStripSetTicketType);
             this.Name = "frmSetTicketType";
             this.Text = "Train Ticket System - Set Ticket Type";
@@ -159,9 +159,9 @@
         private System.Windows.Forms.Button confirmButtonSetTicketType;
         private System.Windows.Forms.Label rateSetTicketType;
         private System.Windows.Forms.Label descriptionSetTicketType;
-        private System.Windows.Forms.Label IDSetTicketType;
+        private System.Windows.Forms.Label lblTypeID;
         private System.Windows.Forms.TextBox rateBoxSetTicketType;
         private System.Windows.Forms.TextBox descriptionBoxSetTicketType;
-        private System.Windows.Forms.TextBox IDBoxSetTicketType;
+        private System.Windows.Forms.TextBox txtTypeID;
     }
 }

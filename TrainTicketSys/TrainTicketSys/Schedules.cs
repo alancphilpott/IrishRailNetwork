@@ -89,7 +89,6 @@ namespace TrainTicketSys
             String strSQL = "SELECT MAX(scheduleID) FROM Schedules";
 
             OracleCommand cmd = new OracleCommand(strSQL, con);
-
             OracleDataReader dr = cmd.ExecuteReader();
 
             dr.Read();
