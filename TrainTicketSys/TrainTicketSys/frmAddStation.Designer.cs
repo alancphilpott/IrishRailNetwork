@@ -40,8 +40,6 @@
             this.txtTown = new System.Windows.Forms.TextBox();
             this.txtCounty = new System.Windows.Forms.TextBox();
             this.btnCreate = new System.Windows.Forms.Button();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblStID = new System.Windows.Forms.Label();
             this.txtStID = new System.Windows.Forms.TextBox();
@@ -155,29 +153,6 @@
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(234, 166);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(109, 21);
-            this.lblStatus.TabIndex = 0;
-            this.lblStatus.Text = "Station Status:";
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Active",
-            "Closed"});
-            this.cmbStatus.Location = new System.Drawing.Point(367, 165);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(164, 21);
-            this.cmbStatus.TabIndex = 3;
-            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -233,8 +208,6 @@
             this.Controls.Add(this.lblStID);
             this.Controls.Add(this.txtStID);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.cmbStatus);
-            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblCounty);
             this.Controls.Add(this.lblTown);
@@ -269,8 +242,6 @@
         private System.Windows.Forms.TextBox txtTown;
         private System.Windows.Forms.TextBox txtCounty;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblStID;
         private System.Windows.Forms.TextBox txtStID;

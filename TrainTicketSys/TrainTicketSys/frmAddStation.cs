@@ -45,7 +45,6 @@ namespace TrainTicketSys
             txtTown.Text = "";
             txtCounty.Text = "";
             txtPhoneNo.Text = "";
-            cmbStatus.Text = "Choose Status";
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -58,13 +57,6 @@ namespace TrainTicketSys
             if (txtStation.Text.Equals("") || txtStreet.Text.Equals("") || txtTown.Text.Equals("") || txtCounty.Text.Equals("") || txtPhoneNo.Text.Equals(""))
             {
                 MessageBox.Show("Please Enter All Fields");
-                valid = false;
-            }
-
-            // Station Status Chosen
-            if (cmbStatus.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please Choose A Station Status");
                 valid = false;
             }
 
@@ -83,28 +75,17 @@ namespace TrainTicketSys
                 }
             }
 
-            // Station Status
-            char stStatus;
-            if (cmbStatus.SelectedIndex == 0)
-            {
-                stStatus = 'A';
-            }
-            else
-            {
-                stStatus = 'C';
-            }
-
             // Instantiate Station Object
             if (valid)
             {
                 Station station = new Station(
                     Convert.ToInt32(txtStID.Text),
-                    txtStation.Text,
-                    txtStreet.Text,
-                    txtTown.Text,
-                    txtCounty.Text,
+                    txtStation.Text.ToUpper(),
+                    txtStreet.Text.ToUpper(),
+                    txtTown.Text.ToUpper(),
+                    txtCounty.Text.ToUpper(),
                     txtPhoneNo.Text,
-                    stStatus);
+                    'A');
 
                 station.createStation();
 

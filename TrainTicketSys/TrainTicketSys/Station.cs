@@ -30,19 +30,20 @@ namespace TrainTicketSys
             this.town = "";
             this.county = "";
             this.phoneNo = "";
-            this.status = 'C';
+            this.status = ' ';
         }
 
-        // All Argument Constructor
+        // Argument Constructor
         public Station (int stationID, string name, string street, string town, string county, string phoneNo, char status)
         {
             setStationID(stationID); setName(name);
             setStreet(street); setTown(town);
             setCounty(county); setPhoneNo(phoneNo);
-            setStatus(status);
+            setStatus('A');
         }
 
         // Setter and Getter Methods for Variables
+        // ID
         public void setStationID (int stationID)
         {
             this.stationID = stationID;
@@ -51,7 +52,7 @@ namespace TrainTicketSys
         {
             return this.stationID;
         }
-
+        // Name
         public void setName (string name)
         {
             this.name = name;
@@ -60,7 +61,7 @@ namespace TrainTicketSys
         {
             return this.name;
         }
-
+        // Street
         public void setStreet (string street)
         {
             this.street = street;
@@ -69,7 +70,7 @@ namespace TrainTicketSys
         {
             return this.street;
         }
-
+        // Town
         public void setTown (string town)
         {
             this.town = town;
@@ -78,7 +79,7 @@ namespace TrainTicketSys
         {
             return this.town;
         }
-
+        // County
         public void setCounty (string county)
         {
             this.county = county;
@@ -87,7 +88,7 @@ namespace TrainTicketSys
         {
             return this.county;
         }
-
+        // Phone Number
         public void setPhoneNo (string phoneNo)
         {
             this.phoneNo = phoneNo;
@@ -96,7 +97,7 @@ namespace TrainTicketSys
         {
             return this.phoneNo;
         }
-
+        // Status
         public void setStatus (char status)
         {
             this.status = status;
@@ -114,9 +115,7 @@ namespace TrainTicketSys
             con.Open();
 
             String strSQL = "SELECT MAX(stationID) FROM Stations";
-
             OracleCommand cmd = new OracleCommand(strSQL, con);
-
             OracleDataReader dr = cmd.ExecuteReader();
 
             dr.Read();
@@ -155,16 +154,14 @@ namespace TrainTicketSys
             con.Close();
         }
 
-        // Method To Populate DataGrid
+        // Method To Get All Stations WITH Sort Order
         public static DataSet getStations(DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
             string SQL = "SELECT stationID, name, county, phoneNo, status FROM Stations ORDER BY " + sortOrder;
-
             OracleCommand cmd = new OracleCommand(SQL, con);
-
             OracleDataAdapter DA = new OracleDataAdapter(cmd);
             DA.Fill(DS, "Stations");
 
@@ -173,16 +170,14 @@ namespace TrainTicketSys
             return DS;
         }
 
-        // Method to Retrieve All Active Stations
+        // Method to Get All Active Stations WITH Sort Order
         public static DataSet getActiveStations(DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
             string SQL = "SELECT stationID, name, county, phoneNo, status FROM Stations WHERE status = 'A' ORDER BY " + sortOrder;
-
             OracleCommand cmd = new OracleCommand(SQL, con);
-
             OracleDataAdapter DA = new OracleDataAdapter(cmd);
             DA.Fill(DS, "Stations");
 
@@ -191,16 +186,14 @@ namespace TrainTicketSys
             return DS;
         }
 
-        // Method To Populate DataGrid Relevant To A User Search
+        // Method To Get A Station According to Station Name
         public static DataSet getStationsName (DataSet DS, String txtKeyword)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
             string SQL = "SELECT stationID, name, county, phoneNo, status FROM Stations WHERE upper(name) LIKE '" + txtKeyword.ToUpper() + "%' ORDER BY stationID";
-
             OracleCommand cmd = new OracleCommand(SQL, con);
-
             OracleDataAdapter DA = new OracleDataAdapter(cmd);
             DA.Fill(DS, "Stations");
 
@@ -217,7 +210,6 @@ namespace TrainTicketSys
 
             string SQL = "SELECT * FROM Stations WHERE stationID = " + stationID + "";
             OracleCommand cmd = new OracleCommand(SQL, con);
-
             OracleDataAdapter DA = new OracleDataAdapter(cmd);
 
             DataSet DS = new DataSet();
@@ -228,8 +220,8 @@ namespace TrainTicketSys
             return DS.Tables["aStation"];
         }
 
-        // Method to get a station relavent to station ID (NOT RETURNING)
-        public void getStation(int stationID)
+        // Method To Get A Station Relavent To Station ID (NOT RETURNING)
+        public void getStation (int stationID)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
@@ -238,7 +230,6 @@ namespace TrainTicketSys
             OracleCommand cmd = new OracleCommand(SQL, con);
 
             OracleDataReader dr = cmd.ExecuteReader();
-
             dr.Read();
 
             //intantiate instance variables
@@ -268,8 +259,6 @@ namespace TrainTicketSys
 
             OracleCommand cmd = new OracleCommand(SQL, con);
             cmd.ExecuteNonQuery();
-            
-
             con.Close();
         }
     }
