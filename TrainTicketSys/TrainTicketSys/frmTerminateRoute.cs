@@ -35,7 +35,7 @@ namespace TrainTicketSys
 
             foreach (DataRow dr in dt.Rows)
             {
-                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " From" + String.Format("{0,-20}",dr["departStation"]) + " To" + dr["arrivalStation"]);
+                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " DEP: " + String.Format("{0,-20}",dr["departStation"]) + " ARR: " + dr["arrivalStation"]);
             }
         }
 
@@ -61,9 +61,18 @@ namespace TrainTicketSys
 
             // Populate The Text Boxes For Updating
 
+            DataTable dt;
+            
             txtRouteID.Text = aRoute.getRouteID().ToString("00000");
-            txtDepSt.Text = aRoute.getDepartStation().ToString();
-            txtArrSt.Text = aRoute.getArrivalStation().ToString();
+
+            dt = Station.getAStation(aRoute.getDepartStation());
+            foreach (DataRow dr in dt.Rows)
+                txtDepSt.Text = dr[0].ToString();
+
+            dt = Station.getAStation(aRoute.getArrivalStation());
+            foreach (DataRow dr in dt.Rows)
+                txtArrSt.Text = dr[0].ToString();
+
             txtDistance.Text = aRoute.getDistance().ToString();
             txtStatus.Text = aRoute.getStatus().ToString();
         }

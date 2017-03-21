@@ -81,9 +81,9 @@
             // 
             this.cmbRoutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoutes.FormattingEnabled = true;
-            this.cmbRoutes.Location = new System.Drawing.Point(87, 50);
+            this.cmbRoutes.Location = new System.Drawing.Point(77, 50);
             this.cmbRoutes.Name = "cmbRoutes";
-            this.cmbRoutes.Size = new System.Drawing.Size(232, 21);
+            this.cmbRoutes.Size = new System.Drawing.Size(407, 21);
             this.cmbRoutes.TabIndex = 13;
             this.cmbRoutes.SelectedIndexChanged += new System.EventHandler(this.cmbRoutes_SelectedIndexChanged);
             // 
@@ -91,11 +91,11 @@
             // 
             this.routeIDTerminateRoute.AutoSize = true;
             this.routeIDTerminateRoute.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routeIDTerminateRoute.Location = new System.Drawing.Point(8, 50);
+            this.routeIDTerminateRoute.Location = new System.Drawing.Point(12, 50);
             this.routeIDTerminateRoute.Name = "routeIDTerminateRoute";
-            this.routeIDTerminateRoute.Size = new System.Drawing.Size(73, 21);
+            this.routeIDTerminateRoute.Size = new System.Drawing.Size(59, 21);
             this.routeIDTerminateRoute.TabIndex = 12;
-            this.routeIDTerminateRoute.Text = "Route ID:";
+            this.routeIDTerminateRoute.Text = "ROUTE";
             // 
             // grpUpdate
             // 

@@ -139,7 +139,13 @@ namespace TrainTicketSys
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT * FROM Routes ORDER BY " + sortOrder;
+            string SQL = @"SELECT R.RouteID AS routeID, SDepart.Name AS departStation, SArrival.Name AS arrivalStation, R.Distance AS distance, R.Status AS status
+                           FROM Routes R
+                                INNER JOIN STATIONS SDepart
+                                ON SDepart.StationID = R.DepartStation
+                                INNER JOIN STATIONS SArrival
+                            ON SArrival.StationID = R.ArrivalStation
+                            WHERE R.Status = 'A' ORDER BY " + sortOrder;
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -156,7 +162,7 @@ namespace TrainTicketSys
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT * FROM Routes WHERE upper(DEPARTSTATION) LIKE '" + txtKeyWord.ToUpper() + "%' ORDER BY routeID";
+            string SQL = "SELECT departStation FROM Routes WHERE upper(departStation) LIKE '" + txtKeyWord.ToUpper() + "%' ORDER BY routeID";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 

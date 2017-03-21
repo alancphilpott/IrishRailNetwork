@@ -76,12 +76,13 @@
             this.lblRouteID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRouteID.Location = new System.Drawing.Point(159, 115);
             this.lblRouteID.Name = "lblRouteID";
-            this.lblRouteID.Size = new System.Drawing.Size(73, 21);
+            this.lblRouteID.Size = new System.Drawing.Size(78, 21);
             this.lblRouteID.TabIndex = 5;
-            this.lblRouteID.Text = "Route ID:";
+            this.lblRouteID.Text = "ROUTE ID";
             // 
             // txtRouteID
             // 
+            this.txtRouteID.BackColor = System.Drawing.SystemColors.Window;
             this.txtRouteID.Enabled = false;
             this.txtRouteID.Location = new System.Drawing.Point(302, 118);
             this.txtRouteID.Name = "txtRouteID";
@@ -92,15 +93,15 @@
             // 
             this.lblArrSt.AutoSize = true;
             this.lblArrSt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrSt.Location = new System.Drawing.Point(159, 172);
+            this.lblArrSt.Location = new System.Drawing.Point(159, 174);
             this.lblArrSt.Name = "lblArrSt";
-            this.lblArrSt.Size = new System.Drawing.Size(112, 21);
+            this.lblArrSt.Size = new System.Drawing.Size(110, 21);
             this.lblArrSt.TabIndex = 5;
-            this.lblArrSt.Text = "Arrival Station:";
+            this.lblArrSt.Text = "ARR. STATION";
             // 
             // txtDistance
             // 
-            this.txtDistance.Location = new System.Drawing.Point(302, 209);
+            this.txtDistance.Location = new System.Drawing.Point(302, 211);
             this.txtDistance.Name = "txtDistance";
             this.txtDistance.Size = new System.Drawing.Size(164, 20);
             this.txtDistance.TabIndex = 4;
@@ -109,11 +110,11 @@
             // 
             this.lblDistance.AutoSize = true;
             this.lblDistance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistance.Location = new System.Drawing.Point(159, 206);
+            this.lblDistance.Location = new System.Drawing.Point(159, 208);
             this.lblDistance.Name = "lblDistance";
-            this.lblDistance.Size = new System.Drawing.Size(117, 21);
+            this.lblDistance.Size = new System.Drawing.Size(135, 21);
             this.lblDistance.TabIndex = 5;
-            this.lblDistance.Text = "Route Distance:";
+            this.lblDistance.Text = "ROUTE DISTANCE";
             // 
             // btnCreate
             // 
@@ -130,11 +131,11 @@
             // 
             this.lblDepSt.AutoSize = true;
             this.lblDepSt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepSt.Location = new System.Drawing.Point(159, 141);
+            this.lblDepSt.Location = new System.Drawing.Point(159, 143);
             this.lblDepSt.Name = "lblDepSt";
-            this.lblDepSt.Size = new System.Drawing.Size(136, 21);
+            this.lblDepSt.Size = new System.Drawing.Size(108, 21);
             this.lblDepSt.TabIndex = 7;
-            this.lblDepSt.Text = "Departure Station:";
+            this.lblDepSt.Text = "DEP. STATION";
             // 
             // lblTitle
             // 
@@ -150,7 +151,7 @@
             // 
             this.cmbArrSt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbArrSt.FormattingEnabled = true;
-            this.cmbArrSt.Location = new System.Drawing.Point(302, 175);
+            this.cmbArrSt.Location = new System.Drawing.Point(302, 177);
             this.cmbArrSt.Name = "cmbArrSt";
             this.cmbArrSt.Size = new System.Drawing.Size(164, 21);
             this.cmbArrSt.TabIndex = 12;
@@ -159,7 +160,7 @@
             // 
             this.cmbDepSt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepSt.FormattingEnabled = true;
-            this.cmbDepSt.Location = new System.Drawing.Point(302, 144);
+            this.cmbDepSt.Location = new System.Drawing.Point(302, 146);
             this.cmbDepSt.Name = "cmbDepSt";
             this.cmbDepSt.Size = new System.Drawing.Size(164, 21);
             this.cmbDepSt.TabIndex = 11;

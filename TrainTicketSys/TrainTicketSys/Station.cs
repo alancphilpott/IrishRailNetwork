@@ -208,7 +208,7 @@ namespace TrainTicketSys
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT * FROM Stations WHERE stationID = " + stationID + "";
+            string SQL = "SELECT name FROM Stations WHERE stationID = " + stationID + "";
             OracleCommand cmd = new OracleCommand(SQL, con);
             OracleDataAdapter DA = new OracleDataAdapter(cmd);
 
