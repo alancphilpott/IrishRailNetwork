@@ -65,10 +65,10 @@ namespace TrainTicketSys
                 valid = false;
             }
 
-            // Number of Carriages Chosen
-            if (cmbNumCarriages.SelectedIndex == -1)
+            // Day of Week Chosen
+            if (cmbDayOfWeek.SelectedIndex == -1)
             {
-                validationMessage += " Please Choose The Number of Carriages. ";
+                validationMessage += " Please Choose The Day of Week. ";
                 valid = false;
             }
 
@@ -79,19 +79,6 @@ namespace TrainTicketSys
                 validationMessage += " Please Choose A Different Departure and Arrival Time. ";
             }
 
-            /*
-            // Station Status
-            char routeStatus;
-            if (cmbStatus.SelectedIndex == 0)
-            {
-                routeStatus = 'A';
-            }
-            else
-            {
-                routeStatus = 'T';
-            }
-            */
-
             if (!valid)
             {
                 MessageBox.Show(validationMessage);
@@ -99,22 +86,57 @@ namespace TrainTicketSys
             // Instantiate Route Object
             else
             {
+                int dayNum = getDayNum();
+
                 Schedules schedule = new Schedules(
                     Convert.ToInt32(txtScheduleID.Text),
                     Convert.ToInt32(cmbRouteID.Text.Substring(0,5)),
-                    Convert.ToInt32(cmbNumCarriages.Text),
-                    tpDepTime.Text,
-                    tpArrTime.Text
+                    dayNum,
+                    tpDepTime.Text.Substring(0,5),
+                    tpArrTime.Text.Substring(0,5)
                     );
 
                 schedule.createSchedule();
 
                 // Display Confirmation
-                MessageBox.Show("Rates Created Successfully");
+                MessageBox.Show("Schedule Created Successfully");
 
                 // Reset UI
                 resetUI();
             }
+        }
+
+        public int getDayNum ()
+        {
+            String dayOfWeek = cmbDayOfWeek.Text;
+            int dayNum = 0;
+
+            switch (dayOfWeek)
+            {
+                case "Monday":
+                    dayNum = 1;
+                    break;
+                case "Tuesday":
+                    dayNum = 2;
+                    break;
+                case "Wednesday":
+                    dayNum = 3;
+                    break;
+                case "Thursday":
+                    dayNum = 4;
+                    break;
+                case "Friday":
+                    dayNum = 5;
+                    break;
+                case "Saturday":
+                    dayNum = 6;
+                    break;
+                case "Sunday":
+                    dayNum = 7;
+                    break;
+            }
+
+            return dayNum;
         }
 
         public void resetUI()

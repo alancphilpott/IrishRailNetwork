@@ -1,11 +1,12 @@
-﻿using Oracle.ManagedDataAccess.Client;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace TrainTicketSys
 {
@@ -16,7 +17,7 @@ namespace TrainTicketSys
         // Class Attributes
         private int scheduleID;
         private int routeID;
-        private int numCarriages;
+        private int dayOfWeek;
         private string departTime;
         private string arrivalTime;
         private char status;
@@ -24,12 +25,12 @@ namespace TrainTicketSys
         public Schedules ()
         {
             this.scheduleID = 0; this.routeID = 0;
-            this.numCarriages = 0; this.departTime = "00:00:00"; this.arrivalTime = "00:00:00";
+            this.dayOfWeek = 0; this.departTime = "00:00:00"; this.arrivalTime = "00:00:00";
         }
 
-        public Schedules (int scheduleID, int routeID, int numCarriages, string departTime, string arrivalTime)
+        public Schedules (int scheduleID, int routeID, int dayOfWeek, string departTime, string arrivalTime)
         {
-            setScheduleID(scheduleID); setRouteID(routeID); setNumCarriages(numCarriages);
+            setScheduleID(scheduleID); setRouteID(routeID); setDayOfWeek(dayOfWeek);
             setDepartTime(departTime); setArrivalTime(arrivalTime);
         }
 
@@ -52,13 +53,13 @@ namespace TrainTicketSys
             return this.routeID;
         }
 
-        public void setNumCarriages (int numCarriages)
+        public void setDayOfWeek (int dayOfWeek)
         {
-            this.numCarriages = numCarriages;
+            this.dayOfWeek = dayOfWeek;
         }
-        public int getNumCarriages ()
+        public int getDayOfWeek ()
         {
-            return this.numCarriages;
+            return this.dayOfWeek;
         }
 
         public void setDepartTime (string departTime)
@@ -109,10 +110,10 @@ namespace TrainTicketSys
 
             // Define SQL Query
             string strSQL =
-                "INSERT INTO Schedules (scheduleID, routeID, numCarriages, depTime, arrTime) VALUES ("
+                "INSERT INTO Schedules (scheduleID, routeID, dayOfWeek, depTime, arrTime) VALUES ("
                 + this.scheduleID + ","
                 + this.routeID + ","
-                + this.numCarriages + ",'"
+                + this.dayOfWeek + ",'"
                 + this.departTime + "','"
                 + this.arrivalTime + "')";
 
@@ -136,11 +137,29 @@ namespace TrainTicketSys
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT * FROM Schedules WHERE routeID = " + routeID + "";
-            OracleCommand cmd = new OracleCommand(SQL, con);
+            string SQL = @"SELECT Schedules.ScheduleID, Schedules.RouteID,
+                            CASE Schedules.dayOfWeek
+                            WHEN 1 THEN 'Monday'
+                            WHEN 2 THEN 'Tuesday'
+                            WHEN 3 THEN 'Wednesday'
+                            WHEN 4 THEN 'Thursday'
+                            WHEN 5 THEN 'Friday'
+                            WHEN 6 THEN 'Saturday'
+                            WHEN 7 THEN 'Sunday'
+                           END AS 'dayOfWeek', Schedules.depTime, Schedules.arrTime, Schedules.Status
+                           FROM Schedules WHERE routeID = " + routeID;
 
+            OracleCommand cmd = new OracleCommand(SQL, con);
             OracleDataAdapter DA = new OracleDataAdapter(cmd);
-            DA.Fill(DS, "Schedules");
+
+            try
+            {
+                DA.Fill(DS, "Schedules");
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             con.Close();
 

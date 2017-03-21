@@ -208,10 +208,9 @@ namespace TrainTicketSys
                             WHERE R.Status = 'A' ORDER BY " + sortOrder;
 
             OracleCommand cmd = new OracleCommand(SQL, con);
-
             OracleDataAdapter DA = new OracleDataAdapter(cmd);
-            DA.Fill(DS, "Routes");
 
+            DA.Fill(DS, "Routes");
             con.Close();
 
             return DS;
@@ -280,8 +279,6 @@ namespace TrainTicketSys
             {
                 MessageBox.Show(ex.Message);
             }
-
-
             con.Close();
         }
     }

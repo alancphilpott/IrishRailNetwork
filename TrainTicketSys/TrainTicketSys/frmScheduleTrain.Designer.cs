@@ -39,7 +39,7 @@
             this.tpDepTime = new System.Windows.Forms.DateTimePicker();
             this.lblScheduleID = new System.Windows.Forms.Label();
             this.cmbRouteID = new System.Windows.Forms.ComboBox();
-            this.cmbNumCarriages = new System.Windows.Forms.ComboBox();
+            this.cmbDayOfWeek = new System.Windows.Forms.ComboBox();
             this.tpArrTime = new System.Windows.Forms.DateTimePicker();
             this.txtScheduleID = new System.Windows.Forms.TextBox();
             this.mnuStripScheduleTrain.SuspendLayout();
@@ -86,9 +86,9 @@
             this.lblNumCarriages.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumCarriages.Location = new System.Drawing.Point(207, 178);
             this.lblNumCarriages.Name = "lblNumCarriages";
-            this.lblNumCarriages.Size = new System.Drawing.Size(159, 21);
+            this.lblNumCarriages.Size = new System.Drawing.Size(100, 21);
             this.lblNumCarriages.TabIndex = 16;
-            this.lblNumCarriages.Text = "Number of Carriages:";
+            this.lblNumCarriages.Text = "Day of Week:";
             // 
             // lblDepTime
             // 
@@ -122,11 +122,12 @@
             // 
             // tpDepTime
             // 
-            this.tpDepTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.tpDepTime.CustomFormat = "HH:mm";
+            this.tpDepTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tpDepTime.Location = new System.Drawing.Point(386, 216);
             this.tpDepTime.Name = "tpDepTime";
             this.tpDepTime.ShowUpDown = true;
-            this.tpDepTime.Size = new System.Drawing.Size(216, 20);
+            this.tpDepTime.Size = new System.Drawing.Size(57, 20);
             this.tpDepTime.TabIndex = 23;
             // 
             // lblScheduleID
@@ -148,32 +149,31 @@
             this.cmbRouteID.Size = new System.Drawing.Size(216, 21);
             this.cmbRouteID.TabIndex = 28;
             // 
-            // cmbNumCarriages
+            // cmbDayOfWeek
             // 
-            this.cmbNumCarriages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNumCarriages.FormattingEnabled = true;
-            this.cmbNumCarriages.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9"});
-            this.cmbNumCarriages.Location = new System.Drawing.Point(386, 181);
-            this.cmbNumCarriages.Name = "cmbNumCarriages";
-            this.cmbNumCarriages.Size = new System.Drawing.Size(216, 21);
-            this.cmbNumCarriages.TabIndex = 29;
+            this.cmbDayOfWeek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDayOfWeek.FormattingEnabled = true;
+            this.cmbDayOfWeek.Items.AddRange(new object[] {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+            this.cmbDayOfWeek.Location = new System.Drawing.Point(386, 181);
+            this.cmbDayOfWeek.Name = "cmbDayOfWeek";
+            this.cmbDayOfWeek.Size = new System.Drawing.Size(216, 21);
+            this.cmbDayOfWeek.TabIndex = 29;
             // 
             // tpArrTime
             // 
-            this.tpArrTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.tpArrTime.CustomFormat = "HH:mm";
+            this.tpArrTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tpArrTime.Location = new System.Drawing.Point(386, 252);
             this.tpArrTime.Name = "tpArrTime";
             this.tpArrTime.ShowUpDown = true;
-            this.tpArrTime.Size = new System.Drawing.Size(216, 20);
+            this.tpArrTime.Size = new System.Drawing.Size(57, 20);
             this.tpArrTime.TabIndex = 30;
             // 
             // txtScheduleID
@@ -191,7 +191,7 @@
             this.ClientSize = new System.Drawing.Size(752, 393);
             this.Controls.Add(this.txtScheduleID);
             this.Controls.Add(this.tpArrTime);
-            this.Controls.Add(this.cmbNumCarriages);
+            this.Controls.Add(this.cmbDayOfWeek);
             this.Controls.Add(this.cmbRouteID);
             this.Controls.Add(this.lblScheduleID);
             this.Controls.Add(this.tpDepTime);
@@ -225,7 +225,7 @@
         private System.Windows.Forms.DateTimePicker tpDepTime;
         private System.Windows.Forms.Label lblScheduleID;
         private System.Windows.Forms.ComboBox cmbRouteID;
-        private System.Windows.Forms.ComboBox cmbNumCarriages;
+        private System.Windows.Forms.ComboBox cmbDayOfWeek;
         private System.Windows.Forms.DateTimePicker tpArrTime;
         private System.Windows.Forms.TextBox txtScheduleID;
     }
