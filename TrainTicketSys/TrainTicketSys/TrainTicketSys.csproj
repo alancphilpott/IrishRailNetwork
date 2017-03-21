@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxItem.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="frmAddRoutes.cs">
       <SubType>Form</SubType>

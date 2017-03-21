@@ -35,7 +35,7 @@ namespace TrainTicketSys
 
             foreach (DataRow dr in dt.Rows)
             {
-                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " " + String.Format("{0,-20}",dr["departStation"]) + " " + dr["arrivalStation"]);
+                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " From" + String.Format("{0,-20}",dr["departStation"]) + " To" + dr["arrivalStation"]);
             }
         }
 
@@ -62,26 +62,10 @@ namespace TrainTicketSys
             // Populate The Text Boxes For Updating
 
             txtRouteID.Text = aRoute.getRouteID().ToString("00000");
-            txtDepSt.Text = aRoute.getDepartStation();
-            txtArrSt.Text = aRoute.getArrivalStation();
+            txtDepSt.Text = aRoute.getDepartStation().ToString();
+            txtArrSt.Text = aRoute.getArrivalStation().ToString();
             txtDistance.Text = aRoute.getDistance().ToString();
             txtStatus.Text = aRoute.getStatus().ToString();
-
-            /*
-            grpUpdate.Visible = true;
-            int ID = cmbRoutes.SelectedIndex + 1;
-            
-            DataTable routeData = Routes.getARoute(ID);
-            
-            foreach (DataRow row in routeData.Rows)
-            {
-                txtRouteID.Text = ID.ToString();
-                txtDepSt.Text = row["departStation"].ToString();
-                txtArrSt.Text = row["arrivalStation"].ToString();
-                txtDistance.Text = row["distance"].ToString();
-                txtStatus.Text = row["status"].ToString();
-            }
-            */
         }
 
         private void btnNo_Click(object sender, EventArgs e)

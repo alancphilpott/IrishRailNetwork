@@ -37,8 +37,14 @@ namespace TrainTicketSys
 
             foreach (DataRow dr in dt.Rows)
             {
-                cmbDepSt.Items.Add(dr["name"]);
-                cmbArrSt.Items.Add(dr["name"]);
+                ComboboxItem item = new ComboboxItem
+                {
+                    Text = dr["name"].ToString(),
+                    Value = Convert.ToInt32(dr["stationID"])
+                };
+
+                cmbDepSt.Items.Add(item);
+                cmbArrSt.Items.Add(item);
             }
         }
 
@@ -58,7 +64,7 @@ namespace TrainTicketSys
         {
             txtRouteID.Text = Routes.nextRouteID().ToString("00000");
             txtDistance.Text = "";
-            cmbStatus.Text = "Choose Status";
+            
             cmbDepSt.Text = "Choose Departure Station";
             cmbArrSt.Text = "Choose Arrival Station";
         }
@@ -75,13 +81,6 @@ namespace TrainTicketSys
             if (txtDistance.Text.Equals(""))
             {
                 validationMessage += " Please Enter All Fields. ";
-                valid = false;
-            }
-
-            // Station Status Chosen
-            if (cmbStatus.SelectedIndex == -1)
-            {
-                validationMessage += " Please Choose A Route Status. ";
                 valid = false;
             }
 
@@ -108,17 +107,6 @@ namespace TrainTicketSys
                 valid = false;
                 validationMessage += ex.Message + " Please Re-Enter Route Distance.";
             }
-            
-            // Station Status
-            char routeStatus;
-            if (cmbStatus.SelectedIndex == 0)
-            {
-                routeStatus = 'A';
-            }
-            else
-            {
-                routeStatus = 'T';
-            }
 
             if (!valid)
             {
@@ -130,10 +118,10 @@ namespace TrainTicketSys
             {
                 Routes route = new Routes(
                     Convert.ToInt32(txtRouteID.Text),
-                    cmbDepSt.Text,
-                    cmbArrSt.Text,
+                    (cmbDepSt.SelectedItem as ComboboxItem).Value,
+                    (cmbArrSt.SelectedItem as ComboboxItem).Value,
                     Convert.ToDouble(txtDistance.Text),
-                    routeStatus
+                    'A'
                     );
 
                 route.createRoute();

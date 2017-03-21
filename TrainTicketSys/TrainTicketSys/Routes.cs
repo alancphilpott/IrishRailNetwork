@@ -16,19 +16,18 @@ namespace TrainTicketSys
 
         // Class Attributes
         private int routeID;
-        private string departStation;
-        private string arrivalStation;
+        private int departStation;
+        private int arrivalStation;
         private double distance;
         private char status;
 
         public Routes ()
         {
-            this.routeID = 0; this.departStation = "";
-            this.arrivalStation = ""; this.distance = 0.00;
-            this.status = 'C';
+            this.routeID = 0; this.departStation = 0;
+            this.arrivalStation = 0; this.distance = 0.00; this.status = ' ';
         }
 
-        public Routes (int routeID, string departStation, string arrivalStation, double distance, char status)
+        public Routes (int routeID, int departStation, int arrivalStation, double distance, char status)
         {
             setRouteID(routeID); setDepartStation(departStation);
             setArrivalStation(arrivalStation); setDistance(distance); setStatus(status);
@@ -44,20 +43,20 @@ namespace TrainTicketSys
             return this.routeID;
         }
 
-        public void setDepartStation (string departStation)
+        public void setDepartStation (int departStation)
         {
             this.departStation = departStation;
         }
-        public string getDepartStation ()
+        public int getDepartStation ()
         {
             return this.departStation;
         }
 
-        public void setArrivalStation (string arrivalStation)
+        public void setArrivalStation (int arrivalStation)
         {
             this.arrivalStation = arrivalStation;
         }
-        public string getArrivalStation ()
+        public int getArrivalStation ()
         {
             return this.arrivalStation;
         }
@@ -135,12 +134,12 @@ namespace TrainTicketSys
         }
 
         // Method To Get All Routes to Populate DataGrid
-        public static DataSet getRoutes (DataSet DS)
+        public static DataSet getRoutes (DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT * FROM Routes ORDER BY routeID";
+            string SQL = "SELECT * FROM Routes ORDER BY " + sortOrder;
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -152,13 +151,12 @@ namespace TrainTicketSys
             return DS;
         }
 
-        // Method To Get All Routes According to a Search to Populate DataGrid
-        public static DataSet getRoutes (DataSet DS, String txtKeyword)
+        public static DataSet getRoutesDepartStation (DataSet DS, String txtKeyWord)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT * FROM Routes WHERE upper(DEPARTSTATION) LIKE '" + txtKeyword.ToUpper() + "%' ORDER BY routeID";
+            string SQL = "SELECT * FROM Routes WHERE upper(DEPARTSTATION) LIKE '" + txtKeyWord.ToUpper() + "%' ORDER BY routeID";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -176,7 +174,13 @@ namespace TrainTicketSys
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
-            string SQL = "SELECT * FROM Routes WHERE status = 'A' ORDER BY " + sortOrder;
+            string SQL = @"SELECT R.RouteID AS routeID, SDepart.Name AS departStation, SArrival.Name AS arrivalStation, R.Distance AS distance, R.Status AS status
+                           FROM Routes R
+                                INNER JOIN STATIONS SDepart
+                                ON SDepart.StationID = R.DepartStation
+                                INNER JOIN STATIONS SArrival
+                            ON SArrival.StationID = R.ArrivalStation
+                            WHERE R.Status = 'A' ORDER BY " + sortOrder;
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -222,8 +226,8 @@ namespace TrainTicketSys
 
             //intantiate instance variables
             this.routeID = dr.GetInt32(0);
-            this.departStation = dr.GetString(1);
-            this.arrivalStation = dr.GetString(2);
+            this.departStation = dr.GetInt32(1);
+            this.arrivalStation = dr.GetInt32(2);
             this.distance = dr.GetDouble(3);
             this.status = Convert.ToChar(dr.GetString(4));
 

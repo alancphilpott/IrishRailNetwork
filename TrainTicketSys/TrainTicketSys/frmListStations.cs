@@ -48,7 +48,7 @@ namespace TrainTicketSys
             if (keyword.Equals(""))
             {
                 DataSet DS = new DataSet();
-                dgStations.DataSource = Station.getStations(DS,"StationId").Tables["Stations"];
+                dgStations.DataSource = Station.getStations(DS,"stationID").Tables["Stations"];
                 dgStations.Visible = true;
                 btnPrint.Visible = true;
             }

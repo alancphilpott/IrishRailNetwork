@@ -139,7 +139,7 @@
             // 
             this.lblWarning.AutoSize = true;
             this.lblWarning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWarning.Location = new System.Drawing.Point(204, 244);
+            this.lblWarning.Location = new System.Drawing.Point(414, 219);
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(308, 21);
             this.lblWarning.TabIndex = 16;

@@ -8,6 +8,7 @@ namespace TrainTicketSys
     {
         private Form Parent;
         OracleConnection con;
+        private String validationMessage;
 
         public frmAddStation()
         {
@@ -20,6 +21,7 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Method When Form Is Loading
         private void frmAddStation_Load(object sender, EventArgs e)
         {
             txtStID.Text = Station.nextStationID().ToString("00000");
@@ -47,33 +49,45 @@ namespace TrainTicketSys
             txtPhoneNo.Text = "";
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        // Method For Validation
+        private Boolean validation ()
         {
             Boolean valid = true;
-            
-            // Validation of Details Entered
+            validationMessage = "";
 
             // Not Empty
             if (txtStation.Text.Equals("") || txtStreet.Text.Equals("") || txtTown.Text.Equals("") || txtCounty.Text.Equals("") || txtPhoneNo.Text.Equals(""))
             {
-                MessageBox.Show("Please Enter All Fields");
+                validationMessage += "\nPlease Enter All Fields.";
                 valid = false;
             }
 
-            // Expected Values
+            // Phone Number Length
             if (txtPhoneNo.Text.Length > 16)
             {
-                MessageBox.Show("Phone Number Must Not Exceed 16 Characters");
+                validationMessage += "\nPhone Number Must Not Exceed 16 Characters";
                 valid = false;
             }
+
+            // Phone Number Numbers Only
             foreach (char c in txtPhoneNo.Text)
             {
                 if (c < '0' || c > '9')
                 {
-                    MessageBox.Show("Phone Number Must Be All Digits");
+                    validationMessage += "\nPhone Number Must Be All Digits";
                     valid = false;
                 }
             }
+            return valid;
+        }
+
+        // Method When Create Station Button Is Clicked
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            Boolean valid = validation();
+
+            if (!valid)
+                MessageBox.Show(validationMessage);
 
             // Instantiate Station Object
             if (valid)

@@ -30,18 +30,10 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
-        // Called when the form is loaded
+        // Called When The Form Is Loaded
         private void frmCloseStation_Load(object sender, EventArgs e)
         {
-            // Populating the Combo Boxes for selecting Stations
-            DataSet ds = new DataSet();
-
-            DataTable dt = Station.getActiveStations(ds, "name").Tables["Stations"];
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                cmbStations.Items.Add(String.Format("{0:00000}",dr["stationID"]) + " " + dr["name"]);
-            }
+            loadStationsComboBox();
         }
 
         private void mnuCloseStationBack_Click(object sender, EventArgs e)
@@ -53,6 +45,20 @@ namespace TrainTicketSys
         private void mnuCloseStationExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void loadStationsComboBox ()
+        {
+            // Populating the Combo Boxes for selecting Stations
+            DataSet ds = new DataSet();
+            DataTable dt = Station.getActiveStations(ds, "name").Tables["Stations"];
+
+            cmbStations.Items.Clear();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                cmbStations.Items.Add(String.Format("{0:00000}", dr["stationID"]) + " " + dr["name"]);
+            }
         }
 
         // Called when a selection is made in the ComboBox
@@ -72,41 +78,16 @@ namespace TrainTicketSys
             txtCounty.Text = aStation.getCounty();
             txtPhoneNo.Text = aStation.getPhoneNo();
             txtStatus.Text = aStation.getStatus().ToString();
-
-            /*
-            // Code Before
-            grpUpdate.Visible = true;
-            int ID = cmbStations.SelectedIndex + 1;
-
-            grpUpdate.Visible = true;
-            btnYes.Visible = true;
-            btnNo.Visible = true;
-
-            DataTable stationData = Station.getAStation(ID);
-
-            // Populate The Text Boxes For Updating
-            foreach (DataRow row in stationData.Rows)
-            {
-                txtStID.Text = ID.ToString();
-                txtName.Text = row["name"].ToString();
-                txtStreet.Text = row["street"].ToString();
-                txtTown.Text = row["town"].ToString(); ;
-                txtCounty.Text = row["county"].ToString();
-                txtPhoneNo.Text = row["phoneNo"].ToString();
-                txtStatus.Text = row["status"].ToString();
-            }
-
-            */
         }
 
-        // If the user clicks no
+        // If The User Clicks No
         private void btnNo_Click(object sender, EventArgs e)
         {
             // Update Visibility
             grpUpdate.Visible = false;
         }
 
-        // If the user clicks yes
+        // If The User Clicks Yes
         private void btnYes_Click(object sender, EventArgs e)
         {
             // Station Status
@@ -124,7 +105,8 @@ namespace TrainTicketSys
 
             // Display Confirmation
             MessageBox.Show("Station Closed Successfully");
-
+            // Reload ComboBox
+            loadStationsComboBox();
             // Update Visibility
             grpUpdate.Visible = false;
         }

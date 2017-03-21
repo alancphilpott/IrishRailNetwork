@@ -43,14 +43,14 @@ namespace TrainTicketSys
             if (keyword.Equals(""))
             {
                 DataSet DS = new DataSet();
-                dgRoutes.DataSource = Routes.getRoutes(DS).Tables["Routes"];
+                dgRoutes.DataSource = Routes.getRoutes(DS, "departStation").Tables["Routes"];
                 dgRoutes.Visible = true;
                 btnPrint.Visible = true;
             }
             else
             {
                 DataSet DS = new DataSet();
-                dgRoutes.DataSource = Routes.getRoutes(DS, keyword).Tables["Routes"];
+                dgRoutes.DataSource = Routes.getRoutesDepartStation(DS, keyword).Tables["Routes"];
                 dgRoutes.Visible = true;
                 btnPrint.Visible = true;
             }

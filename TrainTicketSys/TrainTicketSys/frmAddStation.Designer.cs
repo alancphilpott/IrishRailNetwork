@@ -95,7 +95,7 @@
             // 
             this.lblStreet.AutoSize = true;
             this.lblStreet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreet.Location = new System.Drawing.Point(234, 198);
+            this.lblStreet.Location = new System.Drawing.Point(234, 165);
             this.lblStreet.Name = "lblStreet";
             this.lblStreet.Size = new System.Drawing.Size(54, 21);
             this.lblStreet.TabIndex = 0;
@@ -105,7 +105,7 @@
             // 
             this.lblTown.AutoSize = true;
             this.lblTown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTown.Location = new System.Drawing.Point(234, 229);
+            this.lblTown.Location = new System.Drawing.Point(234, 196);
             this.lblTown.Name = "lblTown";
             this.lblTown.Size = new System.Drawing.Size(51, 21);
             this.lblTown.TabIndex = 0;
@@ -115,7 +115,7 @@
             // 
             this.lblCounty.AutoSize = true;
             this.lblCounty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCounty.Location = new System.Drawing.Point(234, 261);
+            this.lblCounty.Location = new System.Drawing.Point(234, 228);
             this.lblCounty.Name = "lblCounty";
             this.lblCounty.Size = new System.Drawing.Size(63, 21);
             this.lblCounty.TabIndex = 0;
@@ -123,21 +123,21 @@
             // 
             // txtStreet
             // 
-            this.txtStreet.Location = new System.Drawing.Point(367, 198);
+            this.txtStreet.Location = new System.Drawing.Point(367, 165);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(164, 20);
             this.txtStreet.TabIndex = 4;
             // 
             // txtTown
             // 
-            this.txtTown.Location = new System.Drawing.Point(367, 229);
+            this.txtTown.Location = new System.Drawing.Point(367, 196);
             this.txtTown.Name = "txtTown";
             this.txtTown.Size = new System.Drawing.Size(164, 20);
             this.txtTown.TabIndex = 5;
             // 
             // txtCounty
             // 
-            this.txtCounty.Location = new System.Drawing.Point(367, 262);
+            this.txtCounty.Location = new System.Drawing.Point(367, 229);
             this.txtCounty.Name = "txtCounty";
             this.txtCounty.Size = new System.Drawing.Size(164, 20);
             this.txtCounty.TabIndex = 6;
@@ -145,7 +145,7 @@
             // btnCreate
             // 
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(238, 336);
+            this.btnCreate.Location = new System.Drawing.Point(238, 303);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(293, 29);
             this.btnCreate.TabIndex = 8;
@@ -185,7 +185,7 @@
             // 
             this.lblPhoneNo.AutoSize = true;
             this.lblPhoneNo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNo.Location = new System.Drawing.Point(234, 292);
+            this.lblPhoneNo.Location = new System.Drawing.Point(234, 259);
             this.lblPhoneNo.Name = "lblPhoneNo";
             this.lblPhoneNo.Size = new System.Drawing.Size(82, 21);
             this.lblPhoneNo.TabIndex = 0;
@@ -193,7 +193,7 @@
             // 
             // txtPhoneNo
             // 
-            this.txtPhoneNo.Location = new System.Drawing.Point(367, 293);
+            this.txtPhoneNo.Location = new System.Drawing.Point(367, 260);
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(164, 20);
             this.txtPhoneNo.TabIndex = 7;
