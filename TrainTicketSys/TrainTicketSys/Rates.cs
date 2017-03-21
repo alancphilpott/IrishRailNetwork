@@ -13,26 +13,29 @@ namespace TrainTicketSys
     class Rates
     {
         private static OracleConnection con;
-        private int typeID; private string description;
+
+        private string typeCode;
+        private string description;
+        private decimal ratePerKM;
 
         public Rates ()
         {
-            this.typeID = 0;
+            this.typeCode = "UN";
             this.description = "Unknown";
         }
-        public Rates (int typeID, string description)
+        public Rates (string typeCode, string description, decimal ratePerKM)
         {
-            setTypeID(typeID); setDescription(description);
+            setTypeCode(typeCode); setDescription(description); setRatePerKM(ratePerKM);
         }
 
         // TypeID
-        public void setTypeID (int typeID)
+        public void setTypeCode (string typeCode)
         {
-            this.typeID = typeID;
+            this.typeCode = typeCode;
         }
-        public int getTypeID ()
+        public string getTypeCode ()
         {
-            return this.typeID;
+            return this.typeCode;
         }
 
         // Description
@@ -45,26 +48,14 @@ namespace TrainTicketSys
             return this.description;
         }
 
-        // Method To Retrieve Next typeID
-        public static int nextTypeID ()
+        // Rate Per KM
+        public void setRatePerKM (decimal ratePerKM)
         {
-            int nextTypeID;
-            con = new OracleConnection(DBConnect.oradb);
-            con.Open();
-
-            string strSQL = "SELECT MAX(typeID) FROM Rates";
-
-            OracleCommand cmd = new OracleCommand(strSQL, con);
-            OracleDataReader dr = cmd.ExecuteReader();
-
-            dr.Read();
-            if (dr.IsDBNull(0))
-                nextTypeID = 1;
-            else
-                nextTypeID = Convert.ToInt32(dr.GetValue(0)) + 1;
-
-            con.Close();
-            return nextTypeID;
+            this.ratePerKM = ratePerKM;
+        }
+        public decimal getRatePerKM ()
+        {
+            return this.ratePerKM;
         }
 
         public void createRate()
@@ -75,9 +66,10 @@ namespace TrainTicketSys
 
             // Define SQL Query
             string strSQL =
-                "INSERT INTO Rates VALUES ("
-                + this.typeID + ",'"
-                + this.description + "')";
+                "INSERT INTO Rates VALUES ('"
+                + this.typeCode + "','"
+                + this.description + "',"
+                + this.ratePerKM + ")";
 
             // Execute Command/Query
             OracleCommand cmd = new OracleCommand(strSQL, con);

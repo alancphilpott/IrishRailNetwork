@@ -28,7 +28,7 @@ namespace TrainTicketSys
 
         private void frmSetTicketType_Load(object sender, EventArgs e)
         {
-            txtTypeID.Text = Rates.nextTypeID().ToString("00000");
+            
         }
 
         private void mnuSetTicketTypeBack_Click(object sender, EventArgs e)
@@ -59,7 +59,14 @@ namespace TrainTicketSys
             // Description Not Empty
             if (txtDescription.Text.Equals(""))
             {
-                validationMessage += " Description Must Not Be Empty";
+                validationMessage += " Description Must Not Be Empty. ";
+                valid = false;
+            }
+
+            // Price Not 0
+            if (nmbRatePicker.Text.Equals("0.00"))
+            {
+                validationMessage += " Price Cannot Be 0.00. ";
                 valid = false;
             }
 
@@ -68,17 +75,19 @@ namespace TrainTicketSys
             else
             {
                 Rates rate = new Rates(
-                    Convert.ToInt32(txtTypeID.Text),
-                    txtDescription.Text
+                    txtTypeID.Text,
+                    txtDescription.Text,
+                    Convert.ToDecimal(nmbRatePicker.Text)
                     );
-
+                
                 rate.createRate();
 
                 // Display Confirmation
                 MessageBox.Show("Schedule Created Successfully");
 
                 // Reset UI
-                txtTypeID.Text = Rates.nextTypeID().ToString("00000");
+                txtTypeID.Text = "";
+                txtDescription.Text = "";
             }
         }
     }

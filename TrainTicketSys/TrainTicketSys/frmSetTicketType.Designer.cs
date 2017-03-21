@@ -36,7 +36,10 @@
             this.lblTypeID = new System.Windows.Forms.Label();
             this.txtTypeID = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
+            this.lblRate = new System.Windows.Forms.Label();
+            this.nmbRatePicker = new System.Windows.Forms.NumericUpDown();
             this.mnuStripSetTicketType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmbRatePicker)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuStripSetTicketType
@@ -80,43 +83,68 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(206, 162);
+            this.lblDescription.Location = new System.Drawing.Point(206, 117);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(92, 21);
+            this.lblDescription.Size = new System.Drawing.Size(89, 21);
             this.lblDescription.TabIndex = 10;
-            this.lblDescription.Text = "Description:";
+            this.lblDescription.Text = "Description";
             // 
             // lblTypeID
             // 
             this.lblTypeID.AutoSize = true;
             this.lblTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeID.Location = new System.Drawing.Point(206, 131);
+            this.lblTypeID.Location = new System.Drawing.Point(206, 86);
             this.lblTypeID.Name = "lblTypeID";
-            this.lblTypeID.Size = new System.Drawing.Size(64, 21);
+            this.lblTypeID.Size = new System.Drawing.Size(61, 21);
             this.lblTypeID.TabIndex = 11;
-            this.lblTypeID.Text = "Type ID:";
+            this.lblTypeID.Text = "Type ID";
             // 
             // txtTypeID
             // 
-            this.txtTypeID.Enabled = false;
-            this.txtTypeID.Location = new System.Drawing.Point(304, 131);
+            this.txtTypeID.Location = new System.Drawing.Point(304, 86);
+            this.txtTypeID.MaxLength = 2;
             this.txtTypeID.Name = "txtTypeID";
-            this.txtTypeID.Size = new System.Drawing.Size(199, 20);
+            this.txtTypeID.Size = new System.Drawing.Size(60, 20);
             this.txtTypeID.TabIndex = 8;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(304, 165);
+            this.txtDescription.Location = new System.Drawing.Point(304, 120);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(199, 80);
             this.txtDescription.TabIndex = 13;
             this.txtDescription.Text = "";
+            // 
+            // lblRate
+            // 
+            this.lblRate.AutoSize = true;
+            this.lblRate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRate.Location = new System.Drawing.Point(206, 222);
+            this.lblRate.Name = "lblRate";
+            this.lblRate.Size = new System.Drawing.Size(94, 21);
+            this.lblRate.TabIndex = 14;
+            this.lblRate.Text = "Rate Per KM";
+            // 
+            // nmbRatePicker
+            // 
+            this.nmbRatePicker.DecimalPlaces = 2;
+            this.nmbRatePicker.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            131072});
+            this.nmbRatePicker.Location = new System.Drawing.Point(304, 222);
+            this.nmbRatePicker.Name = "nmbRatePicker";
+            this.nmbRatePicker.Size = new System.Drawing.Size(60, 20);
+            this.nmbRatePicker.TabIndex = 15;
             // 
             // frmSetTicketType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 393);
+            this.Controls.Add(this.nmbRatePicker);
+            this.Controls.Add(this.lblRate);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblDescription);
@@ -128,6 +156,7 @@
             this.Load += new System.EventHandler(this.frmSetTicketType_Load);
             this.mnuStripSetTicketType.ResumeLayout(false);
             this.mnuStripSetTicketType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmbRatePicker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +172,7 @@
         private System.Windows.Forms.Label lblTypeID;
         private System.Windows.Forms.TextBox txtTypeID;
         private System.Windows.Forms.RichTextBox txtDescription;
+        private System.Windows.Forms.Label lblRate;
+        private System.Windows.Forms.NumericUpDown nmbRatePicker;
     }
 }

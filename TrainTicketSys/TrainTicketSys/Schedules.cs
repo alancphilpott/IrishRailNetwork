@@ -146,7 +146,7 @@ namespace TrainTicketSys
                             WHEN 5 THEN 'Friday'
                             WHEN 6 THEN 'Saturday'
                             WHEN 7 THEN 'Sunday'
-                           END AS 'dayOfWeek', Schedules.depTime, Schedules.arrTime, Schedules.Status
+                           END AS dayOfWeek, Schedules.depTime, Schedules.arrTime, Schedules.Status
                            FROM Schedules WHERE routeID = " + routeID;
 
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -155,7 +155,7 @@ namespace TrainTicketSys
             try
             {
                 DA.Fill(DS, "Schedules");
-            }
+            } 
             catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message);
