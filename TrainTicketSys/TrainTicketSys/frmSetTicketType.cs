@@ -44,51 +44,55 @@ namespace TrainTicketSys
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            Boolean valid = true;
-            string validationMessage = "";
-
             // Validation of Details Entered
 
             // Description Not Longer Than 25 Characters
             if (txtDescription.Text.Length > 25)
             {
-                validationMessage += " Description Cannot Be Longer Than 25 Characters. ";
-                valid = false;
+                MessageBox.Show("Description Cannot Be Longer Than 25 Characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDescription.Focus();
+                return;
             }
 
             // Description Not Empty
             if (txtDescription.Text.Equals(""))
             {
-                validationMessage += " Description Must Not Be Empty. ";
-                valid = false;
+                MessageBox.Show("Description Cannot Be Empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDescription.Focus();
+                return;
             }
 
             // Price Not 0
             if (nmbRatePicker.Text.Equals("0.00"))
             {
-                validationMessage += " Price Cannot Be 0.00. ";
-                valid = false;
+                MessageBox.Show("The Rate Cannot Be Free!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            if (!valid)
-                MessageBox.Show(validationMessage);
-            else
+            // Check If TypeCode Is Unique
+            Boolean alreadyExists = Rates.alreadyExists(txtTypeCode.Text);
+            if (alreadyExists)
+            {
+                MessageBox.Show("That Type Code Already Exists");
+            }
+            else //Insert Data Into Database
             {
                 Rates rate = new Rates(
-                    txtTypeID.Text,
+                    txtTypeCode.Text,
                     txtDescription.Text,
                     Convert.ToDecimal(nmbRatePicker.Text)
                     );
-                
-                rate.createRate();
+
+                rate.createRate(); // Create The Rate
 
                 // Display Confirmation
-                MessageBox.Show("Schedule Created Successfully");
+                MessageBox.Show("Rate Created Successfully");
 
                 // Reset UI
-                txtTypeID.Text = "";
+                txtTypeCode.Text = "";
                 txtDescription.Text = "";
             }
         }
     }
 }
+

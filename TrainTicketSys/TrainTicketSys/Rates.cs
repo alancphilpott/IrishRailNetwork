@@ -58,6 +58,29 @@ namespace TrainTicketSys
             return this.ratePerKM;
         }
 
+        // Method To Check If A TypeCode Already Exists
+        public static Boolean alreadyExists (String typeCode)
+        {
+            Boolean valid = false;
+
+            // Connect To DB
+            con = new OracleConnection(DBConnect.oradb); con.Open();
+
+            // Define SQL Query
+            string strSQL =
+                "SELECT * FROM Rates WHERE typeCode = '" + typeCode + "'";
+            OracleCommand cmd = new OracleCommand(strSQL, con);
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+                valid = true;
+
+            //Close Database Connection
+            con.Close();
+
+            return valid;
+        }
+
         public void createRate()
         {
             // Connect to DB

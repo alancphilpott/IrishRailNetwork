@@ -79,6 +79,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(131, 48);
+            this.txtSearch.MaxLength = 20;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(164, 20);
             this.txtSearch.TabIndex = 8;

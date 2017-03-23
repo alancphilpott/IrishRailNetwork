@@ -102,6 +102,7 @@
             // txtDistance
             // 
             this.txtDistance.Location = new System.Drawing.Point(302, 211);
+            this.txtDistance.MaxLength = 9;
             this.txtDistance.Name = "txtDistance";
             this.txtDistance.Size = new System.Drawing.Size(164, 20);
             this.txtDistance.TabIndex = 4;
