@@ -77,7 +77,7 @@ CREATE TABLE Sales
 saleID number (10),
 routeID number (3),
 typeCode char(2),
-totalCost decimal (5,2) NOT NULL,
+totalCost decimal (6,2) NOT NULL,
 saleDate varchar (10) NOT NULL,
 CONSTRAINT pk_Sales PRIMARY KEY (saleID),
 CONSTRAINT fk_SalesRoute FOREIGN KEY (routeID) REFERENCES Routes (routeID),

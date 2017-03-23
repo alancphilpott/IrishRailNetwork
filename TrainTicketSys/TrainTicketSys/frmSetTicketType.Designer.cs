@@ -95,7 +95,7 @@
             this.lblTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTypeID.Location = new System.Drawing.Point(206, 86);
             this.lblTypeID.Name = "lblTypeID";
-            this.lblTypeID.Size = new System.Drawing.Size(83, 21);
+            this.lblTypeID.Size = new System.Drawing.Size(82, 21);
             this.lblTypeID.TabIndex = 11;
             this.lblTypeID.Text = "Type Code";
             // 
@@ -110,6 +110,7 @@
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(304, 120);
+            this.txtDescription.MaxLength = 25;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(199, 80);
             this.txtDescription.TabIndex = 13;
@@ -121,7 +122,7 @@
             this.lblRate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRate.Location = new System.Drawing.Point(206, 222);
             this.lblRate.Name = "lblRate";
-            this.lblRate.Size = new System.Drawing.Size(95, 21);
+            this.lblRate.Size = new System.Drawing.Size(94, 21);
             this.lblRate.TabIndex = 14;
             this.lblRate.Text = "Rate Per KM";
             // 

@@ -31,15 +31,17 @@
             this.mnuStripSellTicket = new System.Windows.Forms.MenuStrip();
             this.mnuSellTicketBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.stationSellTicket = new System.Windows.Forms.Label();
-            this.stationBoxSellTicket = new System.Windows.Forms.TextBox();
-            this.routeIDSellTicket = new System.Windows.Forms.Label();
-            this.routeIDBoxSellTicket = new System.Windows.Forms.TextBox();
-            this.typeSellTicket = new System.Windows.Forms.Label();
-            this.typeBoxSellTicket = new System.Windows.Forms.TextBox();
-            this.costSellTicket = new System.Windows.Forms.Label();
-            this.costBoxSellTicket = new System.Windows.Forms.TextBox();
             this.confirmButtonSellTicket = new System.Windows.Forms.Button();
+            this.lblRoute = new System.Windows.Forms.Label();
+            this.lblTicketType = new System.Windows.Forms.Label();
+            this.txtTotalCost = new System.Windows.Forms.TextBox();
+            this.lblTotalCost = new System.Windows.Forms.Label();
+            this.lblSaleDate = new System.Windows.Forms.Label();
+            this.txtSaleDate = new System.Windows.Forms.TextBox();
+            this.lblSaleID = new System.Windows.Forms.Label();
+            this.txtSaleID = new System.Windows.Forms.TextBox();
+            this.cmbRouteID = new System.Windows.Forms.ComboBox();
+            this.cmbRates = new System.Windows.Forms.ComboBox();
             this.mnuStripSellTicket.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@
             this.mnuExit});
             this.mnuStripSellTicket.Location = new System.Drawing.Point(0, 0);
             this.mnuStripSellTicket.Name = "mnuStripSellTicket";
-            this.mnuStripSellTicket.Size = new System.Drawing.Size(442, 29);
+            this.mnuStripSellTicket.Size = new System.Drawing.Size(752, 29);
             this.mnuStripSellTicket.TabIndex = 3;
             this.mnuStripSellTicket.Text = "mnuAddRoutes";
             // 
@@ -69,98 +71,124 @@
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // stationSellTicket
-            // 
-            this.stationSellTicket.AutoSize = true;
-            this.stationSellTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stationSellTicket.Location = new System.Drawing.Point(62, 59);
-            this.stationSellTicket.Name = "stationSellTicket";
-            this.stationSellTicket.Size = new System.Drawing.Size(135, 21);
-            this.stationSellTicket.TabIndex = 23;
-            this.stationSellTicket.Text = "Departure Station:";
-            // 
-            // stationBoxSellTicket
-            // 
-            this.stationBoxSellTicket.Location = new System.Drawing.Point(202, 61);
-            this.stationBoxSellTicket.Name = "stationBoxSellTicket";
-            this.stationBoxSellTicket.Size = new System.Drawing.Size(164, 20);
-            this.stationBoxSellTicket.TabIndex = 22;
-            // 
-            // routeIDSellTicket
-            // 
-            this.routeIDSellTicket.AutoSize = true;
-            this.routeIDSellTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routeIDSellTicket.Location = new System.Drawing.Point(62, 92);
-            this.routeIDSellTicket.Name = "routeIDSellTicket";
-            this.routeIDSellTicket.Size = new System.Drawing.Size(73, 21);
-            this.routeIDSellTicket.TabIndex = 25;
-            this.routeIDSellTicket.Text = "Route ID:";
-            // 
-            // routeIDBoxSellTicket
-            // 
-            this.routeIDBoxSellTicket.Location = new System.Drawing.Point(202, 94);
-            this.routeIDBoxSellTicket.Name = "routeIDBoxSellTicket";
-            this.routeIDBoxSellTicket.Size = new System.Drawing.Size(164, 20);
-            this.routeIDBoxSellTicket.TabIndex = 24;
-            // 
-            // typeSellTicket
-            // 
-            this.typeSellTicket.AutoSize = true;
-            this.typeSellTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeSellTicket.Location = new System.Drawing.Point(62, 128);
-            this.typeSellTicket.Name = "typeSellTicket";
-            this.typeSellTicket.Size = new System.Drawing.Size(89, 21);
-            this.typeSellTicket.TabIndex = 27;
-            this.typeSellTicket.Text = "Ticket Type:";
-            // 
-            // typeBoxSellTicket
-            // 
-            this.typeBoxSellTicket.Location = new System.Drawing.Point(202, 130);
-            this.typeBoxSellTicket.Name = "typeBoxSellTicket";
-            this.typeBoxSellTicket.Size = new System.Drawing.Size(164, 20);
-            this.typeBoxSellTicket.TabIndex = 26;
-            // 
-            // costSellTicket
-            // 
-            this.costSellTicket.AutoSize = true;
-            this.costSellTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.costSellTicket.Location = new System.Drawing.Point(62, 164);
-            this.costSellTicket.Name = "costSellTicket";
-            this.costSellTicket.Size = new System.Drawing.Size(80, 21);
-            this.costSellTicket.TabIndex = 29;
-            this.costSellTicket.Text = "Total Cost:";
-            // 
-            // costBoxSellTicket
-            // 
-            this.costBoxSellTicket.Location = new System.Drawing.Point(202, 166);
-            this.costBoxSellTicket.Name = "costBoxSellTicket";
-            this.costBoxSellTicket.Size = new System.Drawing.Size(164, 20);
-            this.costBoxSellTicket.TabIndex = 28;
-            // 
             // confirmButtonSellTicket
             // 
             this.confirmButtonSellTicket.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButtonSellTicket.Location = new System.Drawing.Point(66, 216);
+            this.confirmButtonSellTicket.Location = new System.Drawing.Point(233, 304);
             this.confirmButtonSellTicket.Name = "confirmButtonSellTicket";
             this.confirmButtonSellTicket.Size = new System.Drawing.Size(300, 29);
             this.confirmButtonSellTicket.TabIndex = 30;
             this.confirmButtonSellTicket.Text = "Confirm Purchase";
             this.confirmButtonSellTicket.UseVisualStyleBackColor = true;
             // 
+            // lblRoute
+            // 
+            this.lblRoute.AutoSize = true;
+            this.lblRoute.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoute.Location = new System.Drawing.Point(229, 145);
+            this.lblRoute.Name = "lblRoute";
+            this.lblRoute.Size = new System.Drawing.Size(70, 21);
+            this.lblRoute.TabIndex = 23;
+            this.lblRoute.Text = "Route ID";
+            // 
+            // lblTicketType
+            // 
+            this.lblTicketType.AutoSize = true;
+            this.lblTicketType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTicketType.Location = new System.Drawing.Point(229, 178);
+            this.lblTicketType.Name = "lblTicketType";
+            this.lblTicketType.Size = new System.Drawing.Size(86, 21);
+            this.lblTicketType.TabIndex = 25;
+            this.lblTicketType.Text = "Ticket Type";
+            // 
+            // txtTotalCost
+            // 
+            this.txtTotalCost.Enabled = false;
+            this.txtTotalCost.Location = new System.Drawing.Point(369, 215);
+            this.txtTotalCost.Name = "txtTotalCost";
+            this.txtTotalCost.Size = new System.Drawing.Size(164, 20);
+            this.txtTotalCost.TabIndex = 24;
+            // 
+            // lblTotalCost
+            // 
+            this.lblTotalCost.AutoSize = true;
+            this.lblTotalCost.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCost.Location = new System.Drawing.Point(229, 214);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.Size = new System.Drawing.Size(77, 21);
+            this.lblTotalCost.TabIndex = 27;
+            this.lblTotalCost.Text = "Total Cost";
+            // 
+            // lblSaleDate
+            // 
+            this.lblSaleDate.AutoSize = true;
+            this.lblSaleDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaleDate.Location = new System.Drawing.Point(229, 250);
+            this.lblSaleDate.Name = "lblSaleDate";
+            this.lblSaleDate.Size = new System.Drawing.Size(75, 21);
+            this.lblSaleDate.TabIndex = 29;
+            this.lblSaleDate.Text = "Sale Date";
+            // 
+            // txtSaleDate
+            // 
+            this.txtSaleDate.Enabled = false;
+            this.txtSaleDate.Location = new System.Drawing.Point(369, 252);
+            this.txtSaleDate.Name = "txtSaleDate";
+            this.txtSaleDate.Size = new System.Drawing.Size(164, 20);
+            this.txtSaleDate.TabIndex = 28;
+            // 
+            // lblSaleID
+            // 
+            this.lblSaleID.AutoSize = true;
+            this.lblSaleID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaleID.Location = new System.Drawing.Point(229, 110);
+            this.lblSaleID.Name = "lblSaleID";
+            this.lblSaleID.Size = new System.Drawing.Size(58, 21);
+            this.lblSaleID.TabIndex = 32;
+            this.lblSaleID.Text = "Sale ID";
+            // 
+            // txtSaleID
+            // 
+            this.txtSaleID.Enabled = false;
+            this.txtSaleID.Location = new System.Drawing.Point(369, 112);
+            this.txtSaleID.Name = "txtSaleID";
+            this.txtSaleID.Size = new System.Drawing.Size(164, 20);
+            this.txtSaleID.TabIndex = 31;
+            // 
+            // cmbRouteID
+            // 
+            this.cmbRouteID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRouteID.FormattingEnabled = true;
+            this.cmbRouteID.Location = new System.Drawing.Point(369, 144);
+            this.cmbRouteID.Name = "cmbRouteID";
+            this.cmbRouteID.Size = new System.Drawing.Size(164, 21);
+            this.cmbRouteID.TabIndex = 33;
+            // 
+            // cmbRates
+            // 
+            this.cmbRates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRates.FormattingEnabled = true;
+            this.cmbRates.Location = new System.Drawing.Point(369, 178);
+            this.cmbRates.Name = "cmbRates";
+            this.cmbRates.Size = new System.Drawing.Size(164, 21);
+            this.cmbRates.TabIndex = 34;
+            // 
             // frmSellTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 290);
+            this.ClientSize = new System.Drawing.Size(752, 393);
+            this.Controls.Add(this.cmbRates);
+            this.Controls.Add(this.cmbRouteID);
+            this.Controls.Add(this.lblSaleID);
+            this.Controls.Add(this.txtSaleID);
             this.Controls.Add(this.confirmButtonSellTicket);
-            this.Controls.Add(this.costSellTicket);
-            this.Controls.Add(this.costBoxSellTicket);
-            this.Controls.Add(this.typeSellTicket);
-            this.Controls.Add(this.typeBoxSellTicket);
-            this.Controls.Add(this.routeIDSellTicket);
-            this.Controls.Add(this.routeIDBoxSellTicket);
-            this.Controls.Add(this.stationSellTicket);
-            this.Controls.Add(this.stationBoxSellTicket);
+            this.Controls.Add(this.lblSaleDate);
+            this.Controls.Add(this.txtSaleDate);
+            this.Controls.Add(this.lblTotalCost);
+            this.Controls.Add(this.lblTicketType);
+            this.Controls.Add(this.txtTotalCost);
+            this.Controls.Add(this.lblRoute);
             this.Controls.Add(this.mnuStripSellTicket);
             this.Name = "frmSellTicket";
             this.Text = "Train Ticket System - Sell Ticket";
@@ -177,14 +205,16 @@
         private System.Windows.Forms.MenuStrip mnuStripSellTicket;
         private System.Windows.Forms.ToolStripMenuItem mnuSellTicketBack;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.Label stationSellTicket;
-        private System.Windows.Forms.TextBox stationBoxSellTicket;
-        private System.Windows.Forms.Label routeIDSellTicket;
-        private System.Windows.Forms.TextBox routeIDBoxSellTicket;
-        private System.Windows.Forms.Label typeSellTicket;
-        private System.Windows.Forms.TextBox typeBoxSellTicket;
-        private System.Windows.Forms.Label costSellTicket;
-        private System.Windows.Forms.TextBox costBoxSellTicket;
         private System.Windows.Forms.Button confirmButtonSellTicket;
+        private System.Windows.Forms.Label lblRoute;
+        private System.Windows.Forms.Label lblTicketType;
+        private System.Windows.Forms.TextBox txtTotalCost;
+        private System.Windows.Forms.Label lblTotalCost;
+        private System.Windows.Forms.Label lblSaleDate;
+        private System.Windows.Forms.TextBox txtSaleDate;
+        private System.Windows.Forms.Label lblSaleID;
+        private System.Windows.Forms.TextBox txtSaleID;
+        private System.Windows.Forms.ComboBox cmbRouteID;
+        private System.Windows.Forms.ComboBox cmbRates;
     }
 }

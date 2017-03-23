@@ -52,20 +52,19 @@ namespace TrainTicketSys
         private Boolean validation ()
         {
             Boolean valid = true;
-            validationMessage = "";
 
             // Not Empty
             if (txtStation.Text.Equals("") || txtStreet.Text.Equals("") || txtTown.Text.Equals("") || txtCounty.Text.Equals("") || txtPhoneNo.Text.Equals(""))
             {
-                validationMessage += "\nPlease Enter All Fields.";
-                valid = false;
+                MessageBox.Show("Please Enter All Fields","Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                valid = false; return valid;
             }
 
             // Phone Number Length
             if (txtPhoneNo.Text.Length > 16)
             {
-                validationMessage += "\nPhone Number Must Not Exceed 16 Characters";
-                valid = false;
+                MessageBox.Show("Phone Number Must Not Exceed 16 Characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                valid = false; return valid;
             }
 
             // Phone Number Numbers Only
@@ -73,8 +72,8 @@ namespace TrainTicketSys
             {
                 if (c < '0' || c > '9' && valid)
                 {
-                    validationMessage += "\nPhone Number Must Be All Digits";
-                    valid = false;
+                    MessageBox.Show("Phone Number Must Be All Digits", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    valid = false; return valid;
                 }
             }
 
@@ -86,9 +85,7 @@ namespace TrainTicketSys
         {
             Boolean valid = validation();
 
-            if (!valid)
-                MessageBox.Show(validationMessage);
-            else // Instantiate Station Object
+            if (valid)
             {
                 Station station = new Station(
                     Convert.ToInt32(txtStID.Text),

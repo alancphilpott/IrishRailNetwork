@@ -72,9 +72,9 @@
             this.lblKeyword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKeyword.Location = new System.Drawing.Point(12, 45);
             this.lblKeyword.Name = "lblKeyword";
-            this.lblKeyword.Size = new System.Drawing.Size(113, 21);
+            this.lblKeyword.Size = new System.Drawing.Size(107, 21);
             this.lblKeyword.TabIndex = 9;
-            this.lblKeyword.Text = "Filter Keyword:";
+            this.lblKeyword.Text = "Station Name:";
             // 
             // txtSearch
             // 

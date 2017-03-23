@@ -108,5 +108,55 @@ namespace TrainTicketSys
             // Close Database Connection
             con.Close();
         }
+
+        // Method to Get All Rates WITH Sort Order
+        public static DataSet getRates(DataSet DS, String sortOrder)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT typeCode, description FROM Rates ORDER BY " + sortOrder;
+            OracleCommand cmd = new OracleCommand(SQL, con);
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+            DA.Fill(DS, "Rates");
+
+            con.Close();
+
+            return DS;
+        }
+
+        // Method To Get A Rate Relavent To TypeCode (NOT RETURNING)
+        public void getRate (string typeCode)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = "SELECT * FROM Rates WHERE typeCode = '" + typeCode + "'";
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            //intantiate instance variables
+            this.typeCode = dr.GetString(0);
+            this.description = dr.GetString(1);
+            this.ratePerKM = dr.GetDecimal(2);
+
+            con.Close();
+        }
+
+        // Method To Update A Station
+        public static void updateRate(string typeCode, string description, decimal ratePerKM)
+        {
+            con = new OracleConnection(DBConnect.oradb); con.Open();
+
+            string SQL = "UPDATE Rates SET description = '"
+                + description + "', ratePerKM = '"
+                + ratePerKM + "' WHERE typeCode = '" + typeCode + "'";
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }

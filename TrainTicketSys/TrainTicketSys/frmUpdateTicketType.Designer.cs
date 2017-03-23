@@ -31,16 +31,18 @@
             this.mnuStripUpdateTicketType = new System.Windows.Forms.MenuStrip();
             this.mnuUpdateTicketTypeBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.confirmButtonUpdateTicketType = new System.Windows.Forms.Button();
-            this.newRateUpdateTicketType = new System.Windows.Forms.Label();
-            this.newDescriptionUpdateTicketType = new System.Windows.Forms.Label();
-            this.NewIDUpdateTicketType = new System.Windows.Forms.Label();
-            this.newRateBoxUpdateTicketType = new System.Windows.Forms.TextBox();
-            this.newDescriptionBoxUpdateTicketType = new System.Windows.Forms.TextBox();
-            this.NewIDBoxUpdateTicketType = new System.Windows.Forms.TextBox();
-            this.ticketIDUpdateTicketType = new System.Windows.Forms.Label();
-            this.ticketIDBoxUpdateTicketType = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.lblRatePerKM = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.lblTypeCode = new System.Windows.Forms.Label();
+            this.txtTypeCode = new System.Windows.Forms.TextBox();
+            this.cmbRates = new System.Windows.Forms.ComboBox();
+            this.grpRateDetails = new System.Windows.Forms.GroupBox();
+            this.nmbRatePicker = new System.Windows.Forms.NumericUpDown();
             this.mnuStripUpdateTicketType.SuspendLayout();
+            this.grpRateDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmbRatePicker)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuStripUpdateTicketType
@@ -51,7 +53,7 @@
             this.mnuExit});
             this.mnuStripUpdateTicketType.Location = new System.Drawing.Point(0, 0);
             this.mnuStripUpdateTicketType.Name = "mnuStripUpdateTicketType";
-            this.mnuStripUpdateTicketType.Size = new System.Drawing.Size(423, 29);
+            this.mnuStripUpdateTicketType.Size = new System.Drawing.Size(724, 29);
             this.mnuStripUpdateTicketType.TabIndex = 2;
             this.mnuStripUpdateTicketType.Text = "mnuAddRoutes";
             // 
@@ -69,104 +71,120 @@
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // confirmButtonUpdateTicketType
+            // btnUpdate
             // 
-            this.confirmButtonUpdateTicketType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButtonUpdateTicketType.Location = new System.Drawing.Point(59, 237);
-            this.confirmButtonUpdateTicketType.Name = "confirmButtonUpdateTicketType";
-            this.confirmButtonUpdateTicketType.Size = new System.Drawing.Size(300, 29);
-            this.confirmButtonUpdateTicketType.TabIndex = 19;
-            this.confirmButtonUpdateTicketType.Text = "Confirm Details";
-            this.confirmButtonUpdateTicketType.UseVisualStyleBackColor = true;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(27, 131);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(300, 29);
+            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.Text = "Update Rate";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // newRateUpdateTicketType
+            // lblRatePerKM
             // 
-            this.newRateUpdateTicketType.AutoSize = true;
-            this.newRateUpdateTicketType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newRateUpdateTicketType.Location = new System.Drawing.Point(55, 181);
-            this.newRateUpdateTicketType.Name = "newRateUpdateTicketType";
-            this.newRateUpdateTicketType.Size = new System.Drawing.Size(134, 21);
-            this.newRateUpdateTicketType.TabIndex = 16;
-            this.newRateUpdateTicketType.Text = "New Rate per KM:";
+            this.lblRatePerKM.AutoSize = true;
+            this.lblRatePerKM.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRatePerKM.Location = new System.Drawing.Point(22, 93);
+            this.lblRatePerKM.Name = "lblRatePerKM";
+            this.lblRatePerKM.Size = new System.Drawing.Size(97, 21);
+            this.lblRatePerKM.TabIndex = 17;
+            this.lblRatePerKM.Text = "Rate Per KM:";
             // 
-            // newDescriptionUpdateTicketType
+            // lblDescription
             // 
-            this.newDescriptionUpdateTicketType.AutoSize = true;
-            this.newDescriptionUpdateTicketType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newDescriptionUpdateTicketType.Location = new System.Drawing.Point(55, 149);
-            this.newDescriptionUpdateTicketType.Name = "newDescriptionUpdateTicketType";
-            this.newDescriptionUpdateTicketType.Size = new System.Drawing.Size(128, 21);
-            this.newDescriptionUpdateTicketType.TabIndex = 17;
-            this.newDescriptionUpdateTicketType.Text = "New Description:";
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(22, 62);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(92, 21);
+            this.lblDescription.TabIndex = 18;
+            this.lblDescription.Text = "Description:";
             // 
-            // NewIDUpdateTicketType
+            // txtDescription
             // 
-            this.NewIDUpdateTicketType.AutoSize = true;
-            this.NewIDUpdateTicketType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewIDUpdateTicketType.Location = new System.Drawing.Point(55, 118);
-            this.NewIDUpdateTicketType.Name = "NewIDUpdateTicketType";
-            this.NewIDUpdateTicketType.Size = new System.Drawing.Size(108, 21);
-            this.NewIDUpdateTicketType.TabIndex = 18;
-            this.NewIDUpdateTicketType.Text = "New Ticket ID:";
+            this.txtDescription.Location = new System.Drawing.Point(162, 64);
+            this.txtDescription.MaxLength = 25;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(164, 20);
+            this.txtDescription.TabIndex = 15;
             // 
-            // newRateBoxUpdateTicketType
+            // lblTypeCode
             // 
-            this.newRateBoxUpdateTicketType.Location = new System.Drawing.Point(195, 184);
-            this.newRateBoxUpdateTicketType.Name = "newRateBoxUpdateTicketType";
-            this.newRateBoxUpdateTicketType.Size = new System.Drawing.Size(164, 20);
-            this.newRateBoxUpdateTicketType.TabIndex = 13;
+            this.lblTypeCode.AutoSize = true;
+            this.lblTypeCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeCode.Location = new System.Drawing.Point(22, 30);
+            this.lblTypeCode.Name = "lblTypeCode";
+            this.lblTypeCode.Size = new System.Drawing.Size(85, 21);
+            this.lblTypeCode.TabIndex = 21;
+            this.lblTypeCode.Text = "Type Code:";
             // 
-            // newDescriptionBoxUpdateTicketType
+            // txtTypeCode
             // 
-            this.newDescriptionBoxUpdateTicketType.Location = new System.Drawing.Point(195, 151);
-            this.newDescriptionBoxUpdateTicketType.Name = "newDescriptionBoxUpdateTicketType";
-            this.newDescriptionBoxUpdateTicketType.Size = new System.Drawing.Size(164, 20);
-            this.newDescriptionBoxUpdateTicketType.TabIndex = 14;
+            this.txtTypeCode.Enabled = false;
+            this.txtTypeCode.Location = new System.Drawing.Point(162, 32);
+            this.txtTypeCode.MaxLength = 2;
+            this.txtTypeCode.Name = "txtTypeCode";
+            this.txtTypeCode.Size = new System.Drawing.Size(164, 20);
+            this.txtTypeCode.TabIndex = 20;
             // 
-            // NewIDBoxUpdateTicketType
+            // cmbRates
             // 
-            this.NewIDBoxUpdateTicketType.Location = new System.Drawing.Point(195, 120);
-            this.NewIDBoxUpdateTicketType.Name = "NewIDBoxUpdateTicketType";
-            this.NewIDBoxUpdateTicketType.Size = new System.Drawing.Size(164, 20);
-            this.NewIDBoxUpdateTicketType.TabIndex = 15;
+            this.cmbRates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRates.FormattingEnabled = true;
+            this.cmbRates.Location = new System.Drawing.Point(234, 53);
+            this.cmbRates.Name = "cmbRates";
+            this.cmbRates.Size = new System.Drawing.Size(300, 21);
+            this.cmbRates.TabIndex = 22;
+            this.cmbRates.SelectedIndexChanged += new System.EventHandler(this.cmbRates_SelectedIndexChanged);
             // 
-            // ticketIDUpdateTicketType
+            // grpRateDetails
             // 
-            this.ticketIDUpdateTicketType.AutoSize = true;
-            this.ticketIDUpdateTicketType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ticketIDUpdateTicketType.Location = new System.Drawing.Point(55, 70);
-            this.ticketIDUpdateTicketType.Name = "ticketIDUpdateTicketType";
-            this.ticketIDUpdateTicketType.Size = new System.Drawing.Size(126, 21);
-            this.ticketIDUpdateTicketType.TabIndex = 21;
-            this.ticketIDUpdateTicketType.Text = "Update Ticket ID:";
+            this.grpRateDetails.Controls.Add(this.nmbRatePicker);
+            this.grpRateDetails.Controls.Add(this.lblTypeCode);
+            this.grpRateDetails.Controls.Add(this.txtDescription);
+            this.grpRateDetails.Controls.Add(this.txtTypeCode);
+            this.grpRateDetails.Controls.Add(this.lblDescription);
+            this.grpRateDetails.Controls.Add(this.btnUpdate);
+            this.grpRateDetails.Controls.Add(this.lblRatePerKM);
+            this.grpRateDetails.Location = new System.Drawing.Point(207, 93);
+            this.grpRateDetails.Name = "grpRateDetails";
+            this.grpRateDetails.Size = new System.Drawing.Size(351, 186);
+            this.grpRateDetails.TabIndex = 23;
+            this.grpRateDetails.TabStop = false;
+            this.grpRateDetails.Text = "Update Rate";
+            this.grpRateDetails.Visible = false;
             // 
-            // ticketIDBoxUpdateTicketType
+            // nmbRatePicker
             // 
-            this.ticketIDBoxUpdateTicketType.Location = new System.Drawing.Point(195, 72);
-            this.ticketIDBoxUpdateTicketType.Name = "ticketIDBoxUpdateTicketType";
-            this.ticketIDBoxUpdateTicketType.Size = new System.Drawing.Size(164, 20);
-            this.ticketIDBoxUpdateTicketType.TabIndex = 20;
+            this.nmbRatePicker.DecimalPlaces = 2;
+            this.nmbRatePicker.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            131072});
+            this.nmbRatePicker.Location = new System.Drawing.Point(162, 94);
+            this.nmbRatePicker.Name = "nmbRatePicker";
+            this.nmbRatePicker.Size = new System.Drawing.Size(60, 20);
+            this.nmbRatePicker.TabIndex = 22;
             // 
             // frmUpdateTicketType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 316);
-            this.Controls.Add(this.ticketIDUpdateTicketType);
-            this.Controls.Add(this.ticketIDBoxUpdateTicketType);
-            this.Controls.Add(this.confirmButtonUpdateTicketType);
-            this.Controls.Add(this.newRateUpdateTicketType);
-            this.Controls.Add(this.newDescriptionUpdateTicketType);
-            this.Controls.Add(this.NewIDUpdateTicketType);
-            this.Controls.Add(this.newRateBoxUpdateTicketType);
-            this.Controls.Add(this.newDescriptionBoxUpdateTicketType);
-            this.Controls.Add(this.NewIDBoxUpdateTicketType);
+            this.ClientSize = new System.Drawing.Size(724, 349);
+            this.Controls.Add(this.grpRateDetails);
+            this.Controls.Add(this.cmbRates);
             this.Controls.Add(this.mnuStripUpdateTicketType);
             this.Name = "frmUpdateTicketType";
             this.Text = "Train Ticket System - Update Ticket Type";
             this.Load += new System.EventHandler(this.frmUpdateTicketType_Load);
             this.mnuStripUpdateTicketType.ResumeLayout(false);
             this.mnuStripUpdateTicketType.PerformLayout();
+            this.grpRateDetails.ResumeLayout(false);
+            this.grpRateDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmbRatePicker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,14 +195,14 @@
         private System.Windows.Forms.MenuStrip mnuStripUpdateTicketType;
         private System.Windows.Forms.ToolStripMenuItem mnuUpdateTicketTypeBack;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.Button confirmButtonUpdateTicketType;
-        private System.Windows.Forms.Label newRateUpdateTicketType;
-        private System.Windows.Forms.Label newDescriptionUpdateTicketType;
-        private System.Windows.Forms.Label NewIDUpdateTicketType;
-        private System.Windows.Forms.TextBox newRateBoxUpdateTicketType;
-        private System.Windows.Forms.TextBox newDescriptionBoxUpdateTicketType;
-        private System.Windows.Forms.TextBox NewIDBoxUpdateTicketType;
-        private System.Windows.Forms.Label ticketIDUpdateTicketType;
-        private System.Windows.Forms.TextBox ticketIDBoxUpdateTicketType;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Label lblRatePerKM;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Label lblTypeCode;
+        private System.Windows.Forms.TextBox txtTypeCode;
+        private System.Windows.Forms.ComboBox cmbRates;
+        private System.Windows.Forms.GroupBox grpRateDetails;
+        private System.Windows.Forms.NumericUpDown nmbRatePicker;
     }
 }

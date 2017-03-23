@@ -36,18 +36,7 @@ namespace TrainTicketSys
             loadStationsComboBox();
         }
 
-        private void mnuCloseStationBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Parent.Show();
-        }
-
-        private void mnuCloseStationExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void loadStationsComboBox ()
+        private void loadStationsComboBox()
         {
             // Populating the Combo Boxes for selecting Stations
             DataSet ds = new DataSet();
@@ -59,6 +48,17 @@ namespace TrainTicketSys
             {
                 cmbStations.Items.Add(String.Format("{0:00000}", dr["stationID"]) + " " + dr["name"]);
             }
+        }
+
+        private void mnuCloseStationBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Parent.Show();
+        }
+
+        private void mnuCloseStationExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         // Called when a selection is made in the ComboBox
