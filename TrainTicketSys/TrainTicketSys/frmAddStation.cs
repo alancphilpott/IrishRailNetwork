@@ -7,7 +7,6 @@ namespace TrainTicketSys
     public partial class frmAddStation : Form
     {
         private Form Parent;
-        OracleConnection con;
         private String validationMessage;
 
         public frmAddStation()
@@ -72,15 +71,13 @@ namespace TrainTicketSys
             // Phone Number Numbers Only
             foreach (char c in txtPhoneNo.Text)
             {
-                while (valid)
+                if (c < '0' || c > '9' && valid)
                 {
-                    if (c < '0' || c > '9')
-                    {
-                        validationMessage += "\nPhone Number Must Be All Digits";
-                        valid = false;
-                    }
+                    validationMessage += "\nPhone Number Must Be All Digits";
+                    valid = false;
                 }
             }
+
             return valid;
         }
 
@@ -91,9 +88,7 @@ namespace TrainTicketSys
 
             if (!valid)
                 MessageBox.Show(validationMessage);
-
-            // Instantiate Station Object
-            if (valid)
+            else // Instantiate Station Object
             {
                 Station station = new Station(
                     Convert.ToInt32(txtStID.Text),
