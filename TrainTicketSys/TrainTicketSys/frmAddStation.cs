@@ -72,10 +72,13 @@ namespace TrainTicketSys
             // Phone Number Numbers Only
             foreach (char c in txtPhoneNo.Text)
             {
-                if (c < '0' || c > '9')
+                while (valid)
                 {
-                    validationMessage += "\nPhone Number Must Be All Digits";
-                    valid = false;
+                    if (c < '0' || c > '9')
+                    {
+                        validationMessage += "\nPhone Number Must Be All Digits";
+                        valid = false;
+                    }
                 }
             }
             return valid;

@@ -39,7 +39,7 @@ namespace TrainTicketSys
             setStationID(stationID); setName(name);
             setStreet(street); setTown(town);
             setCounty(county); setPhoneNo(phoneNo);
-            setStatus('A');
+            setStatus(status);
         }
 
         // Setter and Getter Methods for Variables
@@ -137,7 +137,7 @@ namespace TrainTicketSys
 
             // Define SQL Query
             string strSQL =
-                "INSERT INTO Stations VALUES ( "
+                "INSERT INTO Stations VALUES ("
                 + this.stationID + ",'"
                 + this.name + "','"
                 + this.street + "','"

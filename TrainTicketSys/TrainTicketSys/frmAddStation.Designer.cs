@@ -77,6 +77,7 @@
             // txtStation
             // 
             this.txtStation.Location = new System.Drawing.Point(367, 136);
+            this.txtStation.MaxLength = 20;
             this.txtStation.Name = "txtStation";
             this.txtStation.Size = new System.Drawing.Size(164, 20);
             this.txtStation.TabIndex = 2;
@@ -87,7 +88,7 @@
             this.lblStation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStation.Location = new System.Drawing.Point(234, 133);
             this.lblStation.Name = "lblStation";
-            this.lblStation.Size = new System.Drawing.Size(108, 21);
+            this.lblStation.Size = new System.Drawing.Size(107, 21);
             this.lblStation.TabIndex = 0;
             this.lblStation.Text = "Station Name:";
             // 
@@ -97,7 +98,7 @@
             this.lblStreet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStreet.Location = new System.Drawing.Point(234, 165);
             this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(54, 21);
+            this.lblStreet.Size = new System.Drawing.Size(53, 21);
             this.lblStreet.TabIndex = 0;
             this.lblStreet.Text = "Street:";
             // 
@@ -107,7 +108,7 @@
             this.lblTown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTown.Location = new System.Drawing.Point(234, 196);
             this.lblTown.Name = "lblTown";
-            this.lblTown.Size = new System.Drawing.Size(51, 21);
+            this.lblTown.Size = new System.Drawing.Size(49, 21);
             this.lblTown.TabIndex = 0;
             this.lblTown.Text = "Town:";
             // 
@@ -124,6 +125,7 @@
             // txtStreet
             // 
             this.txtStreet.Location = new System.Drawing.Point(367, 165);
+            this.txtStreet.MaxLength = 20;
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(164, 20);
             this.txtStreet.TabIndex = 4;
@@ -131,6 +133,7 @@
             // txtTown
             // 
             this.txtTown.Location = new System.Drawing.Point(367, 196);
+            this.txtTown.MaxLength = 20;
             this.txtTown.Name = "txtTown";
             this.txtTown.Size = new System.Drawing.Size(164, 20);
             this.txtTown.TabIndex = 5;
@@ -138,6 +141,7 @@
             // txtCounty
             // 
             this.txtCounty.Location = new System.Drawing.Point(367, 229);
+            this.txtCounty.MaxLength = 20;
             this.txtCounty.Name = "txtCounty";
             this.txtCounty.Size = new System.Drawing.Size(164, 20);
             this.txtCounty.TabIndex = 6;
@@ -159,7 +163,7 @@
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(294, 46);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(182, 25);
+            this.lblTitle.Size = new System.Drawing.Size(181, 25);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Enter Station Details";
             // 
@@ -169,7 +173,7 @@
             this.lblStID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStID.Location = new System.Drawing.Point(234, 101);
             this.lblStID.Name = "lblStID";
-            this.lblStID.Size = new System.Drawing.Size(81, 21);
+            this.lblStID.Size = new System.Drawing.Size(80, 21);
             this.lblStID.TabIndex = 0;
             this.lblStID.Text = "Station ID:";
             // 
@@ -194,6 +198,7 @@
             // txtPhoneNo
             // 
             this.txtPhoneNo.Location = new System.Drawing.Point(367, 260);
+            this.txtPhoneNo.MaxLength = 16;
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(164, 20);
             this.txtPhoneNo.TabIndex = 7;
