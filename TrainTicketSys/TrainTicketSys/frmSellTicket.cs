@@ -31,13 +31,22 @@ namespace TrainTicketSys
             // Setting the next Schedule ID
             txtSaleID.Text = Sales.nextSaleID().ToString("00000");
 
+            // Populating the Combo Boxes for selecting Routes
+            DataSet dsRoutes = new DataSet();
+            DataTable dtRoutes = Routes.getActiveRoutes(dsRoutes, "departStation").Tables["Routes"];
+
+            foreach (DataRow dr in dtRoutes.Rows)
+            {
+                cmbRoute.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " " + String.Format("From: " + "{0,-15}", dr["departStation"]) + "To: " + dr["arrivalStation"]);
+            }
+
             // Populating the Combo Boxes for Selecting Rates
-            DataSet ds = new DataSet();
-            DataTable dt = Rates.getRates(ds, "description").Tables["Rates"];
+            DataSet dsRates = new DataSet();
+            DataTable dtRates = Rates.getRates(dsRates, "description").Tables["Rates"];
 
             cmbRates.Items.Clear();
 
-            foreach (DataRow dr in dt.Rows)
+            foreach (DataRow dr in dtRates.Rows)
             {
                 cmbRates.Items.Add(dr["typeCode"] + " : " + dr["description"]);
             }
