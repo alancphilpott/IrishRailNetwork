@@ -31,7 +31,7 @@
             this.mnuStripSellTicket = new System.Windows.Forms.MenuStrip();
             this.mnuSellTicketBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.confirmButtonSellTicket = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.txtTotalCost = new System.Windows.Forms.TextBox();
             this.lblTotalCost = new System.Windows.Forms.Label();
             this.lblSaleDate = new System.Windows.Forms.Label();
@@ -81,15 +81,16 @@
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // confirmButtonSellTicket
+            // btnConfirm
             // 
-            this.confirmButtonSellTicket.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButtonSellTicket.Location = new System.Drawing.Point(440, 356);
-            this.confirmButtonSellTicket.Name = "confirmButtonSellTicket";
-            this.confirmButtonSellTicket.Size = new System.Drawing.Size(300, 29);
-            this.confirmButtonSellTicket.TabIndex = 30;
-            this.confirmButtonSellTicket.Text = "Confirm Purchase";
-            this.confirmButtonSellTicket.UseVisualStyleBackColor = true;
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Location = new System.Drawing.Point(440, 356);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(300, 29);
+            this.btnConfirm.TabIndex = 30;
+            this.btnConfirm.Text = "Confirm Purchase";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // txtTotalCost
             // 
@@ -163,6 +164,7 @@
             this.cmbRates.Name = "cmbRates";
             this.cmbRates.Size = new System.Drawing.Size(164, 21);
             this.cmbRates.TabIndex = 34;
+            this.cmbRates.SelectedIndexChanged += new System.EventHandler(this.cmbRates_SelectedIndexChanged);
             // 
             // cmbSchedule
             // 
@@ -184,6 +186,7 @@
             this.radioSingle.TabStop = true;
             this.radioSingle.Text = "Single";
             this.radioSingle.UseVisualStyleBackColor = true;
+            this.radioSingle.CheckedChanged += new System.EventHandler(this.radioSingle_CheckedChanged);
             // 
             // radioReturn
             // 
@@ -195,6 +198,7 @@
             this.radioReturn.TabStop = true;
             this.radioReturn.Text = "Return";
             this.radioReturn.UseVisualStyleBackColor = true;
+            this.radioReturn.CheckedChanged += new System.EventHandler(this.radioReturn_CheckedChanged);
             // 
             // cmbDay
             // 
@@ -262,7 +266,7 @@
             this.Controls.Add(this.grpDay);
             this.Controls.Add(this.lblSaleID);
             this.Controls.Add(this.txtSaleID);
-            this.Controls.Add(this.confirmButtonSellTicket);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lblSaleDate);
             this.Controls.Add(this.txtSaleDate);
             this.Controls.Add(this.lblTotalCost);
@@ -288,7 +292,7 @@
         private System.Windows.Forms.MenuStrip mnuStripSellTicket;
         private System.Windows.Forms.ToolStripMenuItem mnuSellTicketBack;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.Button confirmButtonSellTicket;
+        private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.TextBox txtTotalCost;
         private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.Label lblSaleDate;

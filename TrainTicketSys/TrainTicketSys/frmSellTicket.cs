@@ -116,6 +116,67 @@ namespace TrainTicketSys
         private void cmbSchedule_SelectedIndexChanged(object sender, EventArgs e)
         {
             grpRates.Visible = true;
+            radioSingle.Checked = true;
+        }
+
+        double distance, rateCost, totalCost;
+        
+        private void cmbRates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbRoute.SelectedIndex != -1 && cmbDay.SelectedIndex != -1 && cmbSchedule.SelectedIndex != -1 && cmbRates.SelectedIndex != -1 && (radioSingle.Checked == true || radioReturn.Checked == true))
+            {
+                DataTable dtRoute = Routes.getARoute(Convert.ToInt32(cmbRoute.Text.Substring(0, 5)));
+                foreach (DataRow dr in dtRoute.Rows)
+                    distance = Convert.ToDouble(dr["distance"]);
+
+                Rates rate = new Rates();
+                rate.getRate(cmbRates.Text.Substring(0, 2));
+                rateCost = Convert.ToDouble(rate.getRatePerKM());
+
+                if (radioSingle.Checked == true)
+                    totalCost = rateCost * distance;
+                else
+                    totalCost = (rateCost * distance) * 1.7;
+
+                txtTotalCost.Text = totalCost.ToString("F");
+            }
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            Sales sale = new Sales(
+                Convert.ToInt32(txtSaleID.Text),
+                Convert.ToInt32(cmbSchedule.Text.Substring(0,1)),
+                cmbRates.Text.Substring(0,2),
+                Convert.ToDecimal(txtTotalCost.Text),
+                txtSaleDate.Text);
+
+            sale.createSale();
+
+            // Display Confirmation
+            MessageBox.Show("Sale Made Successfully");
+
+            // Reset UI
+            txtSaleID.Text = Sales.nextSaleID().ToString("00000");
+            cmbRoute.SelectedIndex = -1;
+            grpRates.Visible = false;
+            grpSchedule.Visible = false;
+            grpDay.Visible = false;
+            txtTotalCost.Text = "";
+
+            // Set The Date for The Sale Based on Today's Date
+            string date = localDate.ToString();
+            txtSaleDate.Text = date.Substring(0, 10);
+        }
+
+        private void radioReturn_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbRates.SelectedIndex = -1;
+        }
+
+        private void radioSingle_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbRates.SelectedIndex = -1;
         }
     }
 }

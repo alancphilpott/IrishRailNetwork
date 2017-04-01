@@ -10,20 +10,20 @@ namespace TrainTicketSys
         private static OracleConnection con;
 
         private int saleID;
-        private int routeID;
+        private int scheduleID;
         private string typeCode;
         private decimal totalCost;
         private string saleDate;
 
         public Sales ()
         {
-            this.saleID = 0; this.routeID = 0; this.typeCode = "UN";
+            this.saleID = 0; this.scheduleID = 0; this.typeCode = "UN";
             this.totalCost = 0; this.saleDate = "00:00:0000";
         }
 
-        public Sales (int saleID, int routeID, string typeCode, decimal totalCost, string saleDate)
+        public Sales (int saleID, int scheduleID, string typeCode, decimal totalCost, string saleDate)
         {
-            setSaleID(saleID); setRouteID(routeID); setTypeCode(typeCode); setTotalCost(totalCost); setSaleDate(saleDate);
+            setSaleID(saleID); setScheduleID(scheduleID); setTypeCode(typeCode); setTotalCost(totalCost); setSaleDate(saleDate);
         }
 
         // Accessors and Mutators
@@ -38,14 +38,14 @@ namespace TrainTicketSys
             return this.saleID;
         }
 
-        // Route ID
-        public void setRouteID (int routeID)
+        // Schedule ID
+        public void setScheduleID (int scheduleID)
         {
-            this.routeID = routeID;
+            this.scheduleID = scheduleID;
         }
-        public int getRouteID ()
+        public int getScheduleID ()
         {
-            return this.routeID;
+            return this.scheduleID;
         }
 
         // Type Code
@@ -99,6 +99,36 @@ namespace TrainTicketSys
 
             con.Close();
             return nextSaleID;
+        }
+
+        public void createSale ()
+        {
+            // Connect to DB
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            // Define SQL Query
+            string strSQL =
+                "INSERT INTO Sales VALUES ("
+                + this.saleID + ","
+                + this.scheduleID + ",'"
+                + this.typeCode + "',"
+                + this.totalCost + ",'"
+                + this.saleDate + "')";
+
+            // Execute Command/Query
+            OracleCommand cmd = new OracleCommand(strSQL, con);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            // Close Database Connection
+            con.Close(); 
         }
     }
 }
