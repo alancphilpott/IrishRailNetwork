@@ -146,8 +146,7 @@ namespace TrainTicketSys
                                INNER JOIN STATIONS SArrival
                             ON 
                                SArrival.StationID = R.ArrivalStation
-                            WHERE 
-                               R.Status = 'A' ORDER BY " + sortOrder;
+                            ORDER BY " + sortOrder;
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -176,7 +175,7 @@ namespace TrainTicketSys
                             ON 
                                SArrival.StationID = R.ArrivalStation
                             WHERE 
-                               R.Status = 'A' AND upper(SDepart.Name) LIKE '" + txtKeyWord.ToUpper() + "%' ORDER BY SDepart.Name";
+                               upper(SDepart.Name) LIKE '" + txtKeyWord.ToUpper() + "%' ORDER BY SDepart.Name";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -212,7 +211,7 @@ namespace TrainTicketSys
         }
 
         // Method to Get a Route According to Route ID (RETURNING)
-        public static DataTable getARoute(int routeID)
+        public static DataTable getARoute (int routeID)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
@@ -274,6 +273,19 @@ namespace TrainTicketSys
             {
                 MessageBox.Show(ex.Message);
             }
+            con.Close();
+        }
+
+        public static void terminateRoute (int stationID)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = @"UPDATE Routes SET status = 'T' WHERE departStation = " + stationID + " OR arrivalStation = " + stationID;
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            cmd.ExecuteNonQuery();
+
             con.Close();
         }
     }

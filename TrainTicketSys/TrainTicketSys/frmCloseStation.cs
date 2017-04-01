@@ -109,6 +109,11 @@ namespace TrainTicketSys
             loadStationsComboBox();
             // Update Visibility
             grpUpdate.Visible = false;
+
+            // Terminate Route
+            Routes.terminateRoute(Convert.ToInt32(txtStID.Text));
+
+            // Terminate Schedule
         }
     }
 }
