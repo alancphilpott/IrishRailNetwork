@@ -72,17 +72,50 @@ namespace TrainTicketSys
 			Application.Exit();
 		}
 
-		private void cmbDay_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbRoute_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Update Visibility
+            grpDay.Visible = true;
+            cmbSchedule.SelectedIndex = -1;
+            cmbRates.SelectedIndex = -1;
+            cmbDay.SelectedIndex = -1;
+            grpSchedule.Visible = false;
+            grpRates.Visible = false;
+
+            // If the route was changed after selecting all items
+            radioReturn.Checked = false;
+            radioSingle.Checked = false;
+        }
+
+        private void cmbDay_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			cmbSchedule.Items.Clear();
+            // Update Visibility
+            cmbSchedule.SelectedIndex = -1;
+            grpSchedule.Visible = true;
 
-			DataSet DS = new DataSet();
-			DataTable dtSchedules = Schedules.getScheduleByDay(DS, Convert.ToInt32(cmbRoute.Text.Substring(0,5)), Convert.ToInt32(cmbDay.Text.Substring(0,1))).Tables["Schedules"];
+            cmbRates.SelectedIndex = -1;
+            radioSingle.Checked = false;
+            radioReturn.Checked = false;
+            grpRates.Visible = false;
 
-			foreach (DataRow dr in dtSchedules.Rows)
-			{
-				cmbSchedule.Items.Add(dr["scheduleID"] + " : Dep: " + dr["depTime"] + " : Arr: " + dr["arrTime"]);
-			}
+            // Populate With Relevant Schedules
+            if (cmbDay.SelectedIndex != -1)
+            {
+                cmbSchedule.Items.Clear();
+
+                DataSet DS = new DataSet();
+                DataTable dtSchedules = Schedules.getScheduleByDay(DS, Convert.ToInt32(cmbRoute.Text.Substring(0, 5)), Convert.ToInt32(cmbDay.Text.Substring(0, 1))).Tables["Schedules"];
+
+                foreach (DataRow dr in dtSchedules.Rows)
+                {
+                    cmbSchedule.Items.Add(dr["scheduleID"] + " : Dep: " + dr["depTime"] + " : Arr: " + dr["arrTime"]);
+                }
+            }
 		}
-	}
+
+        private void cmbSchedule_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            grpRates.Visible = true;
+        }
+    }
 }
