@@ -165,5 +165,22 @@ namespace TrainTicketSys
 
             return DS;
         }
+
+		public static DataSet getScheduleByDay(DataSet DS, int routeID, int dayOfWeek)
+		{
+			con = new OracleConnection(DBConnect.oradb);
+			con.Open();
+
+			string SQL = @"SELECT * FROM Schedules WHERE routeID = " + routeID + "AND dayOfWeek = " + dayOfWeek;
+
+			OracleCommand cmd = new OracleCommand(SQL, con);
+			OracleDataAdapter DA = new OracleDataAdapter(cmd);
+
+			DA.Fill(DS, "Schedules");
+
+			con.Close();
+
+			return DS;
+		}
     }
 }

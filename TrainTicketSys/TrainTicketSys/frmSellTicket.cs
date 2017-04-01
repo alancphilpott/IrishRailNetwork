@@ -40,6 +40,11 @@ namespace TrainTicketSys
                 cmbRoute.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " " + String.Format("From: " + "{0,-15}", dr["departStation"]) + "To: " + dr["arrivalStation"]);
             }
 
+			// Populate ComboBox for choosing day
+			string[] days = {"1 Monday","2 Tuesday","3 Wednesday","4 Thursday","5 Friday","6 Saturday","7 Sunday"};
+			foreach (string s in days)
+				cmbDay.Items.Add(s);
+
             // Populating the Combo Boxes for Selecting Rates
             DataSet dsRates = new DataSet();
             DataTable dtRates = Rates.getRates(dsRates, "description").Tables["Rates"];
@@ -62,9 +67,22 @@ namespace TrainTicketSys
             Parent.Show();
         }
 
-        private void mnuExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-    }
+		private void mnuExit_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+
+		private void cmbDay_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			cmbSchedule.Items.Clear();
+
+			DataSet DS = new DataSet();
+			DataTable dtSchedules = Schedules.getScheduleByDay(DS, Convert.ToInt32(cmbRoute.Text.Substring(0,5)), Convert.ToInt32(cmbDay.Text.Substring(0,1))).Tables["Schedules"];
+
+			foreach (DataRow dr in dtSchedules.Rows)
+			{
+				cmbSchedule.Items.Add(dr["scheduleID"] + " : Dep: " + dr["depTime"] + " : Arr: " + dr["arrTime"]);
+			}
+		}
+	}
 }
