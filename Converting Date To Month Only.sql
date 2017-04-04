@@ -1,0 +1,3 @@
+SELECT TO_CHAR(TO_DATE(EXTRACT(MONTH FROM TO_DATE(SaleDate,'dd/mm/yy')), 'MM'), 'MONTH') AS TheMonth, SUM(TotalCost) AS TotalCost
+FROM Sales
+GROUP BY TO_CHAR(TO_DATE(EXTRACT(MONTH FROM TO_DATE(SaleDate,'dd/mm/yy')), 'MM'), 'MONTH');

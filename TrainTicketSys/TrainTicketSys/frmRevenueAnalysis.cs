@@ -27,7 +27,8 @@ namespace TrainTicketSys
 
         private void frmRevenueAnalysis_Load(object sender, EventArgs e)
         {
-
+            // Load Information onto Chart
+            
         }
 
         private void mnuRevenueAnalysisBack_Click(object sender, EventArgs e)
@@ -42,31 +43,6 @@ namespace TrainTicketSys
         }
 
         private void finishButtonRevenueAnalysis_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listGrossList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void specificDateCalender_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
-        private void datePeriodRevenueAnalysis_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateSpecificRevenueAnalysis_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timePeriodCalender_DateChanged(object sender, DateRangeEventArgs e)
         {
 
         }

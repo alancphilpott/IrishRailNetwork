@@ -130,5 +130,10 @@ namespace TrainTicketSys
             // Close Database Connection
             con.Close(); 
         }
+
+        public static DataSet getSales (DataSet DS)
+        {
+            
+        }
     }
 }
