@@ -28,7 +28,18 @@ namespace TrainTicketSys
         private void frmRevenueAnalysis_Load(object sender, EventArgs e)
         {
             // Load Information onto Chart
-            
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Jan", 2000);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Feb", 2500);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Mar", 1250);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
+            this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
         }
 
         private void mnuRevenueAnalysisBack_Click(object sender, EventArgs e)

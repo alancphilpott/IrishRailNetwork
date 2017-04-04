@@ -48,7 +48,7 @@
             this.mnuRevenueAnalysisExit});
             this.mnuStripRevenueAnalysis.Location = new System.Drawing.Point(0, 0);
             this.mnuStripRevenueAnalysis.Name = "mnuStripRevenueAnalysis";
-            this.mnuStripRevenueAnalysis.Size = new System.Drawing.Size(752, 29);
+            this.mnuStripRevenueAnalysis.Size = new System.Drawing.Size(959, 29);
             this.mnuStripRevenueAnalysis.TabIndex = 3;
             this.mnuStripRevenueAnalysis.Text = "menuStrip1";
             // 
@@ -69,7 +69,7 @@
             // finishButtonRevenueAnalysis
             // 
             this.finishButtonRevenueAnalysis.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finishButtonRevenueAnalysis.Location = new System.Drawing.Point(513, 353);
+            this.finishButtonRevenueAnalysis.Location = new System.Drawing.Point(720, 353);
             this.finishButtonRevenueAnalysis.Name = "finishButtonRevenueAnalysis";
             this.finishButtonRevenueAnalysis.Size = new System.Drawing.Size(227, 29);
             this.finishButtonRevenueAnalysis.TabIndex = 15;
@@ -89,7 +89,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Revenue";
             this.chartRevenue.Series.Add(series1);
-            this.chartRevenue.Size = new System.Drawing.Size(384, 302);
+            this.chartRevenue.Size = new System.Drawing.Size(935, 302);
             this.chartRevenue.TabIndex = 22;
             this.chartRevenue.Text = "chart1";
             // 
@@ -97,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 394);
+            this.ClientSize = new System.Drawing.Size(959, 398);
             this.Controls.Add(this.chartRevenue);
             this.Controls.Add(this.finishButtonRevenueAnalysis);
             this.Controls.Add(this.mnuStripRevenueAnalysis);

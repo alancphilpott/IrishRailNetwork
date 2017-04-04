@@ -131,9 +131,9 @@ namespace TrainTicketSys
             con.Close(); 
         }
 
-        public static DataSet getSales (DataSet DS)
+        /* public static DataSet getSales (DataSet DS)
         {
             
-        }
+        } */
     }
 }
