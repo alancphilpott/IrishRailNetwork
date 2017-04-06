@@ -172,11 +172,13 @@ namespace TrainTicketSys
         private void radioReturn_CheckedChanged(object sender, EventArgs e)
         {
             cmbRates.SelectedIndex = -1;
+            txtTotalCost.Text = "";
         }
 
         private void radioSingle_CheckedChanged(object sender, EventArgs e)
         {
             cmbRates.SelectedIndex = -1;
+            txtTotalCost.Text = "";
         }
     }
 }

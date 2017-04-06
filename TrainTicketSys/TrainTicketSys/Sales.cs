@@ -131,9 +131,29 @@ namespace TrainTicketSys
             con.Close(); 
         }
 
-        /* public static DataSet getSales (DataSet DS)
+        public static DataSet getSalesAnalysis (DataSet DS)
         {
-            
-        } */
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = @"SELECT 
+                                TO_CHAR(TO_DATE(EXTRACT(MONTH FROM TO_DATE(SaleDate,'dd/mm/yy')), 'MM'), 'MONTH') AS TheMonth, SUM(TotalCost) AS TotalCost
+                           FROM 
+                                Sales
+                           GROUP BY 
+                                TO_CHAR(TO_DATE(EXTRACT(MONTH FROM TO_DATE(SaleDate,'dd/mm/yy')), 'MM'), 'MONTH')";
+            OracleCommand cmd = new OracleCommand(SQL, con);
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+
+            try
+            {
+                DA.Fill(DS, "Sales");
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return DS;
+        }
     }
 }

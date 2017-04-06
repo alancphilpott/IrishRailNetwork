@@ -27,6 +27,15 @@ namespace TrainTicketSys
 
         private void frmRevenueAnalysis_Load(object sender, EventArgs e)
         {
+            DataSet DS = new DataSet();
+            DataTable DT = Sales.getSalesAnalysis(DS).Tables["Sales"];
+
+            foreach (DataRow dr in DT.Rows)
+            {
+                this.chartRevenue.Series["Revenue"].Points.AddXY(dr["TheMonth"], dr["TotalCost"]);
+            }
+
+            /*
             // Load Information onto Chart
             this.chartRevenue.Series["Revenue"].Points.AddXY("Jan", 2000);
             this.chartRevenue.Series["Revenue"].Points.AddXY("Feb", 2500);
@@ -40,6 +49,7 @@ namespace TrainTicketSys
             this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
             this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
             this.chartRevenue.Series["Revenue"].Points.AddXY("Apr", 750);
+            */
         }
 
         private void mnuRevenueAnalysisBack_Click(object sender, EventArgs e)
