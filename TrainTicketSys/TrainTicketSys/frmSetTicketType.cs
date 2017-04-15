@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Oracle.ManagedDataAccess.Client;
 
 namespace TrainTicketSys
 {
@@ -26,71 +18,82 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Method on Load
         private void frmSetTicketType_Load(object sender, EventArgs e)
         {
             
         }
 
+        // Back Button Click
         private void mnuSetTicketTypeBack_Click(object sender, EventArgs e)
         {
             this.Close();
             Parent.Show();
         }
 
+        // Exit Button Click
         private void mnuExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        // Validation Method
+        private Boolean validation ()
         {
-            // Validation of Details Entered
+            Boolean valid = true;
 
-            // Description Not Longer Than 25 Characters
-            if (txtDescription.Text.Length > 25)
+            // Type Code Not Empty
+            if (txtTypeCode.Text.Equals(""))
             {
-                MessageBox.Show("Description Cannot Be Longer Than 25 Characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtDescription.Focus();
-                return;
+                MessageBox.Show("Type Code Cannot Be Empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDescription.Focus(); valid = false; return valid;
             }
 
             // Description Not Empty
             if (txtDescription.Text.Equals(""))
             {
                 MessageBox.Show("Description Cannot Be Empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtDescription.Focus();
-                return;
+                txtDescription.Focus(); valid = false; return valid;
             }
 
             // Price Not 0
             if (nmbRatePicker.Text.Equals("0.00"))
             {
                 MessageBox.Show("The Rate Cannot Be Free!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                valid = false; return valid;
             }
+            return valid;
+        }
 
-            // Check If TypeCode Is Unique
-            Boolean alreadyExists = Rates.alreadyExists(txtTypeCode.Text);
-            if (alreadyExists)
+        // Create Button Click
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            if (validation())
             {
-                MessageBox.Show("That Type Code Already Exists");
-            }
-            else //Insert Data Into Database
-            {
-                Rates rate = new Rates(
-                    txtTypeCode.Text,
-                    txtDescription.Text,
-                    Convert.ToDecimal(nmbRatePicker.Text)
-                    );
+                // Check If TypeCode Is Unique
+                Boolean alreadyExists = Rates.alreadyExists(txtTypeCode.Text);
+                if (alreadyExists)
+                {
+                    MessageBox.Show("That Type Code Already Exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else //Insert Data Into Database
+                {
+                    Rates rate = new Rates(
+                        txtTypeCode.Text,
+                        txtDescription.Text,
+                        Convert.ToDecimal(nmbRatePicker.Text)
+                        );
 
-                rate.createRate(); // Create The Rate
+                    rate.createRate(); // Create The Rate
 
-                // Display Confirmation
-                MessageBox.Show("Rate Created Successfully");
+                    // Display Confirmation
+                    MessageBox.Show("Rate Created Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Reset UI
-                txtTypeCode.Text = "";
-                txtDescription.Text = "";
+                    // Reset UI
+                    txtTypeCode.Text = "";
+                    txtDescription.Text = "";
+                    nmbRatePicker.Text = "0.00";
+                }
             }
         }
     }

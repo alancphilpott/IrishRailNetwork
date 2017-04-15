@@ -150,8 +150,8 @@ namespace TrainTicketSys
         {
             con = new OracleConnection(DBConnect.oradb); con.Open();
 
-            string SQL = "UPDATE Rates SET description = '"
-                + description + "', ratePerKM = '"
+            string SQL = "UPDATE Rates SET description = UPPER('"
+                + description + "'), ratePerKM = '"
                 + ratePerKM + "' WHERE typeCode = '" + typeCode + "'";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
