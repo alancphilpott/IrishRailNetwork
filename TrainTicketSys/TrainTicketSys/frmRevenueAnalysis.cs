@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrainTicketSys
@@ -25,6 +19,7 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Method On Load
         private void frmRevenueAnalysis_Load(object sender, EventArgs e)
         {
             DataSet DS = new DataSet();
@@ -36,20 +31,24 @@ namespace TrainTicketSys
             }
         }
 
+        // Back Button Click
         private void mnuRevenueAnalysisBack_Click(object sender, EventArgs e)
         {
             this.Close();
             Parent.Show();
         }
 
+        // Exit Button Click
         private void mnuRevenueAnalysisExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // Finish Button Click
         private void finishButtonRevenueAnalysis_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            Parent.Show();
         }
     }
 }

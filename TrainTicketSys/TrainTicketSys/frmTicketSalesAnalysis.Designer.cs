@@ -36,6 +36,8 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.finishButtonTicketSalesAnalysis = new System.Windows.Forms.Button();
             this.chartTickets = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.mnuStripTicketSalesAnalysis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTickets)).BeginInit();
             this.SuspendLayout();
@@ -92,11 +94,31 @@
             this.chartTickets.TabIndex = 24;
             this.chartTickets.Text = "Ticket Sales Analysis";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 274);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Amount";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(94, 332);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Type";
+            // 
             // frmTicketSalesAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 393);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.chartTickets);
             this.Controls.Add(this.finishButtonTicketSalesAnalysis);
             this.Controls.Add(this.mnuStripTicketSalesAnalysis);
@@ -118,5 +140,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.Button finishButtonTicketSalesAnalysis;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartTickets;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

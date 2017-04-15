@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrainTicketSys
@@ -26,6 +20,7 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Method on Load
         private void frmSellTicket_Load(object sender, EventArgs e)
         {
             // Setting the next Schedule ID
@@ -61,17 +56,20 @@ namespace TrainTicketSys
             txtSaleDate.Text = date.Substring(0, 10);
         }
 
+        // Back Button Click
         private void mnuSellTicketBack_Click(object sender, EventArgs e)
         {
             this.Hide();
             Parent.Show();
         }
 
+        // Exit Button Click
 		private void mnuExit_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
 		}
 
+        // When A Route Is Selected
         private void cmbRoute_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Update Visibility
@@ -87,12 +85,12 @@ namespace TrainTicketSys
             radioSingle.Checked = false;
         }
 
+        // When A Day Is Selected
         private void cmbDay_SelectedIndexChanged(object sender, EventArgs e)
 		{
             // Update Visibility
             cmbSchedule.SelectedIndex = -1;
             grpSchedule.Visible = true;
-
             cmbRates.SelectedIndex = -1;
             radioSingle.Checked = false;
             radioReturn.Checked = false;
@@ -113,14 +111,18 @@ namespace TrainTicketSys
             }
 		}
 
+        // When A Schedule Is Selected
         private void cmbSchedule_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Update Visibility
             grpRates.Visible = true;
             radioSingle.Checked = true;
         }
 
+        // Variables For Determining The Price of Ticket
         double distance, rateCost, totalCost;
-        
+
+        // When A Rate Is Selected
         private void cmbRates_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbRoute.SelectedIndex != -1 && cmbDay.SelectedIndex != -1 && cmbSchedule.SelectedIndex != -1 && cmbRates.SelectedIndex != -1 && (radioSingle.Checked == true || radioReturn.Checked == true))
@@ -142,6 +144,7 @@ namespace TrainTicketSys
             }
         }
 
+        // Confirm Button Click
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             Sales sale = new Sales(
@@ -169,12 +172,14 @@ namespace TrainTicketSys
             txtSaleDate.Text = date.Substring(0, 10);
         }
 
+        // Return Radio Checked
         private void radioReturn_CheckedChanged(object sender, EventArgs e)
         {
             cmbRates.SelectedIndex = -1;
             txtTotalCost.Text = "";
         }
 
+        // Single Radio Checked
         private void radioSingle_CheckedChanged(object sender, EventArgs e)
         {
             cmbRates.SelectedIndex = -1;
