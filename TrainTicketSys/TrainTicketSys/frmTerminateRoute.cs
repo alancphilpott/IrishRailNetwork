@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrainTicketSys
@@ -25,45 +19,49 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
-        // Called when the form is loaded
+        // When Form Is Loading
         private void frmTerminateRoute_Load(object sender, EventArgs e)
         {
             // Populating the Combo Boxes for selecting Routes
-            DataSet ds = new DataSet();
+            loadRoutesComboBox();
+        }
 
+        private void loadRoutesComboBox ()
+        {
+            DataSet ds = new DataSet();
             DataTable dt = Routes.getActiveRoutes(ds, "departStation").Tables["Routes"];
+
+            cmbRoutes.Items.Clear();
 
             foreach (DataRow dr in dt.Rows)
             {
-                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " DEP: " + String.Format("{0,-20}",dr["departStation"]) + " ARR: " + dr["arrivalStation"]);
+                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " DEP: " + String.Format("{0,-20}", dr["departStation"]) + " ARR: " + dr["arrivalStation"]);
             }
         }
 
+        // Back Button Clicked
         private void mnuTerminateRouteBack_Click(object sender, EventArgs e)
         {
             this.Close();
             Parent.Show();
         }
 
+        // Exit Button Clicked
         private void mnuTerminateRouteExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // When A Route Is Selected
         private void cmbRoutes_SelectedIndexChanged(object sender, EventArgs e)
         {
             Routes aRoute = new Routes();
             aRoute.getRoute(Convert.ToInt32(cmbRoutes.Text.Substring(0, 5)));
 
-            grpUpdate.Visible = true;
-            btnYes.Visible = true;
-            btnNo.Visible = true;
-
             // Populate The Text Boxes For Updating
+            txtRouteID.Text = aRoute.getRouteID().ToString("00000");
 
             DataTable dt;
-            
-            txtRouteID.Text = aRoute.getRouteID().ToString("00000");
 
             dt = Station.getAStation(aRoute.getDepartStation());
             foreach (DataRow dr in dt.Rows)
@@ -75,8 +73,11 @@ namespace TrainTicketSys
 
             txtDistance.Text = aRoute.getDistance().ToString();
             txtStatus.Text = aRoute.getStatus().ToString();
+
+            grpUpdate.Visible = true;
         }
 
+        // No Button Clicked
         private void btnNo_Click(object sender, EventArgs e)
         {
             // Update Visibility
@@ -84,25 +85,21 @@ namespace TrainTicketSys
             cmbRoutes.Text = "Choose Route";
         }
 
+        // Yes Button Clicked
         private void btnYes_Click(object sender, EventArgs e)
         {
-            // Station Status
-            char routeStatus = 'T';
+            // Terminate Route
+            Routes.terminateRouteByRoute(Convert.ToInt32(txtRouteID.Text));
 
-            // Update Station Object
-            Routes.updateRoute(
-                Convert.ToInt32(txtRouteID.Text),
-                txtDepSt.Text,
-                txtArrSt.Text,
-                Convert.ToDouble(txtDistance.Text),
-                routeStatus);
+            // Terminate Schedule According To Route ID
+            Schedules.terminateScheduleByRoute(Convert.ToInt32(txtRouteID.Text));
 
             // Display Confirmation
-            MessageBox.Show("Route Terminated Successfully");
+            MessageBox.Show("Route Terminated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Update Visibility
             grpUpdate.Visible = false;
-            cmbRoutes.Text = "Choose Route";
+            loadRoutesComboBox();
         }
     }
 }

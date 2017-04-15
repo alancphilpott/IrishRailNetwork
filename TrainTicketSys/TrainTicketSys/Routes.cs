@@ -146,7 +146,7 @@ namespace TrainTicketSys
                                INNER JOIN STATIONS SArrival
                             ON 
                                SArrival.StationID = R.ArrivalStation
-                            ORDER BY " + sortOrder;
+                            ORDER BY " + sortOrder + ", arrivalStation";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -175,7 +175,7 @@ namespace TrainTicketSys
                             ON 
                                SArrival.StationID = R.ArrivalStation
                             WHERE 
-                               upper(SDepart.Name) LIKE '" + txtKeyWord.ToUpper() + "%' ORDER BY SDepart.Name";
+                               upper(SDepart.Name) LIKE '" + txtKeyWord.ToUpper() + "%' ORDER BY departStation, arrivalStation";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
 
@@ -276,12 +276,25 @@ namespace TrainTicketSys
             con.Close();
         }
 
-        public static void terminateRoute (int stationID)
+        public static void terminateRouteByStation (int stationID)
         {
             con = new OracleConnection(DBConnect.oradb);
             con.Open();
 
             string SQL = @"UPDATE Routes SET status = 'T' WHERE departStation = " + stationID + " OR arrivalStation = " + stationID;
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+        }
+
+        public static void terminateRouteByRoute (int routeID)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = @"UPDATE Routes SET status = 'T' WHERE routeID = " + routeID;
             OracleCommand cmd = new OracleCommand(SQL, con);
 
             cmd.ExecuteNonQuery();

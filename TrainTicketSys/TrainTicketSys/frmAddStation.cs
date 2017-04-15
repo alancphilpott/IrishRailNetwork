@@ -26,18 +26,20 @@ namespace TrainTicketSys
             txtStID.Text = Station.nextStationID().ToString("00000");
         }
 
+        // Clicking Back Button
         private void mnuAddStationBack_Click(object sender, EventArgs e)
         {
             this.Close();
             Parent.Show();
         }
 
+        // Clicking Exit Button
         private void mnuExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        // Method To Reset The UI Text Boxes To Blank
+        // Method To Reset The UI
         private void resetUI ()
         {
             txtStID.Text = Station.nextStationID().ToString("00000");
@@ -53,17 +55,10 @@ namespace TrainTicketSys
         {
             Boolean valid = true;
 
-            // Not Empty
+            // No Empty Fields
             if (txtStation.Text.Equals("") || txtStreet.Text.Equals("") || txtTown.Text.Equals("") || txtCounty.Text.Equals("") || txtPhoneNo.Text.Equals(""))
             {
                 MessageBox.Show("Please Enter All Fields","Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                valid = false; return valid;
-            }
-
-            // Phone Number Length
-            if (txtPhoneNo.Text.Length > 16)
-            {
-                MessageBox.Show("Phone Number Must Not Exceed 16 Characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 valid = false; return valid;
             }
 
@@ -80,9 +75,10 @@ namespace TrainTicketSys
             return valid;
         }
 
-        // Method When Create Station Button Is Clicked
+        // Create Station Button Clicked
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            // Validation
             Boolean valid = validation();
 
             if (valid)

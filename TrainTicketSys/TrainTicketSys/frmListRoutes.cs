@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrainTicketSys
@@ -25,22 +19,23 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Exit Button Clicked
         private void mnuExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // Back Button Clicked
         private void mnuListRoutesBack_Click(object sender, EventArgs e)
         {
             this.Hide();
             Parent.Show();
         }
 
+        // Search Button Clicked
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string keyword = txtSearch.Text;
-
-            if (keyword.Equals(""))
+            if (txtSearch.Text.Equals(""))
             {
                 DataSet DS = new DataSet();
                 dgRoutes.DataSource = Routes.getRoutes(DS, "departStation").Tables["Routes"];
@@ -50,7 +45,7 @@ namespace TrainTicketSys
             else
             {
                 DataSet DS = new DataSet();
-                dgRoutes.DataSource = Routes.getRoutesDepartStation(DS, keyword).Tables["Routes"];
+                dgRoutes.DataSource = Routes.getRoutesDepartStation(DS, txtSearch.Text).Tables["Routes"];
                 dgRoutes.Visible = true;
                 btnPrint.Visible = true;
             }

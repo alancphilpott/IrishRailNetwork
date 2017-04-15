@@ -182,5 +182,18 @@ namespace TrainTicketSys
 
 			return DS;
 		}
+
+        public static void terminateScheduleByRoute (int routeID)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = @"UPDATE Routes SET status = 'T' WHERE routeID = " + routeID;
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+        }
     }
 }

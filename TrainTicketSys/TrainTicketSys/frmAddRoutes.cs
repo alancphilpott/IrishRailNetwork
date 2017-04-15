@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrainTicketSys
@@ -26,12 +19,13 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Called When The Form Is Loaded
         private void frmAddRoutes_Load(object sender, EventArgs e)
         {
-            // Setting the next Route ID
+            // Setting The Next Route ID
             txtRouteID.Text = Routes.nextRouteID().ToString("00000");
 
-            // Populating the Combo Boxes for selecting Stations
+            // Populating the Combo Boxes for Selecting Stations
             DataSet ds = new DataSet();
             DataTable dt = Station.getActiveStations(ds,"stationID").Tables["Stations"];
 
@@ -48,12 +42,14 @@ namespace TrainTicketSys
             }
         }
 
+        // Back Button Clicked
         private void mnuAddRoutesBack_Click(object sender, EventArgs e)
         {
             this.Hide();
             Parent.Show();
         }
 
+        // Exit Button Clicked
         private void mnuExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -64,57 +60,56 @@ namespace TrainTicketSys
         {
             txtRouteID.Text = Routes.nextRouteID().ToString("00000");
             txtDistance.Text = "";
-            
-            cmbDepSt.Text = "Choose Departure Station";
-            cmbArrSt.Text = "Choose Arrival Station";
+            cmbDepSt.SelectedIndex = -1;
+            cmbArrSt.SelectedIndex = -1;
         }
 
-        // Validation and Creation of Route after clicking confirm
-        private void confirmButtonAddRoutes_Click(object sender, EventArgs e)
+        // Method For Validation
+        private Boolean validation ()
         {
             Boolean valid = true;
-            String validationMessage = "";
-
-            // Validation of Details Entered
 
             // Not Empty
             if (txtDistance.Text.Equals(""))
             {
-                validationMessage += " Please Enter All Fields. ";
-                valid = false;
+                MessageBox.Show("Please Enter All Fields", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                valid = false; return valid;
             }
 
             // Arrival and Departures Stations Chosen
             if (cmbDepSt.SelectedIndex == -1 || cmbArrSt.SelectedIndex == -1)
             {
-                validationMessage += " Please Choose Both The Arrival and Departure Station. ";
-                valid = false;
+                MessageBox.Show("Please Choose Both The Arrival and Departure Station", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                valid = false; return valid;
             }
 
             // Arrival and Departure Stations Not The Same
             if (cmbDepSt.Text.Equals(cmbArrSt.Text))
             {
-                valid = false;
-                validationMessage += " Please Choose A Different Departure and Arrival Station";
+                MessageBox.Show("Please Choose A Different Departure and Arrival Station", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                valid = false; return valid;
             }
 
-            // Making sure that the distance is valid
+            // Making Sure The Distance Is Valid
             try
             {
                 Convert.ToDecimal(txtDistance.Text);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                valid = false;
-                validationMessage += ex.Message + " Please Re-Enter Route Distance.";
+                MessageBox.Show("Please Re-Enter Route Distance", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                valid = false; return valid;
             }
 
-            if (!valid)
-            {
-                MessageBox.Show(validationMessage);
-            }
+            return valid;
+        }
 
-            // Instantiate Route Object
-            else
+        // Confirm Button Clicked
+        private void confirmButtonAddRoutes_Click(object sender, EventArgs e)
+        {
+            Boolean valid = validation();
+            
+            if (valid)
             {
                 Routes route = new Routes(
                     Convert.ToInt32(txtRouteID.Text),
@@ -127,7 +122,7 @@ namespace TrainTicketSys
                 route.createRoute();
 
                 // Display Confirmation
-                MessageBox.Show("Route Created Successfully");
+                MessageBox.Show("Route Created Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Reset UI
                 resetUI();

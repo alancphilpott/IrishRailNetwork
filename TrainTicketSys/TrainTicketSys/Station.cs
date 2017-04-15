@@ -36,10 +36,7 @@ namespace TrainTicketSys
         // Argument Constructor
         public Station (int stationID, string name, string street, string town, string county, string phoneNo, char status)
         {
-            setStationID(stationID); setName(name);
-            setStreet(street); setTown(town);
-            setCounty(county); setPhoneNo(phoneNo);
-            setStatus(status);
+            setStationID(stationID); setName(name); setStreet(street); setTown(town); setCounty(county); setPhoneNo(phoneNo); setStatus(status);
         }
 
         // Setter and Getter Methods for Variables
@@ -138,13 +135,13 @@ namespace TrainTicketSys
             // Define SQL Query
             string strSQL =
                 "INSERT INTO Stations VALUES ("
-                + this.stationID + ",'"
-                + this.name + "','"
-                + this.street + "','"
-                + this.town + "','"
-                + this.county + "','"
-                + this.phoneNo + "','"
-                + this.status + "')";
+                + this.stationID + ",UPPER('"
+                + this.name + "'),UPPER('"
+                + this.street + "'),UPPER('"
+                + this.town + "'),UPPER('"
+                + this.county + "'),'"
+                + this.phoneNo + "',UPPER('"
+                + this.status + "'))";
 
             // Execute Command/Query
             OracleCommand cmd = new OracleCommand(strSQL, con);

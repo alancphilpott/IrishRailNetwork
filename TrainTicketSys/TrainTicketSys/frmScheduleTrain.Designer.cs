@@ -116,9 +116,9 @@
             this.lblRouteID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRouteID.Location = new System.Drawing.Point(207, 140);
             this.lblRouteID.Name = "lblRouteID";
-            this.lblRouteID.Size = new System.Drawing.Size(132, 21);
+            this.lblRouteID.Size = new System.Drawing.Size(110, 21);
             this.lblRouteID.TabIndex = 22;
-            this.lblRouteID.Text = "Choose Schedule:";
+            this.lblRouteID.Text = "Choose Route:";
             // 
             // tpDepTime
             // 

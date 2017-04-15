@@ -80,7 +80,7 @@
             this.txtStation.MaxLength = 20;
             this.txtStation.Name = "txtStation";
             this.txtStation.Size = new System.Drawing.Size(164, 20);
-            this.txtStation.TabIndex = 2;
+            this.txtStation.TabIndex = 1;
             // 
             // lblStation
             // 
@@ -128,7 +128,7 @@
             this.txtStreet.MaxLength = 20;
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(164, 20);
-            this.txtStreet.TabIndex = 4;
+            this.txtStreet.TabIndex = 2;
             // 
             // txtTown
             // 
@@ -136,7 +136,7 @@
             this.txtTown.MaxLength = 20;
             this.txtTown.Name = "txtTown";
             this.txtTown.Size = new System.Drawing.Size(164, 20);
-            this.txtTown.TabIndex = 5;
+            this.txtTown.TabIndex = 3;
             // 
             // txtCounty
             // 
@@ -144,7 +144,7 @@
             this.txtCounty.MaxLength = 20;
             this.txtCounty.Name = "txtCounty";
             this.txtCounty.Size = new System.Drawing.Size(164, 20);
-            this.txtCounty.TabIndex = 6;
+            this.txtCounty.TabIndex = 4;
             // 
             // btnCreate
             // 
@@ -152,7 +152,7 @@
             this.btnCreate.Location = new System.Drawing.Point(238, 303);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(293, 29);
-            this.btnCreate.TabIndex = 8;
+            this.btnCreate.TabIndex = 6;
             this.btnCreate.Text = "Create Station";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -183,7 +183,7 @@
             this.txtStID.Location = new System.Drawing.Point(367, 103);
             this.txtStID.Name = "txtStID";
             this.txtStID.Size = new System.Drawing.Size(108, 20);
-            this.txtStID.TabIndex = 1;
+            this.txtStID.TabIndex = 0;
             // 
             // lblPhoneNo
             // 
@@ -201,7 +201,7 @@
             this.txtPhoneNo.MaxLength = 16;
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(164, 20);
-            this.txtPhoneNo.TabIndex = 7;
+            this.txtPhoneNo.TabIndex = 5;
             // 
             // frmAddStation
             // 
