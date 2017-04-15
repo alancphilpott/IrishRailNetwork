@@ -100,16 +100,13 @@ namespace TrainTicketSys
                 MessageBox.Show("Please Re-Enter Route Distance", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 valid = false; return valid;
             }
-
             return valid;
         }
 
         // Confirm Button Clicked
         private void confirmButtonAddRoutes_Click(object sender, EventArgs e)
         {
-            Boolean valid = validation();
-            
-            if (valid)
+            if (validation())
             {
                 Routes route = new Routes(
                     Convert.ToInt32(txtRouteID.Text),

@@ -19,17 +19,20 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Back Button Click
         private void mnuScheduleTrainBack_Click(object sender, EventArgs e)
         {
             this.Hide();
             Parent.Show();
         }
 
+        // Exit Button Click
         private void mnuScheduleTrainExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // Method On Form Load
         private void frmScheduleTrain_Load(object sender, EventArgs e)
         {
             // Setting the next Schedule ID
@@ -45,40 +48,36 @@ namespace TrainTicketSys
             }
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private Boolean validation ()
         {
             Boolean valid = true;
-            String validationMessage = "";
 
-            // Validation of Details Entered
-            
-            // Station Status Chosen
+            // Route Chosen
             if (cmbRouteID.SelectedIndex == -1)
             {
-                validationMessage += " Please Choose A Route. ";
-                valid = false;
+                MessageBox.Show("Please Choose A Route", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                valid = false; return valid;
             }
 
             // Day of Week Chosen
             if (cmbDayOfWeek.SelectedIndex == -1)
             {
-                validationMessage += " Please Choose The Day of Week. ";
-                valid = false;
+                MessageBox.Show("Please Choose The Day of Week", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                valid = false; return valid;
             }
 
             // Departure and Arrival Time Not The Same
             if (tpDepTime.Text.Equals(tpArrTime.Text))
             {
-                valid = false;
-                validationMessage += " Please Choose A Different Departure and Arrival Time. ";
+                MessageBox.Show("Please Choose A Different Departure and Arrival Time", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                valid = false; return valid;
             }
+            return valid;
+        }
 
-            if (!valid)
-            {
-                MessageBox.Show(validationMessage);
-            }
-            // Instantiate Route Object
-            else
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            if (validation())
             {
                 int dayNum = getDayNum();
 
@@ -90,10 +89,11 @@ namespace TrainTicketSys
                     tpArrTime.Text.Substring(0,5)
                     );
 
+                // Create The Schedule
                 schedule.createSchedule();
 
                 // Display Confirmation
-                MessageBox.Show("Schedule Created Successfully");
+                MessageBox.Show("Schedule Created Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Reset UI
                 resetUI();
@@ -129,13 +129,16 @@ namespace TrainTicketSys
                     dayNum = 7;
                     break;
             }
-
             return dayNum;
         }
 
         public void resetUI()
         {
             txtScheduleID.Text = Schedules.nextScheduleID().ToString("00000");
+            cmbDayOfWeek.SelectedIndex = -1;
+            cmbRouteID.SelectedIndex = -1;
+            tpDepTime.Text = "00:00";
+            tpArrTime.Text = "00:00";
         }
     }
 }

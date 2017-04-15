@@ -25,6 +25,7 @@ namespace TrainTicketSys
             this.Parent = Parent;
         }
 
+        // Method On Load
         private void frmTrainTimetable_Load(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
@@ -36,18 +37,21 @@ namespace TrainTicketSys
             }
         }
 
+        // Back Button Click
         private void mnuTrainTimetableBack_Click(object sender, EventArgs e)
         {
             this.Close();
             Parent.Show();
         }
 
+        // Exit Button Click
         private void mnuTrainTimetableExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        // When A Route Is Selected
+        private void cmbRoutes_SelectedIndexChanged(object sender, EventArgs e)
         {
             int routeID = Convert.ToInt32(cmbRoutes.Text.Substring(0, 5));
 

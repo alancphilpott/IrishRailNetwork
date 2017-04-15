@@ -107,11 +107,11 @@ namespace TrainTicketSys
             // Define SQL Query
             string strSQL =
                 "INSERT INTO Routes VALUES ("
-                + this.routeID + ",'"
-                + this.departStation + "','"
-                + this.arrivalStation + "',"
-                + this.distance + ",'"
-                + this.status + "')";
+                + this.routeID + ","
+                + this.departStation + ","
+                + this.arrivalStation + ","
+                + this.distance + ",UPPER('"
+                + this.status + "'))";
 
             // Execute Command/Query
             OracleCommand cmd = new OracleCommand(strSQL, con);

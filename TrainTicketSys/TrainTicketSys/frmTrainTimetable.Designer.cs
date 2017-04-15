@@ -95,7 +95,7 @@
             this.cmbRoutes.Name = "cmbRoutes";
             this.cmbRoutes.Size = new System.Drawing.Size(252, 21);
             this.cmbRoutes.TabIndex = 18;
-            this.cmbRoutes.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbRoutes.SelectedIndexChanged += new System.EventHandler(this.cmbRoutes_SelectedIndexChanged);
             // 
             // dgTimetable
             // 

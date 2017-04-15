@@ -147,7 +147,7 @@ namespace TrainTicketSys
                             WHEN 6 THEN 'Saturday'
                             WHEN 7 THEN 'Sunday'
                            END AS dayOfWeek, Schedules.depTime, Schedules.arrTime, Schedules.Status
-                           FROM Schedules WHERE routeID = " + routeID;
+                           FROM Schedules WHERE routeID = " + routeID + " AND status = 'A'";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
             OracleDataAdapter DA = new OracleDataAdapter(cmd);

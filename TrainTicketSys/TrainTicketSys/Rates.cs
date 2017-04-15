@@ -89,9 +89,9 @@ namespace TrainTicketSys
 
             // Define SQL Query
             string strSQL =
-                "INSERT INTO Rates VALUES ('"
-                + this.typeCode + "','"
-                + this.description + "',"
+                "INSERT INTO Rates VALUES (UPPER('"
+                + this.typeCode + "'),UPPER('"
+                + this.description + "'),"
                 + this.ratePerKM + ")";
 
             // Execute Command/Query
