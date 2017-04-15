@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mnuStripTicketSalesAnalysis = new System.Windows.Forms.MenuStrip();
             this.mnuTicketSalesAnalysisBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.timePeriodCalenderTicketSalesAnalysis = new System.Windows.Forms.MonthCalendar();
-            this.specificDateCalenderTicketSalesAnalysis = new System.Windows.Forms.MonthCalendar();
-            this.datePeriodTicketSalesAnalysis = new System.Windows.Forms.Label();
-            this.dateSpecificTicketSalesAnalysis = new System.Windows.Forms.Label();
             this.finishButtonTicketSalesAnalysis = new System.Windows.Forms.Button();
-            this.listTicketSalesList = new System.Windows.Forms.ListBox();
+            this.chartTickets = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mnuStripTicketSalesAnalysis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTickets)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuStripTicketSalesAnalysis
@@ -48,7 +48,7 @@
             this.mnuExit});
             this.mnuStripTicketSalesAnalysis.Location = new System.Drawing.Point(0, 0);
             this.mnuStripTicketSalesAnalysis.Name = "mnuStripTicketSalesAnalysis";
-            this.mnuStripTicketSalesAnalysis.Size = new System.Drawing.Size(326, 29);
+            this.mnuStripTicketSalesAnalysis.Size = new System.Drawing.Size(752, 29);
             this.mnuStripTicketSalesAnalysis.TabIndex = 2;
             this.mnuStripTicketSalesAnalysis.Text = "mnuAddRoutes";
             // 
@@ -66,77 +66,46 @@
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // timePeriodCalenderTicketSalesAnalysis
-            // 
-            this.timePeriodCalenderTicketSalesAnalysis.Location = new System.Drawing.Point(45, 290);
-            this.timePeriodCalenderTicketSalesAnalysis.Name = "timePeriodCalenderTicketSalesAnalysis";
-            this.timePeriodCalenderTicketSalesAnalysis.TabIndex = 27;
-            // 
-            // specificDateCalenderTicketSalesAnalysis
-            // 
-            this.specificDateCalenderTicketSalesAnalysis.Location = new System.Drawing.Point(45, 89);
-            this.specificDateCalenderTicketSalesAnalysis.Name = "specificDateCalenderTicketSalesAnalysis";
-            this.specificDateCalenderTicketSalesAnalysis.TabIndex = 26;
-            // 
-            // datePeriodTicketSalesAnalysis
-            // 
-            this.datePeriodTicketSalesAnalysis.AutoSize = true;
-            this.datePeriodTicketSalesAnalysis.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePeriodTicketSalesAnalysis.Location = new System.Drawing.Point(50, 260);
-            this.datePeriodTicketSalesAnalysis.Name = "datePeriodTicketSalesAnalysis";
-            this.datePeriodTicketSalesAnalysis.Size = new System.Drawing.Size(95, 21);
-            this.datePeriodTicketSalesAnalysis.TabIndex = 25;
-            this.datePeriodTicketSalesAnalysis.Text = "Time Period:";
-            // 
-            // dateSpecificTicketSalesAnalysis
-            // 
-            this.dateSpecificTicketSalesAnalysis.AutoSize = true;
-            this.dateSpecificTicketSalesAnalysis.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateSpecificTicketSalesAnalysis.Location = new System.Drawing.Point(50, 59);
-            this.dateSpecificTicketSalesAnalysis.Name = "dateSpecificTicketSalesAnalysis";
-            this.dateSpecificTicketSalesAnalysis.Size = new System.Drawing.Size(102, 21);
-            this.dateSpecificTicketSalesAnalysis.TabIndex = 24;
-            this.dateSpecificTicketSalesAnalysis.Text = "Specific Date:";
-            // 
             // finishButtonTicketSalesAnalysis
             // 
             this.finishButtonTicketSalesAnalysis.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finishButtonTicketSalesAnalysis.Location = new System.Drawing.Point(45, 642);
+            this.finishButtonTicketSalesAnalysis.Location = new System.Drawing.Point(513, 352);
             this.finishButtonTicketSalesAnalysis.Name = "finishButtonTicketSalesAnalysis";
             this.finishButtonTicketSalesAnalysis.Size = new System.Drawing.Size(227, 29);
             this.finishButtonTicketSalesAnalysis.TabIndex = 23;
             this.finishButtonTicketSalesAnalysis.Text = "Finish";
             this.finishButtonTicketSalesAnalysis.UseVisualStyleBackColor = true;
             // 
-            // listTicketSalesList
+            // chartTickets
             // 
-            this.listTicketSalesList.FormattingEnabled = true;
-            this.listTicketSalesList.Items.AddRange(new object[] {
-            "Number of Adult Tickets Sold.",
-            "Number of Student Tickets Sold.",
-            "Number of Child Tickets Sold."});
-            this.listTicketSalesList.Location = new System.Drawing.Point(45, 497);
-            this.listTicketSalesList.Name = "listTicketSalesList";
-            this.listTicketSalesList.Size = new System.Drawing.Size(227, 121);
-            this.listTicketSalesList.TabIndex = 22;
+            chartArea1.Name = "ChartArea1";
+            this.chartTickets.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartTickets.Legends.Add(legend1);
+            this.chartTickets.Location = new System.Drawing.Point(12, 32);
+            this.chartTickets.Name = "chartTickets";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Ticket Sales";
+            this.chartTickets.Series.Add(series1);
+            this.chartTickets.Size = new System.Drawing.Size(728, 313);
+            this.chartTickets.TabIndex = 24;
+            this.chartTickets.Text = "Ticket Sales Analysis";
             // 
             // frmTicketSalesAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 711);
-            this.Controls.Add(this.timePeriodCalenderTicketSalesAnalysis);
-            this.Controls.Add(this.specificDateCalenderTicketSalesAnalysis);
-            this.Controls.Add(this.datePeriodTicketSalesAnalysis);
-            this.Controls.Add(this.dateSpecificTicketSalesAnalysis);
+            this.ClientSize = new System.Drawing.Size(752, 393);
+            this.Controls.Add(this.chartTickets);
             this.Controls.Add(this.finishButtonTicketSalesAnalysis);
-            this.Controls.Add(this.listTicketSalesList);
             this.Controls.Add(this.mnuStripTicketSalesAnalysis);
             this.Name = "frmTicketSalesAnalysis";
             this.Text = "Train Ticket System - Ticket Sales Analysis";
             this.Load += new System.EventHandler(this.frmTicketSalesAnalysis_Load);
             this.mnuStripTicketSalesAnalysis.ResumeLayout(false);
             this.mnuStripTicketSalesAnalysis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTickets)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,11 +116,7 @@
         private System.Windows.Forms.MenuStrip mnuStripTicketSalesAnalysis;
         private System.Windows.Forms.ToolStripMenuItem mnuTicketSalesAnalysisBack;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.MonthCalendar timePeriodCalenderTicketSalesAnalysis;
-        private System.Windows.Forms.MonthCalendar specificDateCalenderTicketSalesAnalysis;
-        private System.Windows.Forms.Label datePeriodTicketSalesAnalysis;
-        private System.Windows.Forms.Label dateSpecificTicketSalesAnalysis;
         private System.Windows.Forms.Button finishButtonTicketSalesAnalysis;
-        private System.Windows.Forms.ListBox listTicketSalesList;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTickets;
     }
 }

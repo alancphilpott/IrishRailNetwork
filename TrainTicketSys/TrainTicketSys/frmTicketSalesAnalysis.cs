@@ -27,7 +27,13 @@ namespace TrainTicketSys
 
         private void frmTicketSalesAnalysis_Load(object sender, EventArgs e)
         {
+            DataSet DS = new DataSet();
+            DataTable DT = Sales.getTicketAnalysis(DS).Tables["Sales"];
 
+            foreach (DataRow dr in DT.Rows)
+            {
+                this.chartTickets.Series["Ticket Sales"].Points.AddXY(dr["CODEDESC"], dr["NUMSALES"]);
+            }
         }
 
         private void mnuTicketSalesAnalysisBack_Click(object sender, EventArgs e)

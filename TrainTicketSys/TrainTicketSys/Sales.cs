@@ -155,5 +155,33 @@ namespace TrainTicketSys
 
             return DS;
         }
+
+        public static DataSet getTicketAnalysis (DataSet DS)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            string SQL = @"SELECT 
+                                R.description AS CODEDESC, COUNT(S.typeCode) AS NUMSALES
+                           FROM 
+                                Rates R, Sales S
+                           WHERE 
+                                R.typeCode = S.typeCode
+                           GROUP BY 
+                                R.description, S.typeCode";
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+            OracleDataAdapter DA = new OracleDataAdapter(cmd);
+
+            try
+            {
+                DA.Fill(DS, "Sales");
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return DS;
+        }
     }
 }
