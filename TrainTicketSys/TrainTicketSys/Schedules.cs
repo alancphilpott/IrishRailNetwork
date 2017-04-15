@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace TrainTicketSys
 {
@@ -22,12 +17,14 @@ namespace TrainTicketSys
         private string arrivalTime;
         private char status;
 
+        // No Argument Constrcutor
         public Schedules ()
         {
             this.scheduleID = 0; this.routeID = 0;
             this.dayOfWeek = 0; this.departTime = "00:00:00"; this.arrivalTime = "00:00:00";
         }
 
+        // Argument Constructor
         public Schedules (int scheduleID, int routeID, int dayOfWeek, string departTime, string arrivalTime)
         {
             setScheduleID(scheduleID); setRouteID(routeID); setDayOfWeek(dayOfWeek);
@@ -35,6 +32,7 @@ namespace TrainTicketSys
         }
 
         // Setters and Getters
+        // Schedule ID
         public void setScheduleID (int scheduleID)
         {
             this.scheduleID = scheduleID;
@@ -43,7 +41,7 @@ namespace TrainTicketSys
         {
             return this.scheduleID;
         }
-
+        // Route ID
         public void setRouteID (int routeID)
         {
             this.routeID = routeID;
@@ -52,7 +50,7 @@ namespace TrainTicketSys
         {
             return this.routeID;
         }
-
+        // Day of Week
         public void setDayOfWeek (int dayOfWeek)
         {
             this.dayOfWeek = dayOfWeek;
@@ -61,7 +59,7 @@ namespace TrainTicketSys
         {
             return this.dayOfWeek;
         }
-
+        // Depart Time
         public void setDepartTime (string departTime)
         {
             this.departTime = departTime;
@@ -70,7 +68,7 @@ namespace TrainTicketSys
         {
             return this.departTime;
         }
-
+        // Arrival Time
         public void setArrivalTime (string arrivalTime)
         {
             this.arrivalTime = arrivalTime;
@@ -85,7 +83,14 @@ namespace TrainTicketSys
         {
             int nextScheduleID;
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             String strSQL = "SELECT MAX(scheduleID) FROM Schedules";
 
@@ -102,11 +107,19 @@ namespace TrainTicketSys
             return nextScheduleID;
         }
 
+        // Method To Create Schedule
         public void createSchedule ()
         {
             // Connect to DB
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Define SQL Query
             string strSQL =
@@ -132,10 +145,18 @@ namespace TrainTicketSys
             con.Close();
         }
 
+        // Get Schedules According to Route ID
         public static DataSet getRouteSchedules(DataSet DS, int routeID)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = @"SELECT Schedules.ScheduleID, Schedules.RouteID,
                             CASE Schedules.dayOfWeek
@@ -166,12 +187,20 @@ namespace TrainTicketSys
             return DS;
         }
 
+        // Get Schedule According To Route ID and Day of the Week
 		public static DataSet getScheduleByDay(DataSet DS, int routeID, int dayOfWeek)
 		{
 			con = new OracleConnection(DBConnect.oradb);
-			con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-			string SQL = @"SELECT * FROM Schedules WHERE routeID = " + routeID + "AND dayOfWeek = " + dayOfWeek;
+            string SQL = @"SELECT * FROM Schedules WHERE routeID = " + routeID + "AND dayOfWeek = " + dayOfWeek;
 
 			OracleCommand cmd = new OracleCommand(SQL, con);
 			OracleDataAdapter DA = new OracleDataAdapter(cmd);
@@ -183,15 +212,30 @@ namespace TrainTicketSys
 			return DS;
 		}
 
+        // Terminate Schedule According To Route ID
         public static void terminateScheduleByRoute (int routeID)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = @"UPDATE Routes SET status = 'T' WHERE routeID = " + routeID;
             OracleCommand cmd = new OracleCommand(SQL, con);
 
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             con.Close();
         }

@@ -8,26 +8,28 @@ namespace TrainTicketSys
     class Sales
     {
         private static OracleConnection con;
-
+      
+        // Class Attributes
         private int saleID;
         private int scheduleID;
         private string typeCode;
         private decimal totalCost;
         private string saleDate;
 
+        // No Argument Constructor
         public Sales ()
         {
             this.saleID = 0; this.scheduleID = 0; this.typeCode = "UN";
             this.totalCost = 0; this.saleDate = "00:00:0000";
         }
 
+        // Argument Constructor
         public Sales (int saleID, int scheduleID, string typeCode, decimal totalCost, string saleDate)
         {
             setSaleID(saleID); setScheduleID(scheduleID); setTypeCode(typeCode); setTotalCost(totalCost); setSaleDate(saleDate);
         }
 
         // Accessors and Mutators
-
         // Sale ID
         public void setSaleID (int saleID)
         {
@@ -83,7 +85,14 @@ namespace TrainTicketSys
         {
             int nextSaleID;
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             String strSQL = "SELECT MAX(saleID) FROM Sales";
 
@@ -101,11 +110,19 @@ namespace TrainTicketSys
             return nextSaleID;
         }
 
+        // Method To Create A Sale
         public void createSale ()
         {
             // Connect to DB
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Define SQL Query
             string strSQL =
@@ -131,10 +148,18 @@ namespace TrainTicketSys
             con.Close(); 
         }
 
+        // Method To Get Sales Analysis (Amount and Month)
         public static DataSet getSalesAnalysis (DataSet DS)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = @"SELECT 
                                 TO_CHAR(TO_DATE(EXTRACT(MONTH FROM TO_DATE(SaleDate,'dd/mm/yy')), 'MM'), 'MONTH') AS TheMonth, SUM(TotalCost) AS TotalCost
@@ -148,7 +173,8 @@ namespace TrainTicketSys
             try
             {
                 DA.Fill(DS, "Sales");
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -156,10 +182,18 @@ namespace TrainTicketSys
             return DS;
         }
 
+        // Method To Get Ticket Analysis (Amount and Type)
         public static DataSet getTicketAnalysis (DataSet DS)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = @"SELECT 
                                 R.description AS CODEDESC, COUNT(S.typeCode) AS NUMSALES
@@ -176,7 +210,8 @@ namespace TrainTicketSys
             try
             {
                 DA.Fill(DS, "Sales");
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using System.Windows.Forms;
 
 namespace TrainTicketSys
 {
@@ -109,7 +106,14 @@ namespace TrainTicketSys
         {
             int nextStationID;
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             String strSQL = "SELECT MAX(stationID) FROM Stations";
             OracleCommand cmd = new OracleCommand(strSQL, con);
@@ -130,7 +134,14 @@ namespace TrainTicketSys
         {
             // Connect To DB
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Define SQL Query
             string strSQL =
@@ -145,7 +156,14 @@ namespace TrainTicketSys
 
             // Execute Command/Query
             OracleCommand cmd = new OracleCommand(strSQL, con);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Close Database
             con.Close();
@@ -155,7 +173,14 @@ namespace TrainTicketSys
         public static DataSet getStations(DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "SELECT stationID, name, county, phoneNo, status FROM Stations ORDER BY " + sortOrder;
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -171,7 +196,14 @@ namespace TrainTicketSys
         public static DataSet getActiveStations(DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "SELECT stationID, name, county, phoneNo, status FROM Stations WHERE status = 'A' ORDER BY " + sortOrder;
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -187,7 +219,14 @@ namespace TrainTicketSys
         public static DataSet getStationsName (DataSet DS, String txtKeyword)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "SELECT stationID, name, county, phoneNo, status FROM Stations WHERE upper(name) LIKE '" + txtKeyword.ToUpper() + "%' ORDER BY stationID";
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -203,7 +242,14 @@ namespace TrainTicketSys
         public static DataTable getAStation (int stationID)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "SELECT name FROM Stations WHERE stationID = " + stationID + "";
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -221,7 +267,14 @@ namespace TrainTicketSys
         public void getStation (int stationID)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "SELECT * FROM Stations WHERE stationID = " + stationID + "";
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -244,7 +297,15 @@ namespace TrainTicketSys
         // Method To Update A Station
         public static void updateStation (int stationID, string name, string street, string town, string county, string phoneNo, char status)
         {
-            con = new OracleConnection(DBConnect.oradb); con.Open();
+            con = new OracleConnection(DBConnect.oradb);
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "UPDATE Stations SET name = '"
                 + name + "', street = '"
@@ -255,7 +316,14 @@ namespace TrainTicketSys
                 + status + "' WHERE stationID =" + stationID + "";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             con.Close();
         }
     }

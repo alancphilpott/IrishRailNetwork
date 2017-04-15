@@ -1,11 +1,6 @@
 ﻿using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using System;
 
 namespace TrainTicketSys
@@ -14,20 +9,25 @@ namespace TrainTicketSys
     {
         private static OracleConnection con;
 
+        // Class Attributes
         private string typeCode;
         private string description;
         private decimal ratePerKM;
 
+        // No Argument Constructor
         public Rates ()
         {
             this.typeCode = "UN";
             this.description = "Unknown";
         }
+
+        // Argument Constructor
         public Rates (string typeCode, string description, decimal ratePerKM)
         {
             setTypeCode(typeCode); setDescription(description); setRatePerKM(ratePerKM);
         }
 
+        // Setter and Getter Methods for Variables
         // TypeID
         public void setTypeCode (string typeCode)
         {
@@ -64,7 +64,15 @@ namespace TrainTicketSys
             Boolean valid = false;
 
             // Connect To DB
-            con = new OracleConnection(DBConnect.oradb); con.Open();
+            con = new OracleConnection(DBConnect.oradb);
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Define SQL Query
             string strSQL =
@@ -81,11 +89,19 @@ namespace TrainTicketSys
             return valid;
         }
 
+        // Method To Create a Rate
         public void createRate()
         {
             // Connect to DB
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Define SQL Query
             string strSQL =
@@ -113,7 +129,14 @@ namespace TrainTicketSys
         public static DataSet getRates(DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "SELECT typeCode, description FROM Rates ORDER BY " + sortOrder;
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -129,7 +152,14 @@ namespace TrainTicketSys
         public void getRate (string typeCode)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "SELECT * FROM Rates WHERE typeCode = '" + typeCode + "'";
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -148,14 +178,29 @@ namespace TrainTicketSys
         // Method To Update A Station
         public static void updateRate(string typeCode, string description, decimal ratePerKM)
         {
-            con = new OracleConnection(DBConnect.oradb); con.Open();
+            con = new OracleConnection(DBConnect.oradb);
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "UPDATE Rates SET description = UPPER('"
                 + description + "'), ratePerKM = '"
                 + ratePerKM + "' WHERE typeCode = '" + typeCode + "'";
 
             OracleCommand cmd = new OracleCommand(SQL, con);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             con.Close();
         }
     }

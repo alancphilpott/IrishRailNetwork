@@ -16,19 +16,21 @@ namespace TrainTicketSys
         private double distance;
         private char status;
 
+        // No Argument Constructor
         public Routes ()
         {
             this.routeID = 0; this.departStation = 0;
             this.arrivalStation = 0; this.distance = 0.00; this.status = ' ';
         }
 
+        // Argument Constructor
         public Routes (int routeID, int departStation, int arrivalStation, double distance, char status)
         {
-            setRouteID(routeID); setDepartStation(departStation);
-            setArrivalStation(arrivalStation); setDistance(distance); setStatus(status);
+            setRouteID(routeID); setDepartStation(departStation); setArrivalStation(arrivalStation); setDistance(distance); setStatus(status);
         }
 
         // Setter and Getter Methods for Variables
+        // Route ID
         public void setRouteID (int routeID)
         {
             this.routeID = routeID;
@@ -37,7 +39,7 @@ namespace TrainTicketSys
         {
             return this.routeID;
         }
-
+        // Depart Station
         public void setDepartStation (int departStation)
         {
             this.departStation = departStation;
@@ -46,7 +48,7 @@ namespace TrainTicketSys
         {
             return this.departStation;
         }
-
+        // Arrival Station
         public void setArrivalStation (int arrivalStation)
         {
             this.arrivalStation = arrivalStation;
@@ -55,7 +57,7 @@ namespace TrainTicketSys
         {
             return this.arrivalStation;
         }
-
+        // Distance
         public void setDistance (double distance)
         {
             this.distance = distance;
@@ -64,7 +66,7 @@ namespace TrainTicketSys
         {
             return this.distance;
         }
-
+        // Status
         public void setStatus (char status)
         {
             this.status = status;
@@ -79,7 +81,14 @@ namespace TrainTicketSys
         {
             int nextRouteID;
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             String strSQL = "SELECT MAX(routeID) FROM Routes";
 
@@ -102,7 +111,14 @@ namespace TrainTicketSys
         {
             // Connect To DB
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Define SQL Query
             string strSQL =
@@ -158,13 +174,19 @@ namespace TrainTicketSys
             return DS;
         }
 
+        // Method to Get Routes According To Departure Station
         public static DataSet getRoutesDepartStation (DataSet DS, String txtKeyWord)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
-
-            // string SQL = "SELECT departStation FROM Routes WHERE upper(departStation) LIKE '" + txtKeyWord.ToUpper() + "%' ORDER BY routeID";
-
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             string SQL = @"SELECT 
                                R.RouteID AS routeID, SDepart.Name AS departStation, SArrival.Name AS arrivalStation, R.Distance AS distance, R.Status AS status
                            FROM 
@@ -191,7 +213,14 @@ namespace TrainTicketSys
         public static DataSet getActiveRoutes(DataSet DS, String sortOrder)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = @"SELECT R.RouteID AS routeID, SDepart.Name AS departStation, SArrival.Name AS arrivalStation, R.Distance AS distance, R.Status AS status
                            FROM Routes R
@@ -214,7 +243,14 @@ namespace TrainTicketSys
         public static DataTable getARoute (int routeID)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "SELECT * FROM Routes WHERE routeID = " + routeID + "";
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -233,7 +269,14 @@ namespace TrainTicketSys
         public void getRoute(int routeID)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = "SELECT * FROM Routes WHERE routeID = " + routeID + "";
             OracleCommand cmd = new OracleCommand(SQL, con);
@@ -242,7 +285,7 @@ namespace TrainTicketSys
 
             dr.Read();
 
-            //intantiate instance variables
+            // Intantiate Instance Variables
             this.routeID = dr.GetInt32(0);
             this.departStation = dr.GetInt32(1);
             this.arrivalStation = dr.GetInt32(2);
@@ -252,10 +295,18 @@ namespace TrainTicketSys
             con.Close();
         }
 
-        // Method to update a Route
+        // Method To Update A Route
         public static void updateRoute(int routeID, string departStation, string arrivalStation, double distance, char status)
         {
-            con = new OracleConnection(DBConnect.oradb); con.Open();
+            con = new OracleConnection(DBConnect.oradb);
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = 
                 "UPDATE Stations SET departStation = '"
@@ -269,35 +320,66 @@ namespace TrainTicketSys
             try
             {
                 cmd.ExecuteNonQuery();
-            } catch (Exception ex)
+            }
+            catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message);
             }
             con.Close();
         }
 
+        // Terminate A Route According To Station ID
         public static void terminateRouteByStation (int stationID)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = @"UPDATE Routes SET status = 'T' WHERE departStation = " + stationID + " OR arrivalStation = " + stationID;
             OracleCommand cmd = new OracleCommand(SQL, con);
 
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             con.Close();
         }
 
+        // Terminate A Route According To Route ID
         public static void terminateRouteByRoute (int routeID)
         {
             con = new OracleConnection(DBConnect.oradb);
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string SQL = @"UPDATE Routes SET status = 'T' WHERE routeID = " + routeID;
             OracleCommand cmd = new OracleCommand(SQL, con);
 
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             con.Close();
         }
