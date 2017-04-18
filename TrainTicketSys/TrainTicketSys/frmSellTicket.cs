@@ -157,7 +157,7 @@ namespace TrainTicketSys
             sale.createSale();
 
             // Display Confirmation
-            MessageBox.Show("Sale Made Successfully");
+            MessageBox.Show("Sale Made Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Reset UI
             txtSaleID.Text = Sales.nextSaleID().ToString("00000");

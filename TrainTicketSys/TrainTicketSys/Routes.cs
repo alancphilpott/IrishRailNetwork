@@ -2,6 +2,7 @@
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace TrainTicketSys
 {
@@ -142,6 +143,43 @@ namespace TrainTicketSys
 
             // Close Database Connection
             con.Close();
+        }
+
+        // Gets A List of Routes With Relevant Station ID
+        public static List<Routes> getRoutes(int stationID)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            List<Routes> routes = new List<Routes>();
+
+            string SQL = @"SELECT 
+                               R.RouteID AS routeID
+                           FROM 
+                               Routes R
+                            WHERE
+                               R.DepartStation = " + stationID +
+                               "OR R.ArrivalStation = " + stationID;
+
+            OracleCommand cmd = new OracleCommand(SQL, con);
+
+            var reader = cmd.ExecuteReader();
+
+            //Add routes to list
+            while (reader.Read())
+            {
+                routes.Add(new Routes { routeID = reader.GetInt32(0) });
+            }
+            con.Close();
+
+            return routes;
         }
 
         // Method To Get All Routes to Populate DataGrid
@@ -329,7 +367,7 @@ namespace TrainTicketSys
         }
 
         // Terminate A Route According To Station ID
-        public static void terminateRouteByStation (int stationID)
+        public static void terminateRoute (int stationID)
         {
             con = new OracleConnection(DBConnect.oradb);
             try

@@ -90,8 +90,11 @@ namespace TrainTicketSys
                 'C');
 
             // Terminate Route
-            Routes.terminateRouteByStation(Convert.ToInt32(txtStID.Text));
+            var routes = Routes.getRoutes(Convert.ToInt32(txtStID.Text));
+            Routes.terminateRoute(Convert.ToInt32(txtStID.Text));
+
             // Terminate Schedule
+            Schedules.terminateSchedules(routes);
 
             // Display Confirmation
             MessageBox.Show("Station Closed Successfully","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

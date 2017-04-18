@@ -2,6 +2,7 @@
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace TrainTicketSys
 {
@@ -235,6 +236,24 @@ namespace TrainTicketSys
             catch (OracleException ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            con.Close();
+        }
+
+        // Terminate Schedules According To A List of Routes
+        public static void terminateSchedules(List<Routes> routes)
+        {
+            con = new OracleConnection(DBConnect.oradb);
+            con.Open();
+
+            var cmd = con.CreateCommand();
+
+            foreach (var route in routes)
+            {
+                cmd.CommandText = @"UPDATE Schedules SET status = 'T' WHERE RouteID = " + route.getRouteID();
+
+                cmd.ExecuteNonQuery();
             }
 
             con.Close();
