@@ -95,7 +95,7 @@ namespace TrainTicketSys
                 station.createStation();
 
                 // Display Confirmation
-                MessageBox.Show("Station Created Successfully");
+                MessageBox.Show("Station Created Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Reset UI
                 resetUI();

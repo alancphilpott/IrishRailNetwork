@@ -23,7 +23,7 @@ namespace TrainTicketSys
         // Method on Load
         private void frmSellTicket_Load(object sender, EventArgs e)
         {
-            // Setting the next Schedule ID
+            // Setting the next Sale ID
             txtSaleID.Text = Sales.nextSaleID().ToString("00000");
 
             // Populating the Combo Boxes for selecting Routes
@@ -147,29 +147,69 @@ namespace TrainTicketSys
         // Confirm Button Click
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            Sales sale = new Sales(
-                Convert.ToInt32(txtSaleID.Text),
-                Convert.ToInt32(cmbSchedule.Text.Substring(0,1)),
-                cmbRates.Text.Substring(0,2),
-                Convert.ToDecimal(txtTotalCost.Text),
-                txtSaleDate.Text);
+            if (cmbRoute.SelectedIndex == -1 || cmbDay.SelectedIndex == -1 || cmbSchedule.SelectedIndex == -1 ||
+                cmbRates.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please Choose All Required Data", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            sale.createSale();
+            string returnOrSingle = "";
+            if (radioSingle.Checked)
+                returnOrSingle = "Single";
+            else
+                returnOrSingle = "Return";
 
-            // Display Confirmation
-            MessageBox.Show("Sale Made Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string messageToDisplay = "Proceed With Sale? Please Confirm Details: " +
+                "\nRoute: " + cmbRoute.Text +
+                "\nDay: " + cmbDay.Text +
+                "\nSchedule: " + cmbSchedule.Text +
+                "\nTicket Type: " + cmbRates.Text + returnOrSingle +
+                "\nTotal Cost: " + txtTotalCost.Text;
 
-            // Reset UI
-            txtSaleID.Text = Sales.nextSaleID().ToString("00000");
-            cmbRoute.SelectedIndex = -1;
-            grpRates.Visible = false;
-            grpSchedule.Visible = false;
-            grpDay.Visible = false;
-            txtTotalCost.Text = "";
+            DialogResult result = MessageBox.Show(messageToDisplay, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-            // Set The Date for The Sale Based on Today's Date
-            string date = localDate.ToString();
-            txtSaleDate.Text = date.Substring(0, 10);
+            if (result == DialogResult.Yes)
+            {
+
+                Sales sale = new Sales(
+                    Convert.ToInt32(txtSaleID.Text),
+                    Convert.ToInt32(cmbSchedule.Text.Substring(0, 1)),
+                    cmbRates.Text.Substring(0, 2),
+                    Convert.ToDecimal(txtTotalCost.Text),
+                    txtSaleDate.Text);
+
+                sale.createSale();
+
+                // Display Confirmation
+                MessageBox.Show("Sale Made Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Reset UI
+                txtSaleID.Text = Sales.nextSaleID().ToString("00000");
+                cmbRoute.SelectedIndex = -1;
+                grpRates.Visible = false;
+                grpSchedule.Visible = false;
+                grpDay.Visible = false;
+                txtTotalCost.Text = "";
+
+                // Set The Date for The Sale Based on Today's Date
+                string date = localDate.ToString();
+                txtSaleDate.Text = date.Substring(0, 10);
+            }
+            else
+            {
+                // Update Visibility
+                grpDay.Visible = true;
+                cmbSchedule.SelectedIndex = -1;
+                cmbRates.SelectedIndex = -1;
+                cmbDay.SelectedIndex = -1;
+                grpSchedule.Visible = false;
+                grpRates.Visible = false;
+
+                // If the route was changed after selecting all items
+                radioReturn.Checked = false;
+                radioSingle.Checked = false;
+            }
         }
 
         // Return Radio Checked

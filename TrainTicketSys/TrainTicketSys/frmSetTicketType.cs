@@ -71,7 +71,7 @@ namespace TrainTicketSys
             if (validation())
             {
                 // Check If TypeCode Is Unique
-                Boolean alreadyExists = Rates.alreadyExists(txtTypeCode.Text);
+                Boolean alreadyExists = Rates.alreadyExists(txtTypeCode.Text.ToUpper());
                 if (alreadyExists)
                 {
                     MessageBox.Show("That Type Code Already Exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
