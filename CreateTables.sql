@@ -101,8 +101,8 @@ VALUES(12,6,2,'08:00','11:20','A');
 CREATE TABLE Rates
 (
 typeCode char (2),
-description varchar (25),
-ratePerKM decimal (3,2),
+description varchar (25) NOT NULL,
+ratePerKM decimal (3,2) NOT NULL,
 CONSTRAINT pk_Rates PRIMARY KEY (typeCode)
 );
 
