@@ -59,29 +59,33 @@
             this.mnuTerminateRouteExit});
             this.mnuStripTerminateRoute.Location = new System.Drawing.Point(0, 0);
             this.mnuStripTerminateRoute.Name = "mnuStripTerminateRoute";
-            this.mnuStripTerminateRoute.Size = new System.Drawing.Size(752, 29);
+            this.mnuStripTerminateRoute.Size = new System.Drawing.Size(624, 27);
             this.mnuStripTerminateRoute.TabIndex = 2;
             this.mnuStripTerminateRoute.Text = "menuStrip1";
             // 
             // mnuTerminateRouteBack
             // 
+            this.mnuTerminateRouteBack.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuTerminateRouteBack.Name = "mnuTerminateRouteBack";
-            this.mnuTerminateRouteBack.Size = new System.Drawing.Size(54, 25);
+            this.mnuTerminateRouteBack.Size = new System.Drawing.Size(53, 23);
             this.mnuTerminateRouteBack.Text = "Back";
             this.mnuTerminateRouteBack.Click += new System.EventHandler(this.mnuTerminateRouteBack_Click);
             // 
             // mnuTerminateRouteExit
             // 
+            this.mnuTerminateRouteExit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuTerminateRouteExit.Name = "mnuTerminateRouteExit";
-            this.mnuTerminateRouteExit.Size = new System.Drawing.Size(46, 25);
+            this.mnuTerminateRouteExit.Size = new System.Drawing.Size(47, 23);
             this.mnuTerminateRouteExit.Text = "Exit";
             this.mnuTerminateRouteExit.Click += new System.EventHandler(this.mnuTerminateRouteExit_Click);
             // 
             // cmbRoutes
             // 
             this.cmbRoutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoutes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbRoutes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRoutes.FormattingEnabled = true;
-            this.cmbRoutes.Location = new System.Drawing.Point(77, 50);
+            this.cmbRoutes.Location = new System.Drawing.Point(125, 42);
             this.cmbRoutes.Name = "cmbRoutes";
             this.cmbRoutes.Size = new System.Drawing.Size(407, 21);
             this.cmbRoutes.TabIndex = 13;
@@ -90,12 +94,12 @@
             // routeIDTerminateRoute
             // 
             this.routeIDTerminateRoute.AutoSize = true;
-            this.routeIDTerminateRoute.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routeIDTerminateRoute.Location = new System.Drawing.Point(12, 50);
+            this.routeIDTerminateRoute.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.routeIDTerminateRoute.Location = new System.Drawing.Point(12, 44);
             this.routeIDTerminateRoute.Name = "routeIDTerminateRoute";
-            this.routeIDTerminateRoute.Size = new System.Drawing.Size(59, 21);
+            this.routeIDTerminateRoute.Size = new System.Drawing.Size(107, 19);
             this.routeIDTerminateRoute.TabIndex = 12;
-            this.routeIDTerminateRoute.Text = "ROUTE";
+            this.routeIDTerminateRoute.Text = "Choose Route";
             // 
             // grpUpdate
             // 
@@ -112,25 +116,26 @@
             this.grpUpdate.Controls.Add(this.lblArrSt);
             this.grpUpdate.Controls.Add(this.txtDepSt);
             this.grpUpdate.Controls.Add(this.lblDepSt);
-            this.grpUpdate.Location = new System.Drawing.Point(12, 106);
+            this.grpUpdate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpUpdate.Location = new System.Drawing.Point(16, 90);
             this.grpUpdate.Name = "grpUpdate";
-            this.grpUpdate.Size = new System.Drawing.Size(728, 276);
+            this.grpUpdate.Size = new System.Drawing.Size(596, 219);
             this.grpUpdate.TabIndex = 14;
             this.grpUpdate.TabStop = false;
-            this.grpUpdate.Text = "Update Station Information";
+            this.grpUpdate.Text = "Terminate Route";
             this.grpUpdate.Visible = false;
             // 
             // txtStatus
             // 
             this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(349, 81);
+            this.txtStatus.Location = new System.Drawing.Point(370, 58);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(100, 20);
+            this.txtStatus.Size = new System.Drawing.Size(180, 23);
             this.txtStatus.TabIndex = 18;
             // 
             // btnNo
             // 
-            this.btnNo.Location = new System.Drawing.Point(518, 243);
+            this.btnNo.Location = new System.Drawing.Point(346, 166);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(99, 27);
             this.btnNo.TabIndex = 17;
@@ -140,7 +145,7 @@
             // 
             // btnYes
             // 
-            this.btnYes.Location = new System.Drawing.Point(623, 243);
+            this.btnYes.Location = new System.Drawing.Point(451, 166);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(99, 27);
             this.btnYes.TabIndex = 12;
@@ -151,96 +156,97 @@
             // lblWarning
             // 
             this.lblWarning.AutoSize = true;
-            this.lblWarning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWarning.Location = new System.Drawing.Point(370, 219);
+            this.lblWarning.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWarning.Location = new System.Drawing.Point(254, 147);
             this.lblWarning.Name = "lblWarning";
-            this.lblWarning.Size = new System.Drawing.Size(352, 21);
+            this.lblWarning.Size = new System.Drawing.Size(296, 16);
             this.lblWarning.TabIndex = 16;
             this.lblWarning.Text = "Are You Sure You Want To Terminate This Route?";
             // 
             // txtRouteID
             // 
             this.txtRouteID.Enabled = false;
-            this.txtRouteID.Location = new System.Drawing.Point(131, 42);
+            this.txtRouteID.Location = new System.Drawing.Point(94, 26);
             this.txtRouteID.Name = "txtRouteID";
-            this.txtRouteID.Size = new System.Drawing.Size(100, 20);
+            this.txtRouteID.Size = new System.Drawing.Size(180, 23);
             this.txtRouteID.TabIndex = 15;
             // 
             // lblRouteID
             // 
             this.lblRouteID.AutoSize = true;
-            this.lblRouteID.Location = new System.Drawing.Point(51, 45);
+            this.lblRouteID.Location = new System.Drawing.Point(15, 29);
             this.lblRouteID.Name = "lblRouteID";
-            this.lblRouteID.Size = new System.Drawing.Size(53, 13);
+            this.lblRouteID.Size = new System.Drawing.Size(62, 16);
             this.lblRouteID.TabIndex = 14;
             this.lblRouteID.Text = "Route ID:";
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(250, 84);
+            this.lblStatus.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(303, 61);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(72, 13);
+            this.lblStatus.Size = new System.Drawing.Size(49, 16);
             this.lblStatus.TabIndex = 10;
-            this.lblStatus.Text = "Route Status:";
+            this.lblStatus.Text = "Status:";
             // 
             // txtDistance
             // 
             this.txtDistance.Enabled = false;
-            this.txtDistance.Location = new System.Drawing.Point(131, 81);
+            this.txtDistance.Location = new System.Drawing.Point(370, 26);
             this.txtDistance.Name = "txtDistance";
-            this.txtDistance.Size = new System.Drawing.Size(100, 20);
+            this.txtDistance.Size = new System.Drawing.Size(180, 23);
             this.txtDistance.TabIndex = 5;
             // 
             // lblDistance
             // 
             this.lblDistance.AutoSize = true;
-            this.lblDistance.Location = new System.Drawing.Point(51, 84);
+            this.lblDistance.Location = new System.Drawing.Point(303, 29);
             this.lblDistance.Name = "lblDistance";
-            this.lblDistance.Size = new System.Drawing.Size(52, 13);
+            this.lblDistance.Size = new System.Drawing.Size(61, 16);
             this.lblDistance.TabIndex = 4;
             this.lblDistance.Text = "Distance:";
             // 
             // txtArrSt
             // 
             this.txtArrSt.Enabled = false;
-            this.txtArrSt.Location = new System.Drawing.Point(544, 42);
+            this.txtArrSt.Location = new System.Drawing.Point(94, 90);
             this.txtArrSt.Name = "txtArrSt";
-            this.txtArrSt.Size = new System.Drawing.Size(100, 20);
+            this.txtArrSt.Size = new System.Drawing.Size(180, 23);
             this.txtArrSt.TabIndex = 3;
             // 
             // lblArrSt
             // 
             this.lblArrSt.AutoSize = true;
-            this.lblArrSt.Location = new System.Drawing.Point(463, 45);
+            this.lblArrSt.Location = new System.Drawing.Point(15, 93);
             this.lblArrSt.Name = "lblArrSt";
-            this.lblArrSt.Size = new System.Drawing.Size(75, 13);
+            this.lblArrSt.Size = new System.Drawing.Size(28, 16);
             this.lblArrSt.TabIndex = 2;
-            this.lblArrSt.Text = "Arrival Station:";
+            this.lblArrSt.Text = "To:";
             // 
             // txtDepSt
             // 
             this.txtDepSt.Enabled = false;
-            this.txtDepSt.Location = new System.Drawing.Point(349, 42);
+            this.txtDepSt.Location = new System.Drawing.Point(94, 58);
             this.txtDepSt.Name = "txtDepSt";
-            this.txtDepSt.Size = new System.Drawing.Size(100, 20);
+            this.txtDepSt.Size = new System.Drawing.Size(180, 23);
             this.txtDepSt.TabIndex = 1;
             // 
             // lblDepSt
             // 
             this.lblDepSt.AutoSize = true;
-            this.lblDepSt.Location = new System.Drawing.Point(250, 45);
+            this.lblDepSt.Location = new System.Drawing.Point(15, 61);
             this.lblDepSt.Name = "lblDepSt";
-            this.lblDepSt.Size = new System.Drawing.Size(93, 13);
+            this.lblDepSt.Size = new System.Drawing.Size(43, 16);
             this.lblDepSt.TabIndex = 0;
-            this.lblDepSt.Text = "Departure Station:";
+            this.lblDepSt.Text = "From:";
             // 
             // frmTerminateRoute
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 394);
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(624, 321);
             this.Controls.Add(this.grpUpdate);
             this.Controls.Add(this.cmbRoutes);
             this.Controls.Add(this.routeIDTerminateRoute);

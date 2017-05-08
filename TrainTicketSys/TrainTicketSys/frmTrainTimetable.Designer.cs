@@ -32,7 +32,6 @@
             this.mnuTrainTimetableBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTrainTimetableExit = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRouteID = new System.Windows.Forms.Label();
-            this.btnFinish = new System.Windows.Forms.Button();
             this.cmbRoutes = new System.Windows.Forms.ComboBox();
             this.dgTimetable = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -48,52 +47,45 @@
             this.mnuTrainTimetableExit});
             this.mnuStripTrainTimeTable.Location = new System.Drawing.Point(0, 0);
             this.mnuStripTrainTimeTable.Name = "mnuStripTrainTimeTable";
-            this.mnuStripTrainTimeTable.Size = new System.Drawing.Size(752, 29);
+            this.mnuStripTrainTimeTable.Size = new System.Drawing.Size(624, 27);
             this.mnuStripTrainTimeTable.TabIndex = 3;
             this.mnuStripTrainTimeTable.Text = "menuStrip1";
             // 
             // mnuTrainTimetableBack
             // 
+            this.mnuTrainTimetableBack.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuTrainTimetableBack.Name = "mnuTrainTimetableBack";
-            this.mnuTrainTimetableBack.Size = new System.Drawing.Size(54, 25);
+            this.mnuTrainTimetableBack.Size = new System.Drawing.Size(53, 23);
             this.mnuTrainTimetableBack.Text = "Back";
             this.mnuTrainTimetableBack.Click += new System.EventHandler(this.mnuTrainTimetableBack_Click);
             // 
             // mnuTrainTimetableExit
             // 
+            this.mnuTrainTimetableExit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuTrainTimetableExit.Name = "mnuTrainTimetableExit";
-            this.mnuTrainTimetableExit.Size = new System.Drawing.Size(46, 25);
+            this.mnuTrainTimetableExit.Size = new System.Drawing.Size(47, 23);
             this.mnuTrainTimetableExit.Text = "Exit";
             this.mnuTrainTimetableExit.Click += new System.EventHandler(this.mnuTrainTimetableExit_Click);
             // 
             // lblRouteID
             // 
             this.lblRouteID.AutoSize = true;
-            this.lblRouteID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRouteID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRouteID.Location = new System.Drawing.Point(12, 44);
             this.lblRouteID.Name = "lblRouteID";
-            this.lblRouteID.Size = new System.Drawing.Size(110, 21);
+            this.lblRouteID.Size = new System.Drawing.Size(113, 19);
             this.lblRouteID.TabIndex = 17;
             this.lblRouteID.Text = "Choose Route:";
-            // 
-            // btnFinish
-            // 
-            this.btnFinish.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinish.Location = new System.Drawing.Point(16, 352);
-            this.btnFinish.Name = "btnFinish";
-            this.btnFinish.Size = new System.Drawing.Size(106, 29);
-            this.btnFinish.TabIndex = 15;
-            this.btnFinish.Text = "Finish";
-            this.btnFinish.UseVisualStyleBackColor = true;
-            this.btnFinish.Visible = false;
             // 
             // cmbRoutes
             // 
             this.cmbRoutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoutes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbRoutes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRoutes.FormattingEnabled = true;
             this.cmbRoutes.Location = new System.Drawing.Point(131, 44);
             this.cmbRoutes.Name = "cmbRoutes";
-            this.cmbRoutes.Size = new System.Drawing.Size(252, 21);
+            this.cmbRoutes.Size = new System.Drawing.Size(294, 21);
             this.cmbRoutes.TabIndex = 18;
             this.cmbRoutes.SelectedIndexChanged += new System.EventHandler(this.cmbRoutes_SelectedIndexChanged);
             // 
@@ -105,15 +97,16 @@
             this.dgTimetable.Location = new System.Drawing.Point(16, 86);
             this.dgTimetable.Name = "dgTimetable";
             this.dgTimetable.ReadOnly = true;
-            this.dgTimetable.Size = new System.Drawing.Size(724, 247);
+            this.dgTimetable.Size = new System.Drawing.Size(596, 223);
             this.dgTimetable.TabIndex = 19;
             this.dgTimetable.Visible = false;
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(634, 352);
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(456, 40);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(106, 29);
+            this.btnPrint.Size = new System.Drawing.Size(156, 31);
             this.btnPrint.TabIndex = 20;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -122,12 +115,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 393);
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(624, 321);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dgTimetable);
             this.Controls.Add(this.cmbRoutes);
             this.Controls.Add(this.lblRouteID);
-            this.Controls.Add(this.btnFinish);
             this.Controls.Add(this.mnuStripTrainTimeTable);
             this.Name = "frmTrainTimetable";
             this.Text = "Train Ticket System - Train Timetable";
@@ -146,7 +139,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuTrainTimetableBack;
         private System.Windows.Forms.ToolStripMenuItem mnuTrainTimetableExit;
         private System.Windows.Forms.Label lblRouteID;
-        private System.Windows.Forms.Button btnFinish;
         private System.Windows.Forms.ComboBox cmbRoutes;
         private System.Windows.Forms.DataGridView dgTimetable;
         private System.Windows.Forms.Button btnPrint;

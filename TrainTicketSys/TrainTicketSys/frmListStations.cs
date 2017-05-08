@@ -55,6 +55,7 @@ namespace TrainTicketSys
                 dgStations.Visible = true;
                 btnPrint.Visible = true;
             }
+            this.dgStations.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }

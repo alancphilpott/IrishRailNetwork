@@ -48,57 +48,62 @@
             this.mnuListStationsExit});
             this.mnuStripListStations.Location = new System.Drawing.Point(0, 0);
             this.mnuStripListStations.Name = "mnuStripListStations";
-            this.mnuStripListStations.Size = new System.Drawing.Size(752, 29);
+            this.mnuStripListStations.Size = new System.Drawing.Size(624, 27);
             this.mnuStripListStations.TabIndex = 3;
             this.mnuStripListStations.Text = "mnuStripListStations";
             // 
             // mnuListStationsBack
             // 
+            this.mnuListStationsBack.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuListStationsBack.Name = "mnuListStationsBack";
-            this.mnuListStationsBack.Size = new System.Drawing.Size(54, 25);
+            this.mnuListStationsBack.Size = new System.Drawing.Size(53, 23);
             this.mnuListStationsBack.Text = "Back";
             this.mnuListStationsBack.Click += new System.EventHandler(this.mnuListStationsBack_Click);
             // 
             // mnuListStationsExit
             // 
+            this.mnuListStationsExit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuListStationsExit.Name = "mnuListStationsExit";
-            this.mnuListStationsExit.Size = new System.Drawing.Size(46, 25);
+            this.mnuListStationsExit.Size = new System.Drawing.Size(47, 23);
             this.mnuListStationsExit.Text = "Exit";
             this.mnuListStationsExit.Click += new System.EventHandler(this.mnuListStationsExit_Click);
             // 
             // lblKeyword
             // 
             this.lblKeyword.AutoSize = true;
-            this.lblKeyword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeyword.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKeyword.Location = new System.Drawing.Point(12, 45);
             this.lblKeyword.Name = "lblKeyword";
-            this.lblKeyword.Size = new System.Drawing.Size(107, 21);
+            this.lblKeyword.Size = new System.Drawing.Size(104, 19);
             this.lblKeyword.TabIndex = 9;
-            this.lblKeyword.Text = "Station Name:";
+            this.lblKeyword.Text = "Station Name";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(131, 48);
+            this.txtSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(122, 45);
             this.txtSearch.MaxLength = 20;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(164, 20);
+            this.txtSearch.Size = new System.Drawing.Size(164, 21);
             this.txtSearch.TabIndex = 8;
             // 
             // dgStations
             // 
             this.dgStations.AllowUserToAddRows = false;
             this.dgStations.AllowUserToDeleteRows = false;
+            this.dgStations.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgStations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgStations.Location = new System.Drawing.Point(12, 81);
             this.dgStations.Name = "dgStations";
             this.dgStations.ReadOnly = true;
-            this.dgStations.Size = new System.Drawing.Size(728, 255);
+            this.dgStations.Size = new System.Drawing.Size(600, 228);
             this.dgStations.TabIndex = 10;
             this.dgStations.Visible = false;
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(584, 350);
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(456, 40);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(156, 31);
             this.btnPrint.TabIndex = 11;
@@ -108,9 +113,10 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(301, 46);
+            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(292, 45);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(73, 20);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -120,7 +126,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 393);
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(624, 321);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dgStations);

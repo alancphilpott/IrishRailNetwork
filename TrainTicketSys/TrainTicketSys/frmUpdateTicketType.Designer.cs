@@ -40,6 +40,8 @@
             this.cmbRates = new System.Windows.Forms.ComboBox();
             this.grpRateDetails = new System.Windows.Forms.GroupBox();
             this.nmbRatePicker = new System.Windows.Forms.NumericUpDown();
+            this.lblUpdateTicketType = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.mnuStripUpdateTicketType.SuspendLayout();
             this.grpRateDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmbRatePicker)).BeginInit();
@@ -53,30 +55,33 @@
             this.mnuExit});
             this.mnuStripUpdateTicketType.Location = new System.Drawing.Point(0, 0);
             this.mnuStripUpdateTicketType.Name = "mnuStripUpdateTicketType";
-            this.mnuStripUpdateTicketType.Size = new System.Drawing.Size(724, 29);
+            this.mnuStripUpdateTicketType.Size = new System.Drawing.Size(624, 27);
             this.mnuStripUpdateTicketType.TabIndex = 2;
             this.mnuStripUpdateTicketType.Text = "mnuAddRoutes";
             // 
             // mnuUpdateTicketTypeBack
             // 
+            this.mnuUpdateTicketTypeBack.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuUpdateTicketTypeBack.Name = "mnuUpdateTicketTypeBack";
-            this.mnuUpdateTicketTypeBack.Size = new System.Drawing.Size(54, 25);
+            this.mnuUpdateTicketTypeBack.Size = new System.Drawing.Size(53, 23);
             this.mnuUpdateTicketTypeBack.Text = "Back";
             this.mnuUpdateTicketTypeBack.Click += new System.EventHandler(this.mnuUpdateTicketTypeBack_Click);
             // 
             // mnuExit
             // 
+            this.mnuExit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(46, 25);
+            this.mnuExit.Size = new System.Drawing.Size(47, 23);
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(27, 131);
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(159, 131);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(300, 29);
+            this.btnUpdate.Size = new System.Drawing.Size(165, 29);
             this.btnUpdate.TabIndex = 19;
             this.btnUpdate.Text = "Update Rate";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -85,57 +90,59 @@
             // lblRatePerKM
             // 
             this.lblRatePerKM.AutoSize = true;
-            this.lblRatePerKM.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRatePerKM.Location = new System.Drawing.Point(22, 93);
+            this.lblRatePerKM.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRatePerKM.Location = new System.Drawing.Point(40, 91);
             this.lblRatePerKM.Name = "lblRatePerKM";
-            this.lblRatePerKM.Size = new System.Drawing.Size(97, 21);
+            this.lblRatePerKM.Size = new System.Drawing.Size(100, 19);
             this.lblRatePerKM.TabIndex = 17;
             this.lblRatePerKM.Text = "Rate Per KM:";
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(22, 62);
+            this.lblDescription.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(40, 62);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(92, 21);
+            this.lblDescription.Size = new System.Drawing.Size(94, 19);
             this.lblDescription.TabIndex = 18;
             this.lblDescription.Text = "Description:";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(162, 64);
+            this.txtDescription.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(159, 64);
             this.txtDescription.MaxLength = 25;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(164, 20);
+            this.txtDescription.Size = new System.Drawing.Size(164, 21);
             this.txtDescription.TabIndex = 15;
             // 
             // lblTypeCode
             // 
             this.lblTypeCode.AutoSize = true;
-            this.lblTypeCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeCode.Location = new System.Drawing.Point(22, 30);
+            this.lblTypeCode.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeCode.Location = new System.Drawing.Point(40, 30);
             this.lblTypeCode.Name = "lblTypeCode";
-            this.lblTypeCode.Size = new System.Drawing.Size(85, 21);
+            this.lblTypeCode.Size = new System.Drawing.Size(91, 19);
             this.lblTypeCode.TabIndex = 21;
             this.lblTypeCode.Text = "Type Code:";
             // 
             // txtTypeCode
             // 
             this.txtTypeCode.Enabled = false;
-            this.txtTypeCode.Location = new System.Drawing.Point(162, 32);
+            this.txtTypeCode.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTypeCode.Location = new System.Drawing.Point(159, 32);
             this.txtTypeCode.MaxLength = 2;
             this.txtTypeCode.Name = "txtTypeCode";
-            this.txtTypeCode.Size = new System.Drawing.Size(164, 20);
+            this.txtTypeCode.Size = new System.Drawing.Size(164, 21);
             this.txtTypeCode.TabIndex = 20;
             // 
             // cmbRates
             // 
             this.cmbRates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRates.FormattingEnabled = true;
-            this.cmbRates.Location = new System.Drawing.Point(234, 53);
+            this.cmbRates.Location = new System.Drawing.Point(302, 86);
             this.cmbRates.Name = "cmbRates";
-            this.cmbRates.Size = new System.Drawing.Size(300, 21);
+            this.cmbRates.Size = new System.Drawing.Size(189, 21);
             this.cmbRates.TabIndex = 22;
             this.cmbRates.SelectedIndexChanged += new System.EventHandler(this.cmbRates_SelectedIndexChanged);
             // 
@@ -148,9 +155,10 @@
             this.grpRateDetails.Controls.Add(this.lblDescription);
             this.grpRateDetails.Controls.Add(this.btnUpdate);
             this.grpRateDetails.Controls.Add(this.lblRatePerKM);
-            this.grpRateDetails.Location = new System.Drawing.Point(207, 93);
+            this.grpRateDetails.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpRateDetails.Location = new System.Drawing.Point(129, 123);
             this.grpRateDetails.Name = "grpRateDetails";
-            this.grpRateDetails.Size = new System.Drawing.Size(351, 186);
+            this.grpRateDetails.Size = new System.Drawing.Size(362, 186);
             this.grpRateDetails.TabIndex = 23;
             this.grpRateDetails.TabStop = false;
             this.grpRateDetails.Text = "Update Rate";
@@ -159,21 +167,45 @@
             // nmbRatePicker
             // 
             this.nmbRatePicker.DecimalPlaces = 2;
+            this.nmbRatePicker.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmbRatePicker.Increment = new decimal(new int[] {
             10,
             0,
             0,
             131072});
-            this.nmbRatePicker.Location = new System.Drawing.Point(162, 94);
+            this.nmbRatePicker.Location = new System.Drawing.Point(159, 94);
             this.nmbRatePicker.Name = "nmbRatePicker";
-            this.nmbRatePicker.Size = new System.Drawing.Size(60, 20);
+            this.nmbRatePicker.Size = new System.Drawing.Size(60, 21);
             this.nmbRatePicker.TabIndex = 22;
+            // 
+            // lblUpdateTicketType
+            // 
+            this.lblUpdateTicketType.AutoSize = true;
+            this.lblUpdateTicketType.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateTicketType.Location = new System.Drawing.Point(233, 48);
+            this.lblUpdateTicketType.Name = "lblUpdateTicketType";
+            this.lblUpdateTicketType.Size = new System.Drawing.Size(172, 23);
+            this.lblUpdateTicketType.TabIndex = 24;
+            this.lblUpdateTicketType.Text = "Update Ticket Type";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(125, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 19);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Choose Ticket Type:";
             // 
             // frmUpdateTicketType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 349);
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(624, 321);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblUpdateTicketType);
             this.Controls.Add(this.grpRateDetails);
             this.Controls.Add(this.cmbRates);
             this.Controls.Add(this.mnuStripUpdateTicketType);
@@ -204,5 +236,7 @@
         private System.Windows.Forms.ComboBox cmbRates;
         private System.Windows.Forms.GroupBox grpRateDetails;
         private System.Windows.Forms.NumericUpDown nmbRatePicker;
+        private System.Windows.Forms.Label lblUpdateTicketType;
+        private System.Windows.Forms.Label label1;
     }
 }

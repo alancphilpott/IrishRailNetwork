@@ -35,7 +35,7 @@ namespace TrainTicketSys
 
             foreach (DataRow dr in dt.Rows)
             {
-                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " DEP: " + String.Format("{0,-20}", dr["departStation"]) + " ARR: " + dr["arrivalStation"]);
+                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " | From: " + String.Format("{0,-30}", dr["departStation"]) + " | To: " + dr["arrivalStation"]);
             }
         }
 

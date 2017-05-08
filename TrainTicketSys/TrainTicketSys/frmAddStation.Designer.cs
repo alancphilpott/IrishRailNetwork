@@ -150,9 +150,9 @@
             // 
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(354, 263);
+            this.btnCreate.Location = new System.Drawing.Point(299, 263);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(109, 29);
+            this.btnCreate.Size = new System.Drawing.Size(164, 29);
             this.btnCreate.TabIndex = 6;
             this.btnCreate.Text = "Create Station";
             this.btnCreate.UseVisualStyleBackColor = true;

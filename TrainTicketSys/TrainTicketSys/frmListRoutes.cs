@@ -49,6 +49,7 @@ namespace TrainTicketSys
                 dgRoutes.Visible = true;
                 btnPrint.Visible = true;
             }
+            this.dgRoutes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }

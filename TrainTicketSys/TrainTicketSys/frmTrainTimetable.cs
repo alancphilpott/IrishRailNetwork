@@ -33,7 +33,7 @@ namespace TrainTicketSys
 
             foreach (DataRow dr in dt.Rows)
             {
-                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " " + String.Format("From: " + "{0,-15}", dr["departStation"]) + "To: " + dr["arrivalStation"]);
+                cmbRoutes.Items.Add(String.Format("{0:00000}", dr["routeID"]) + " " + String.Format("From: " + "{0,-30}", dr["departStation"]) + "To: " + dr["arrivalStation"]);
             }
         }
 
@@ -59,7 +59,7 @@ namespace TrainTicketSys
             dgTimetable.DataSource = Schedules.getRouteSchedules(DS, routeID).Tables["Schedules"];
 
             dgTimetable.Visible = true;
-            btnFinish.Visible = true;
+            this.dgTimetable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }
