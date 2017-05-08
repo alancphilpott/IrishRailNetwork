@@ -50,6 +50,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.cmbStations = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.mnuStripCloseStation.SuspendLayout();
             this.grpUpdate.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             this.mnuCloseStationExit});
             this.mnuStripCloseStation.Location = new System.Drawing.Point(0, 0);
             this.mnuStripCloseStation.Name = "mnuStripCloseStation";
-            this.mnuStripCloseStation.Size = new System.Drawing.Size(752, 29);
+            this.mnuStripCloseStation.Size = new System.Drawing.Size(624, 29);
             this.mnuStripCloseStation.TabIndex = 2;
             this.mnuStripCloseStation.Text = "menuStripCloseStation";
             // 
@@ -88,9 +89,9 @@
             this.grpUpdate.Controls.Add(this.lblWarning);
             this.grpUpdate.Controls.Add(this.txtStID);
             this.grpUpdate.Controls.Add(this.lblStID);
+            this.grpUpdate.Controls.Add(this.lblStatus);
             this.grpUpdate.Controls.Add(this.txtCounty);
             this.grpUpdate.Controls.Add(this.lblCounty);
-            this.grpUpdate.Controls.Add(this.lblStatus);
             this.grpUpdate.Controls.Add(this.txtPhoneNo);
             this.grpUpdate.Controls.Add(this.lblPhoneNo);
             this.grpUpdate.Controls.Add(this.txtTown);
@@ -99,9 +100,10 @@
             this.grpUpdate.Controls.Add(this.lblStreet);
             this.grpUpdate.Controls.Add(this.txtName);
             this.grpUpdate.Controls.Add(this.lblName);
-            this.grpUpdate.Location = new System.Drawing.Point(12, 105);
+            this.grpUpdate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpUpdate.Location = new System.Drawing.Point(16, 105);
             this.grpUpdate.Name = "grpUpdate";
-            this.grpUpdate.Size = new System.Drawing.Size(728, 276);
+            this.grpUpdate.Size = new System.Drawing.Size(596, 204);
             this.grpUpdate.TabIndex = 13;
             this.grpUpdate.TabStop = false;
             this.grpUpdate.Text = "Update Station Information";
@@ -110,14 +112,15 @@
             // txtStatus
             // 
             this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(131, 115);
+            this.txtStatus.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.Location = new System.Drawing.Point(103, 124);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(100, 20);
+            this.txtStatus.Size = new System.Drawing.Size(35, 23);
             this.txtStatus.TabIndex = 18;
             // 
             // btnNo
             // 
-            this.btnNo.Location = new System.Drawing.Point(518, 243);
+            this.btnNo.Location = new System.Drawing.Point(460, 163);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(99, 27);
             this.btnNo.TabIndex = 17;
@@ -127,7 +130,7 @@
             // 
             // btnYes
             // 
-            this.btnYes.Location = new System.Drawing.Point(623, 243);
+            this.btnYes.Location = new System.Drawing.Point(355, 163);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(99, 27);
             this.btnYes.TabIndex = 12;
@@ -138,140 +141,165 @@
             // lblWarning
             // 
             this.lblWarning.AutoSize = true;
-            this.lblWarning.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWarning.Location = new System.Drawing.Point(414, 219);
+            this.lblWarning.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWarning.Location = new System.Drawing.Point(304, 144);
             this.lblWarning.Name = "lblWarning";
-            this.lblWarning.Size = new System.Drawing.Size(308, 21);
+            this.lblWarning.Size = new System.Drawing.Size(255, 16);
             this.lblWarning.TabIndex = 16;
             this.lblWarning.Text = "Are you sure you wish to close this station?";
             // 
             // txtStID
             // 
             this.txtStID.Enabled = false;
-            this.txtStID.Location = new System.Drawing.Point(131, 42);
+            this.txtStID.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStID.Location = new System.Drawing.Point(103, 32);
             this.txtStID.Name = "txtStID";
-            this.txtStID.Size = new System.Drawing.Size(100, 20);
+            this.txtStID.Size = new System.Drawing.Size(180, 23);
             this.txtStID.TabIndex = 15;
             // 
             // lblStID
             // 
             this.lblStID.AutoSize = true;
-            this.lblStID.Location = new System.Drawing.Point(51, 45);
+            this.lblStID.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStID.Location = new System.Drawing.Point(39, 35);
             this.lblStID.Name = "lblStID";
-            this.lblStID.Size = new System.Drawing.Size(57, 13);
+            this.lblStID.Size = new System.Drawing.Size(25, 16);
             this.lblStID.TabIndex = 14;
-            this.lblStID.Text = "Station ID:";
+            this.lblStID.Text = "ID:";
             // 
             // txtCounty
             // 
             this.txtCounty.Enabled = false;
-            this.txtCounty.Location = new System.Drawing.Point(330, 81);
+            this.txtCounty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCounty.Location = new System.Drawing.Point(379, 61);
             this.txtCounty.Name = "txtCounty";
-            this.txtCounty.Size = new System.Drawing.Size(100, 20);
+            this.txtCounty.Size = new System.Drawing.Size(180, 23);
             this.txtCounty.TabIndex = 13;
             // 
             // lblCounty
             // 
             this.lblCounty.AutoSize = true;
-            this.lblCounty.Location = new System.Drawing.Point(250, 84);
+            this.lblCounty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCounty.Location = new System.Drawing.Point(306, 66);
             this.lblCounty.Name = "lblCounty";
-            this.lblCounty.Size = new System.Drawing.Size(43, 13);
+            this.lblCounty.Size = new System.Drawing.Size(52, 16);
             this.lblCounty.TabIndex = 12;
             this.lblCounty.Text = "County:";
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(50, 118);
+            this.lblStatus.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(39, 127);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(76, 13);
+            this.lblStatus.Size = new System.Drawing.Size(49, 16);
             this.lblStatus.TabIndex = 10;
-            this.lblStatus.Text = "Station Status:";
+            this.lblStatus.Text = "Status:";
             // 
             // txtPhoneNo
             // 
             this.txtPhoneNo.Enabled = false;
-            this.txtPhoneNo.Location = new System.Drawing.Point(543, 81);
+            this.txtPhoneNo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneNo.Location = new System.Drawing.Point(379, 92);
             this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(100, 20);
+            this.txtPhoneNo.Size = new System.Drawing.Size(180, 23);
             this.txtPhoneNo.TabIndex = 9;
             // 
             // lblPhoneNo
             // 
             this.lblPhoneNo.AutoSize = true;
-            this.lblPhoneNo.Location = new System.Drawing.Point(463, 84);
+            this.lblPhoneNo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNo.Location = new System.Drawing.Point(306, 95);
             this.lblPhoneNo.Name = "lblPhoneNo";
-            this.lblPhoneNo.Size = new System.Drawing.Size(58, 13);
+            this.lblPhoneNo.Size = new System.Drawing.Size(67, 16);
             this.lblPhoneNo.TabIndex = 8;
             this.lblPhoneNo.Text = "Phone No:";
             // 
             // txtTown
             // 
             this.txtTown.Enabled = false;
-            this.txtTown.Location = new System.Drawing.Point(131, 81);
+            this.txtTown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTown.Location = new System.Drawing.Point(379, 32);
             this.txtTown.Name = "txtTown";
-            this.txtTown.Size = new System.Drawing.Size(100, 20);
+            this.txtTown.Size = new System.Drawing.Size(180, 23);
             this.txtTown.TabIndex = 5;
             // 
             // lblTown
             // 
             this.lblTown.AutoSize = true;
-            this.lblTown.Location = new System.Drawing.Point(51, 84);
+            this.lblTown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTown.Location = new System.Drawing.Point(306, 35);
             this.lblTown.Name = "lblTown";
-            this.lblTown.Size = new System.Drawing.Size(37, 13);
+            this.lblTown.Size = new System.Drawing.Size(45, 16);
             this.lblTown.TabIndex = 4;
             this.lblTown.Text = "Town:";
             // 
             // txtStreet
             // 
             this.txtStreet.Enabled = false;
-            this.txtStreet.Location = new System.Drawing.Point(543, 42);
+            this.txtStreet.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStreet.Location = new System.Drawing.Point(103, 93);
             this.txtStreet.Name = "txtStreet";
-            this.txtStreet.Size = new System.Drawing.Size(100, 20);
+            this.txtStreet.Size = new System.Drawing.Size(180, 23);
             this.txtStreet.TabIndex = 3;
             // 
             // lblStreet
             // 
             this.lblStreet.AutoSize = true;
-            this.lblStreet.Location = new System.Drawing.Point(463, 45);
+            this.lblStreet.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStreet.Location = new System.Drawing.Point(37, 96);
             this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(38, 13);
+            this.lblStreet.Size = new System.Drawing.Size(48, 16);
             this.lblStreet.TabIndex = 2;
             this.lblStreet.Text = "Street:";
             // 
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(330, 42);
+            this.txtName.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(103, 63);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.Size = new System.Drawing.Size(180, 23);
             this.txtName.TabIndex = 1;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(250, 45);
+            this.lblName.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(39, 66);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(74, 13);
+            this.lblName.Size = new System.Drawing.Size(46, 16);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "Station Name:";
+            this.lblName.Text = "Name:";
             // 
             // cmbStations
             // 
             this.cmbStations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStations.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbStations.FormattingEnabled = true;
-            this.cmbStations.Location = new System.Drawing.Point(12, 45);
+            this.cmbStations.Location = new System.Drawing.Point(133, 45);
             this.cmbStations.Name = "cmbStations";
             this.cmbStations.Size = new System.Drawing.Size(195, 21);
             this.cmbStations.TabIndex = 14;
             this.cmbStations.SelectedIndexChanged += new System.EventHandler(this.cmbStations_SelectedIndexChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 19);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Choose Station";
+            // 
             // frmCloseStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 393);
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(624, 321);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbStations);
             this.Controls.Add(this.mnuStripCloseStation);
             this.Controls.Add(this.grpUpdate);
@@ -311,5 +339,6 @@
         private System.Windows.Forms.Button btnNo;
         private System.Windows.Forms.ComboBox cmbStations;
         private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.Label label1;
     }
 }

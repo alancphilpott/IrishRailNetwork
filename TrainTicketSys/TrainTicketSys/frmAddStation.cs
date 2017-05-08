@@ -23,6 +23,8 @@ namespace TrainTicketSys
         // Method When Form Is Loading
         private void frmAddStation_Load(object sender, EventArgs e)
         {
+            // this.BackColor = System.Drawing.ColorTranslator.FromHtml("#477187");
+            // this.ForeColor = System.Drawing.ColorTranslator.FromHtml("#032536");
             txtStID.Text = Station.nextStationID().ToString("00000");
         }
 

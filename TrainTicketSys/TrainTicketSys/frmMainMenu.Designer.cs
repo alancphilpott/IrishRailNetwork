@@ -55,7 +55,7 @@
             // 
             // mnuStripMainMenu
             // 
-            this.mnuStripMainMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnuStripMainMenu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuStripMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuStations,
             this.ticketToolStripMenuItem,
@@ -66,7 +66,7 @@
             this.mnuStripMainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuStripMainMenu.Name = "mnuStripMainMenu";
             this.mnuStripMainMenu.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.mnuStripMainMenu.Size = new System.Drawing.Size(1008, 31);
+            this.mnuStripMainMenu.Size = new System.Drawing.Size(624, 29);
             this.mnuStripMainMenu.TabIndex = 0;
             this.mnuStripMainMenu.Text = "mnuMainMenu";
             // 
@@ -78,7 +78,7 @@
             this.mnuListStations});
             this.mnuStations.ForeColor = System.Drawing.SystemColors.ControlText;
             this.mnuStations.Name = "mnuStations";
-            this.mnuStations.Size = new System.Drawing.Size(77, 25);
+            this.mnuStations.Size = new System.Drawing.Size(77, 23);
             this.mnuStations.Text = "Stations";
             // 
             // mnuAddStation
@@ -86,7 +86,7 @@
             this.mnuAddStation.BackColor = System.Drawing.SystemColors.Control;
             this.mnuAddStation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuAddStation.Name = "mnuAddStation";
-            this.mnuAddStation.Size = new System.Drawing.Size(170, 26);
+            this.mnuAddStation.Size = new System.Drawing.Size(170, 24);
             this.mnuAddStation.Text = "Add Station";
             this.mnuAddStation.Click += new System.EventHandler(this.mnuAddStation_Click);
             // 
@@ -94,7 +94,7 @@
             // 
             this.mnuCloseStation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuCloseStation.Name = "mnuCloseStation";
-            this.mnuCloseStation.Size = new System.Drawing.Size(170, 26);
+            this.mnuCloseStation.Size = new System.Drawing.Size(170, 24);
             this.mnuCloseStation.Text = "Close Station";
             this.mnuCloseStation.Click += new System.EventHandler(this.mnuCloseStation_Click);
             // 
@@ -102,7 +102,7 @@
             // 
             this.mnuListStations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuListStations.Name = "mnuListStations";
-            this.mnuListStations.Size = new System.Drawing.Size(170, 26);
+            this.mnuListStations.Size = new System.Drawing.Size(170, 24);
             this.mnuListStations.Text = "List Stations";
             this.mnuListStations.Click += new System.EventHandler(this.mnuListStations_Click);
             // 
@@ -113,28 +113,31 @@
             this.mnuTerminateRoute,
             this.mnuListRoutes});
             this.ticketToolStripMenuItem.Name = "ticketToolStripMenuItem";
-            this.ticketToolStripMenuItem.Size = new System.Drawing.Size(70, 25);
+            this.ticketToolStripMenuItem.Size = new System.Drawing.Size(69, 23);
             this.ticketToolStripMenuItem.Text = "Routes";
             this.ticketToolStripMenuItem.Click += new System.EventHandler(this.ticketToolStripMenuItem_Click);
             // 
             // mnuAddRoutes
             // 
+            this.mnuAddRoutes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuAddRoutes.Name = "mnuAddRoutes";
-            this.mnuAddRoutes.Size = new System.Drawing.Size(193, 26);
+            this.mnuAddRoutes.Size = new System.Drawing.Size(196, 24);
             this.mnuAddRoutes.Text = "Add Routes";
             this.mnuAddRoutes.Click += new System.EventHandler(this.mnuAddRoutes_Click);
             // 
             // mnuTerminateRoute
             // 
+            this.mnuTerminateRoute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuTerminateRoute.Name = "mnuTerminateRoute";
-            this.mnuTerminateRoute.Size = new System.Drawing.Size(193, 26);
+            this.mnuTerminateRoute.Size = new System.Drawing.Size(196, 24);
             this.mnuTerminateRoute.Text = "Terminate Route";
             this.mnuTerminateRoute.Click += new System.EventHandler(this.mnuTerminateRoute_Click);
             // 
             // mnuListRoutes
             // 
+            this.mnuListRoutes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuListRoutes.Name = "mnuListRoutes";
-            this.mnuListRoutes.Size = new System.Drawing.Size(193, 26);
+            this.mnuListRoutes.Size = new System.Drawing.Size(196, 24);
             this.mnuListRoutes.Text = "List Routes";
             this.mnuListRoutes.Click += new System.EventHandler(this.mnuListRoutes_Click);
             // 
@@ -143,22 +146,24 @@
             this.financeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuScheduleTrain,
             this.mnuShowTimetable});
-            this.financeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.financeToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.financeToolStripMenuItem.Name = "financeToolStripMenuItem";
-            this.financeToolStripMenuItem.Size = new System.Drawing.Size(92, 25);
+            this.financeToolStripMenuItem.Size = new System.Drawing.Size(91, 23);
             this.financeToolStripMenuItem.Text = "Schedules";
             // 
             // mnuScheduleTrain
             // 
+            this.mnuScheduleTrain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuScheduleTrain.Name = "mnuScheduleTrain";
-            this.mnuScheduleTrain.Size = new System.Drawing.Size(191, 26);
+            this.mnuScheduleTrain.Size = new System.Drawing.Size(192, 24);
             this.mnuScheduleTrain.Text = "Schedule Train";
             this.mnuScheduleTrain.Click += new System.EventHandler(this.mnuScheduleTrain_Click);
             // 
             // mnuShowTimetable
             // 
+            this.mnuShowTimetable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuShowTimetable.Name = "mnuShowTimetable";
-            this.mnuShowTimetable.Size = new System.Drawing.Size(191, 26);
+            this.mnuShowTimetable.Size = new System.Drawing.Size(192, 24);
             this.mnuShowTimetable.Text = "Show Timetable";
             this.mnuShowTimetable.Click += new System.EventHandler(this.mnuShowTimetable_Click);
             // 
@@ -169,27 +174,30 @@
             this.mnuUpdateTicketType,
             this.mnuSellTicket});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(69, 25);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 23);
             this.toolStripMenuItem1.Text = "Tickets";
             // 
             // mnuSetTicketType
             // 
+            this.mnuSetTicketType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuSetTicketType.Name = "mnuSetTicketType";
-            this.mnuSetTicketType.Size = new System.Drawing.Size(210, 26);
+            this.mnuSetTicketType.Size = new System.Drawing.Size(215, 24);
             this.mnuSetTicketType.Text = "Set Ticket Type";
             this.mnuSetTicketType.Click += new System.EventHandler(this.mnuSetTicketType_Click);
             // 
             // mnuUpdateTicketType
             // 
+            this.mnuUpdateTicketType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuUpdateTicketType.Name = "mnuUpdateTicketType";
-            this.mnuUpdateTicketType.Size = new System.Drawing.Size(210, 26);
+            this.mnuUpdateTicketType.Size = new System.Drawing.Size(215, 24);
             this.mnuUpdateTicketType.Text = "Update Ticket Type";
             this.mnuUpdateTicketType.Click += new System.EventHandler(this.mnuUpdateTicketType_Click);
             // 
             // mnuSellTicket
             // 
+            this.mnuSellTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuSellTicket.Name = "mnuSellTicket";
-            this.mnuSellTicket.Size = new System.Drawing.Size(210, 26);
+            this.mnuSellTicket.Size = new System.Drawing.Size(215, 24);
             this.mnuSellTicket.Text = "Sell Ticket";
             this.mnuSellTicket.Click += new System.EventHandler(this.mnuSellTicket_Click);
             // 
@@ -199,28 +207,30 @@
             this.mnuRevenueAnalysis,
             this.mnuTicketSalesAnalysis});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(58, 25);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // mnuRevenueAnalysis
             // 
+            this.mnuRevenueAnalysis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuRevenueAnalysis.Name = "mnuRevenueAnalysis";
-            this.mnuRevenueAnalysis.Size = new System.Drawing.Size(221, 26);
+            this.mnuRevenueAnalysis.Size = new System.Drawing.Size(224, 24);
             this.mnuRevenueAnalysis.Text = "Revenue Analysis";
             this.mnuRevenueAnalysis.Click += new System.EventHandler(this.mnuRevenueAnalysis_Click);
             // 
             // mnuTicketSalesAnalysis
             // 
+            this.mnuTicketSalesAnalysis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuTicketSalesAnalysis.Name = "mnuTicketSalesAnalysis";
-            this.mnuTicketSalesAnalysis.Size = new System.Drawing.Size(221, 26);
+            this.mnuTicketSalesAnalysis.Size = new System.Drawing.Size(224, 24);
             this.mnuTicketSalesAnalysis.Text = "Ticket Sales Analysis";
             this.mnuTicketSalesAnalysis.Click += new System.EventHandler(this.mnuTicketSalesAnalysis_Click);
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(46, 25);
+            this.mnuExit.Size = new System.Drawing.Size(47, 23);
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
@@ -228,7 +238,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe Print", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(228, 169);
+            this.label1.Location = new System.Drawing.Point(28, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(568, 112);
             this.label1.TabIndex = 1;
@@ -239,7 +249,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe Print", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Green;
-            this.label2.Location = new System.Drawing.Point(228, 253);
+            this.label2.Location = new System.Drawing.Point(142, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(334, 112);
             this.label2.TabIndex = 2;
@@ -249,7 +259,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 537);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(624, 321);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mnuStripMainMenu);

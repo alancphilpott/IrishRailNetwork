@@ -50,33 +50,33 @@
             // 
             // mnuStripAddStation
             // 
-            this.mnuStripAddStation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnuStripAddStation.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuStripAddStation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAddStationBack,
             this.mnuAddStationExit});
             this.mnuStripAddStation.Location = new System.Drawing.Point(0, 0);
             this.mnuStripAddStation.Name = "mnuStripAddStation";
-            this.mnuStripAddStation.Size = new System.Drawing.Size(752, 29);
+            this.mnuStripAddStation.Size = new System.Drawing.Size(624, 27);
             this.mnuStripAddStation.TabIndex = 1;
             this.mnuStripAddStation.Text = "mnuStripAddStation";
             // 
             // mnuAddStationBack
             // 
             this.mnuAddStationBack.Name = "mnuAddStationBack";
-            this.mnuAddStationBack.Size = new System.Drawing.Size(54, 25);
+            this.mnuAddStationBack.Size = new System.Drawing.Size(53, 23);
             this.mnuAddStationBack.Text = "Back";
             this.mnuAddStationBack.Click += new System.EventHandler(this.mnuAddStationBack_Click);
             // 
             // mnuAddStationExit
             // 
             this.mnuAddStationExit.Name = "mnuAddStationExit";
-            this.mnuAddStationExit.Size = new System.Drawing.Size(46, 25);
+            this.mnuAddStationExit.Size = new System.Drawing.Size(47, 23);
             this.mnuAddStationExit.Text = "Exit";
             this.mnuAddStationExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // txtStation
             // 
-            this.txtStation.Location = new System.Drawing.Point(367, 136);
+            this.txtStation.Location = new System.Drawing.Point(299, 104);
             this.txtStation.MaxLength = 20;
             this.txtStation.Name = "txtStation";
             this.txtStation.Size = new System.Drawing.Size(164, 20);
@@ -85,46 +85,46 @@
             // lblStation
             // 
             this.lblStation.AutoSize = true;
-            this.lblStation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStation.Location = new System.Drawing.Point(234, 133);
+            this.lblStation.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStation.Location = new System.Drawing.Point(166, 101);
             this.lblStation.Name = "lblStation";
-            this.lblStation.Size = new System.Drawing.Size(107, 21);
+            this.lblStation.Size = new System.Drawing.Size(110, 19);
             this.lblStation.TabIndex = 0;
             this.lblStation.Text = "Station Name:";
             // 
             // lblStreet
             // 
             this.lblStreet.AutoSize = true;
-            this.lblStreet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreet.Location = new System.Drawing.Point(234, 165);
+            this.lblStreet.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStreet.Location = new System.Drawing.Point(166, 133);
             this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(53, 21);
+            this.lblStreet.Size = new System.Drawing.Size(56, 19);
             this.lblStreet.TabIndex = 0;
             this.lblStreet.Text = "Street:";
             // 
             // lblTown
             // 
             this.lblTown.AutoSize = true;
-            this.lblTown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTown.Location = new System.Drawing.Point(234, 196);
+            this.lblTown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTown.Location = new System.Drawing.Point(166, 164);
             this.lblTown.Name = "lblTown";
-            this.lblTown.Size = new System.Drawing.Size(49, 21);
+            this.lblTown.Size = new System.Drawing.Size(55, 19);
             this.lblTown.TabIndex = 0;
             this.lblTown.Text = "Town:";
             // 
             // lblCounty
             // 
             this.lblCounty.AutoSize = true;
-            this.lblCounty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCounty.Location = new System.Drawing.Point(234, 228);
+            this.lblCounty.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCounty.Location = new System.Drawing.Point(166, 196);
             this.lblCounty.Name = "lblCounty";
-            this.lblCounty.Size = new System.Drawing.Size(63, 21);
+            this.lblCounty.Size = new System.Drawing.Size(65, 19);
             this.lblCounty.TabIndex = 0;
             this.lblCounty.Text = "County:";
             // 
             // txtStreet
             // 
-            this.txtStreet.Location = new System.Drawing.Point(367, 165);
+            this.txtStreet.Location = new System.Drawing.Point(299, 133);
             this.txtStreet.MaxLength = 20;
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(164, 20);
@@ -132,7 +132,7 @@
             // 
             // txtTown
             // 
-            this.txtTown.Location = new System.Drawing.Point(367, 196);
+            this.txtTown.Location = new System.Drawing.Point(299, 164);
             this.txtTown.MaxLength = 20;
             this.txtTown.Name = "txtTown";
             this.txtTown.Size = new System.Drawing.Size(164, 20);
@@ -140,7 +140,7 @@
             // 
             // txtCounty
             // 
-            this.txtCounty.Location = new System.Drawing.Point(367, 229);
+            this.txtCounty.Location = new System.Drawing.Point(299, 197);
             this.txtCounty.MaxLength = 20;
             this.txtCounty.Name = "txtCounty";
             this.txtCounty.Size = new System.Drawing.Size(164, 20);
@@ -148,10 +148,11 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(238, 303);
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Location = new System.Drawing.Point(354, 263);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(293, 29);
+            this.btnCreate.Size = new System.Drawing.Size(109, 29);
             this.btnCreate.TabIndex = 6;
             this.btnCreate.Text = "Create Station";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -160,44 +161,49 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(294, 46);
+            this.lblTitle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(219, 47);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(181, 25);
+            this.lblTitle.Size = new System.Drawing.Size(180, 23);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Enter Station Details";
             // 
             // lblStID
             // 
             this.lblStID.AutoSize = true;
-            this.lblStID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStID.Location = new System.Drawing.Point(234, 101);
+            this.lblStID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStID.Location = new System.Drawing.Point(12, 291);
             this.lblStID.Name = "lblStID";
-            this.lblStID.Size = new System.Drawing.Size(80, 21);
+            this.lblStID.Size = new System.Drawing.Size(86, 19);
             this.lblStID.TabIndex = 0;
             this.lblStID.Text = "Station ID:";
+            this.lblStID.Visible = false;
             // 
             // txtStID
             // 
+            this.txtStID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtStID.Enabled = false;
-            this.txtStID.Location = new System.Drawing.Point(367, 103);
+            this.txtStID.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtStID.Location = new System.Drawing.Point(98, 291);
             this.txtStID.Name = "txtStID";
             this.txtStID.Size = new System.Drawing.Size(108, 20);
             this.txtStID.TabIndex = 0;
+            this.txtStID.Visible = false;
             // 
             // lblPhoneNo
             // 
             this.lblPhoneNo.AutoSize = true;
-            this.lblPhoneNo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNo.Location = new System.Drawing.Point(234, 259);
+            this.lblPhoneNo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNo.Location = new System.Drawing.Point(166, 227);
             this.lblPhoneNo.Name = "lblPhoneNo";
-            this.lblPhoneNo.Size = new System.Drawing.Size(82, 21);
+            this.lblPhoneNo.Size = new System.Drawing.Size(84, 19);
             this.lblPhoneNo.TabIndex = 0;
             this.lblPhoneNo.Text = "Phone No:";
             // 
             // txtPhoneNo
             // 
-            this.txtPhoneNo.Location = new System.Drawing.Point(367, 260);
+            this.txtPhoneNo.Location = new System.Drawing.Point(299, 228);
             this.txtPhoneNo.MaxLength = 16;
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(164, 20);
@@ -207,7 +213,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 393);
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(624, 321);
             this.Controls.Add(this.lblPhoneNo);
             this.Controls.Add(this.txtPhoneNo);
             this.Controls.Add(this.lblStID);
@@ -223,6 +230,7 @@
             this.Controls.Add(this.txtStreet);
             this.Controls.Add(this.txtStation);
             this.Controls.Add(this.mnuStripAddStation);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "frmAddStation";
             this.Text = "Train Ticket System - Add Station";
             this.Load += new System.EventHandler(this.frmAddStation_Load);
