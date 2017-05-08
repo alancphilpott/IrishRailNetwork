@@ -164,8 +164,8 @@ namespace TrainTicketSys
                 "\nRoute: " + cmbRoute.Text +
                 "\nDay: " + cmbDay.Text +
                 "\nSchedule: " + cmbSchedule.Text +
-                "\nTicket Type: " + cmbRates.Text + returnOrSingle +
-                "\nTotal Cost: " + txtTotalCost.Text;
+                "\nTicket Type: " + cmbRates.Text + " " + returnOrSingle +
+                "\nTotal Cost: €" + txtTotalCost.Text;
 
             DialogResult result = MessageBox.Show(messageToDisplay, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
